@@ -243,10 +243,10 @@ export default function Upload() {
                   <input ref={camRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
                   {error && (
                     <p role="alert" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-red-50 px-3.5 py-2.5 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-200">
-                      <AlertCircle className="size-4 shrink-0" aria-hidden />
+                      <AlertCircle className="size-4 shrink-0 text-red-600" aria-hidden />
                       <span>
-                        <strong className="font-semibold">Upload failed: </strong>
-                        {error.replace(/^Upload failed:?\s*/i, '')}
+                        <strong className="font-semibold">{t('upload.failed')}: </strong>
+                        {error.replace(/^Upload failed:?\s*/i, '').trim() || t('upload.tryAgain')}
                       </span>
                     </p>
                   )}

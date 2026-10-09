@@ -2,6 +2,7 @@ import os
 import hashlib
 import json
 import io
+import logging
 from datetime import date, datetime
 from pathlib import Path
 from uuid import UUID, uuid4
@@ -18,6 +19,8 @@ from backend.app.models.extraction import ExtractionResult, ExtractedObservation
 from backend.app.pipeline.extract_vlm import MultimodalExtractionPipeline, generate_mock_extraction
 from backend.app.pipeline.summarise import summarize_document
 from backend.app.pipeline.translate import translate_health_summary
+
+logger = logging.getLogger("carelens.documents")
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 
