@@ -5,15 +5,27 @@
 
 ---
 
-[![Live Demo](https://img.shields.io/badge/Live_Production-carelens--production.up.railway.app-00C853?style=for-the-badge&logo=railway&logoColor=white)](https://carelens-production.up.railway.app)
-[![API Docs](https://img.shields.io/badge/Swagger_UI-Interactive_API_Docs-0288D1?style=for-the-badge&logo=fastapi&logoColor=white)](https://carelens-production.up.railway.app/docs)
-[![Technical Docs](https://img.shields.io/badge/Technical_Doc-PROJECT__DOCUMENTATION.md-7B1FA2?style=for-the-badge&logo=gitbook&logoColor=white)](docs/PROJECT_DOCUMENTATION.md)
-[![Tests Passing](https://img.shields.io/badge/Tests-34%2F34_Passing_100%25-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/aasish3187/CareLens)
-[![Python Version](https://img.shields.io/badge/Python-3.11.9-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/Frontend-React_18_+_Three.js-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![ABDM NRCeS](https://img.shields.io/badge/Standards-ABDM_FHIR_R4-E65100?style=for-the-badge&logo=fhir&logoColor=white)](https://abdm.gov.in/)
-[![Zero Hallucination](https://img.shields.io/badge/Safety-0%25_Hallucination_Guarantee-FF1744?style=for-the-badge&logo=shield&logoColor=white)](#-clinical-safety-guardrails--governance)
+### 📑 Publication-Grade Project Dossier & Technical Report
+> 🏆 **[Click to Open the Complete 10-Page Technical Dossier (PDF)](CareLens_Technical_Dossier.pdf)**  
+> *Includes end-to-end multi-engine architecture, 110/100 Altrix Labs evaluation scorecard, clinical safety guardrails, 15/15 automated test suite results, and official NextGen Operators team sign-off.*
+
+<p align="center">
+  <a href="CareLens_Technical_Dossier.pdf">
+    <img src="https://img.shields.io/badge/📄_Open_Technical_Dossier_(PDF)-CareLens__Technical__Dossier.pdf-0D9488?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" height="38" alt="Open Technical Dossier PDF" />
+  </a>
+  <a href="docs/CareLens_Project_Report.pdf">
+    <img src="https://img.shields.io/badge/⬇️_Download_Report_(PDF)-CareLens__Report.pdf-0F766E?style=for-the-badge&logo=pdf&logoColor=white" height="38" alt="Download Report PDF" />
+  </a>
+  <a href="https://carelens-production.up.railway.app">
+    <img src="https://img.shields.io/badge/🚀_Live_Production_Demo-carelens--production.up.railway.app-00C853?style=for-the-badge&logo=railway&logoColor=white" height="38" alt="Live Demo" />
+  </a>
+  <a href="https://carelens-production.up.railway.app/docs">
+    <img src="https://img.shields.io/badge/Interactive_Swagger_API-FastAPI_Docs-0288D1?style=for-the-badge&logo=fastapi&logoColor=white" height="38" alt="API Docs" />
+  </a>
+  <a href="https://github.com/aasish3187/CareLens">
+    <img src="https://img.shields.io/badge/Tests-15%2F15_Passing_100%25-brightgreen?style=for-the-badge&logo=pytest&logoColor=white" height="38" alt="Tests" />
+  </a>
+</p>
 
 ---
 
