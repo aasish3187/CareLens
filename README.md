@@ -7,6 +7,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Live_Production-carelens--production.up.railway.app-00C853?style=for-the-badge&logo=railway&logoColor=white)](https://carelens-production.up.railway.app)
 [![API Docs](https://img.shields.io/badge/Swagger_UI-Interactive_API_Docs-0288D1?style=for-the-badge&logo=fastapi&logoColor=white)](https://carelens-production.up.railway.app/docs)
+[![Technical Docs](https://img.shields.io/badge/Technical_Doc-PROJECT__DOCUMENTATION.md-7B1FA2?style=for-the-badge&logo=gitbook&logoColor=white)](docs/PROJECT_DOCUMENTATION.md)
 [![Tests Passing](https://img.shields.io/badge/Tests-34%2F34_Passing_100%25-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/aasish3187/CareLens)
 [![Python Version](https://img.shields.io/badge/Python-3.11.9-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -522,8 +523,16 @@ CareLens/
 
 ## 👥 Team & Contact
 
-**Developed with ❤️ for ByteXL · HacXLerate 2026 Hackathon**  
-- **Team**: Team CareLens
+**Developed with ❤️ for ByteXL · HacXLerate 2026 Hackathon · Altrix Labs Challenge**  
+
+### **Team: NextGen Operators**
+- **Aasish Tammisetti** *(Team Lead)* — Lead Architect & Full-Stack Engineer
+- **G. Sai Sreemanth** — Backend & Healthcare Standards Engineer
+- **A. Sai Teja** — Computer Vision & Extraction Engineer
+- **M. Prasanth** — Frontend & 3D Interactive UI Engineer
+- **Sk. Iliyas** — Clinical Rules & NLP Localization Engineer
+
+- **Comprehensive Technical Documentation**: [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md)
 - **Repository**: [https://github.com/aasish3187/CareLens](https://github.com/aasish3187/CareLens)
 - **Live Deployment**: [https://carelens-production.up.railway.app](https://carelens-production.up.railway.app)
 
