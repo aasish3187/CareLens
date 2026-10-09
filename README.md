@@ -5,8 +5,8 @@
 
 ---
 
-[![Live Demo](https://img.shields.io/badge/Live_Production-care--lens--health.onrender.com-00C853?style=for-the-badge&logo=render&logoColor=white)](https://care-lens-health.onrender.com)
-[![API Docs](https://img.shields.io/badge/Swagger_UI-Interactive_API_Docs-0288D1?style=for-the-badge&logo=fastapi&logoColor=white)](https://care-lens-health.onrender.com/docs)
+[![Live Demo](https://img.shields.io/badge/Live_Production-carelens--production.up.railway.app-00C853?style=for-the-badge&logo=railway&logoColor=white)](https://carelens-production.up.railway.app)
+[![API Docs](https://img.shields.io/badge/Swagger_UI-Interactive_API_Docs-0288D1?style=for-the-badge&logo=fastapi&logoColor=white)](https://carelens-production.up.railway.app/docs)
 [![Tests Passing](https://img.shields.io/badge/Tests-34%2F34_Passing_100%25-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://github.com/aasish3187/CareLens)
 [![Python Version](https://img.shields.io/badge/Python-3.11.9-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI_0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -22,12 +22,12 @@ The full-stack platform is deployed live in production:
 
 | Service | Public Access URL | Description |
 | :--- | :--- | :--- |
-| **CareLens Web App (SPA)** | [https://care-lens-health.onrender.com](https://care-lens-health.onrender.com) | Unified React 18 Cyberpunk Health Intelligence Dashboard |
-| **Interactive Evidence Studio** | [https://care-lens-health.onrender.com/evidence/80f79a06-389b-4c2c-9e66-dc85e647dd8c](https://care-lens-health.onrender.com/evidence/80f79a06-389b-4c2c-9e66-dc85e647dd8c) | Split-screen visual bounding box grounding on raw scans |
-| **3D Anatomical Digital Twin** | [https://care-lens-health.onrender.com/body-twin](https://care-lens-health.onrender.com/body-twin) | Three.js WebGL interactive 3D human organ risk mapping |
-| **Mock ABHA Health Card** | [https://care-lens-health.onrender.com/abha](https://care-lens-health.onrender.com/abha) | NRCeS-compliant 14-digit ABHA card with QR code & FHIR export |
-| **Interactive API Documentation** | [https://care-lens-health.onrender.com/docs](https://care-lens-health.onrender.com/docs) | Complete Swagger UI with OpenAPI 3.1 specification |
-| **Backend System Health** | [https://care-lens-health.onrender.com/api/health](https://care-lens-health.onrender.com/api/health) | Real-time diagnostic check of all AI engines & feature flags |
+| **CareLens Web App (SPA)** | [https://carelens-production.up.railway.app](https://carelens-production.up.railway.app) | Unified React 18 Cyberpunk Health Intelligence Dashboard |
+| **Interactive Evidence Studio** | [https://carelens-production.up.railway.app/evidence/80f79a06-389b-4c2c-9e66-dc85e647dd8c](https://carelens-production.up.railway.app/evidence/80f79a06-389b-4c2c-9e66-dc85e647dd8c) | Split-screen visual bounding box grounding on raw scans |
+| **3D Anatomical Digital Twin** | [https://carelens-production.up.railway.app/body-twin](https://carelens-production.up.railway.app/body-twin) | Three.js WebGL interactive 3D human organ risk mapping |
+| **Mock ABHA Health Card** | [https://carelens-production.up.railway.app/abha](https://carelens-production.up.railway.app/abha) | NRCeS-compliant 14-digit ABHA card with QR code & FHIR export |
+| **Interactive API Documentation** | [https://carelens-production.up.railway.app/docs](https://carelens-production.up.railway.app/docs) | Complete Swagger UI with OpenAPI 3.1 specification |
+| **Backend System Health** | [https://carelens-production.up.railway.app/api/health](https://carelens-production.up.railway.app/api/health) | Real-time diagnostic check of all AI engines & feature flags |
 
 ---
 
@@ -245,7 +245,7 @@ CareLens Architecture Stack
 └── Health Standards & Cloud
     ├── Standards: HL7 FHIR R4, ABDM NRCeS Profiles, LOINC, ICD-10
     ├── Reference Intervals: ICMR & NABL Guidelines
-    └── Cloud Deployment: Render Web Service (care-lens-health.onrender.com)
+    └── Cloud Deployment: Railway Web Service (carelens-production.up.railway.app)
 ```
 
 ---
@@ -525,7 +525,7 @@ CareLens/
 **Developed with ❤️ for ByteXL · HacXLerate 2026 Hackathon**  
 - **Team**: Team CareLens
 - **Repository**: [https://github.com/aasish3187/CareLens](https://github.com/aasish3187/CareLens)
-- **Live Deployment**: [https://care-lens-health.onrender.com](https://care-lens-health.onrender.com)
+- **Live Deployment**: [https://carelens-production.up.railway.app](https://carelens-production.up.railway.app)
 
 ---
 

@@ -14,7 +14,7 @@ export default function AppShell() {
   }, [pathname])
 
   return (
-    <div className="min-h-screen bg-app">
+    <div className="min-h-screen bg-app overflow-x-hidden">
       <div className="fixed inset-y-0 left-0 z-40 hidden lg:block">
         <Sidebar />
       </div>
@@ -40,9 +40,9 @@ export default function AppShell() {
           </>
         )}
       </AnimatePresence>
-      <div className="lg:pl-60">
+      <div className="lg:pl-60 min-w-0 overflow-x-hidden">
         <Header onMenu={() => setOpen(true)} />
-        <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8 overflow-x-hidden">
           <Outlet />
         </main>
       </div>
