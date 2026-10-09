@@ -10,11 +10,11 @@
 
 | Name | Role | Responsibilities |
 | :--- | :--- | :--- |
-| **Aasish Tammisetti** *(Team Lead)* | Lead Architect & Full-Stack Engineer | System Architecture, Dual-Pass AI Pipeline, Deployment & Integration |
-| **G. Sai Sreemanth** | Backend & Healthcare Standards Engineer | FastAPI Engine, ABDM NRCeS FHIR R4 Bundle Export, Database Schema |
-| **A. Sai Teja** | Computer Vision & Extraction Engineer | Multi-Engine OCR Consensus, Bounding Box Normalization, Image Deskew |
-| **M. Prasanth** | Frontend & 3D Interactive UI Engineer | React 18 SPA, Three.js 3D Anatomical Twin, Responsive UX & Tailwind |
-| **Sk. Iliyas** | Clinical Rules & NLP Localization Engineer | Deterministic Rules Engine, Polypharmacy Collision, Multilingual (TE/HI/TA) |
+| **Aasish Tammisetti** *(Team Lead)* | Lead Architect, AI & Computer Vision Extraction Engineer | Overall System Architecture, Multimodal VLM Pipeline (Gemini & Groq), Computer Vision Extraction, Cloud Infrastructure & Pipeline Integration |
+| **G. Sai Sreemanth** | Data, FHIR & Healthcare Standards Engineer | Clinical Data Modeling, NRCeS ABDM FHIR R4 Bundle Architecture, Mock ABHA Health Card Interoperability & QR Standards |
+| **A. Sai Teja** | Backend Engineer | High-Performance FastAPI Backend Services, Database Schema & Entity Persistence, Document Ingestion & Caching Engine |
+| **M. Prasanth** | Frontend & 3D Interactive UI Engineer | React 18 Enterprise SPA, Three.js 3D Anatomical Digital Twin, Interactive Evidence Studio, Responsive Cyberpunk UX & Tailwind |
+| **Sk. Iliyas** | Clinical Rules & NLP Localization Engineer | Deterministic Clinical Rules Engine (ICMR/NABL), RapidFuzz Indian Drug Normalizer, Polypharmacy Collision Shield, Multilingual NLP (TE/HI/TA) |
 
 ---
 
@@ -277,8 +277,8 @@ python test_all.py
 - Fully respects regulatory and clinical governance through **ABDM FHIR R4 interoperability**, **deterministic safety guardrails**, and **regional multilingual accessibility**.
 
 **Submitted by Team NextGen Operators**:
-- **Aasish Tammisetti** (Team Lead)
-- **G. Sai Sreemanth**
-- **A. Sai Teja**
-- **M. Prasanth**
-- **Sk. Iliyas**
+- **Aasish Tammisetti** (Team Lead — Lead Architect, AI & Computer Vision Extraction Engineer)
+- **G. Sai Sreemanth** (Data, FHIR & Healthcare Standards Engineer)
+- **A. Sai Teja** (Backend Engineer)
+- **M. Prasanth** (Frontend & 3D Interactive UI Engineer)
+- **Sk. Iliyas** (Clinical Rules & NLP Localization Engineer)

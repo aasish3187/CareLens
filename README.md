@@ -526,9 +526,9 @@ CareLens/
 **Developed with ❤️ for ByteXL · HacXLerate 2026 Hackathon · Altrix Labs Challenge**  
 
 ### **Team: NextGen Operators**
-- **Aasish Tammisetti** *(Team Lead)* — Lead Architect & Full-Stack Engineer
-- **G. Sai Sreemanth** — Backend & Healthcare Standards Engineer
-- **A. Sai Teja** — Computer Vision & Extraction Engineer
+- **Aasish Tammisetti** *(Team Lead)* — Lead Architect, AI & Computer Vision Extraction Engineer
+- **G. Sai Sreemanth** — Data, FHIR & Healthcare Standards Engineer
+- **A. Sai Teja** — Backend Engineer
 - **M. Prasanth** — Frontend & 3D Interactive UI Engineer
 - **Sk. Iliyas** — Clinical Rules & NLP Localization Engineer
 
