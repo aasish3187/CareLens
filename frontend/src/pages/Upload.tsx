@@ -75,20 +75,38 @@ export default function Upload() {
     formData.append('file', file)
 
     try {
-      const response = await fetch(`${API_BASE}/documents/`, {
+      const response = await fetch(apiUrl('/api/documents/'), {
         method: 'POST',
         body: formData,
       })
 
       if (!response.ok) {
-        const err = await response.json().catch(() => ({ detail: 'Upload failed' }))
-        throw new Error(err.detail || `Server error: ${response.status}`)
+        let errorDetail = `Server error ${response.status}`
+        try {
+          const contentType = response.headers.get('content-type') || ''
+          if (contentType.includes('application/json')) {
+            const err = await response.json()
+            if (typeof err.detail === 'string') {
+              errorDetail = err.detail
+            } else if (Array.isArray(err.detail) && err.detail[0]?.msg) {
+              errorDetail = err.detail[0].msg
+            } else if (err.message) {
+              errorDetail = err.message
+            }
+          } else {
+            const text = await response.text()
+            if (text && text.length < 150) errorDetail = text.trim()
+          }
+        } catch {
+          // ignore
+        }
+        throw new Error(errorDetail)
       }
 
       const data = await response.json()
       return data.document_id
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Upload failed'
+      const message = err instanceof Error ? err.message : 'Upload connection failed'
       throw new Error(message)
     }
   }
@@ -146,8 +164,9 @@ export default function Upload() {
       }
     } catch (err: unknown) {
       clearInterval(stageInterval)
-      const message = err instanceof Error ? err.message : 'Upload failed'
-      setError(`Upload failed: ${message}`)
+      const rawMsg = err instanceof Error ? err.message : 'Please check your file and try again.'
+      const cleanMsg = rawMsg.replace(/^Upload failed:\s*/i, '').trim()
+      setError(cleanMsg || 'Unable to process document. Please check the file format or try again.')
       setJob(null)
       setStage(0)
     } finally {
@@ -223,9 +242,12 @@ export default function Upload() {
                   <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
                   <input ref={camRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
                   {error && (
-                    <p role="alert" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-200">
-                      <AlertCircle className="size-4" aria-hidden />
-                      {error}
+                    <p role="alert" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-red-50 px-3.5 py-2.5 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-200">
+                      <AlertCircle className="size-4 shrink-0" aria-hidden />
+                      <span>
+                        <strong className="font-semibold">Upload failed: </strong>
+                        {error.replace(/^Upload failed:?\s*/i, '')}
+                      </span>
                     </p>
                   )}
                 </div>
