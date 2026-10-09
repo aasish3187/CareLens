@@ -1,0 +1,10 @@
+{
+  "description": "Delivers an interactive health dashboard with 3D anatomy scans, lab report analysis, and multilingual support to empower personalized medical insights.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

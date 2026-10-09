@@ -1,0 +1,494 @@
+{
+  "GLYCOMET-GP 1": {
+    "brand_name": "Glycomet-GP 1",
+    "generic_name": "Glimepiride (1mg) + Metformin (500mg)",
+    "active_salts": ["Glimepiride", "Metformin"],
+    "manufacturer": "USV Ltd",
+    "category": "Anti-diabetic",
+    "strength": "1mg/500mg",
+    "timing_instruction": "Take before breakfast or first main meal",
+    "food_relation": "before_meal",
+    "black_box_warning": "Risk of hypoglycemia when meals are skipped or delayed."
+  },
+  "GLYCOMET-GP 2": {
+    "brand_name": "Glycomet-GP 2",
+    "generic_name": "Glimepiride (2mg) + Metformin (500mg)",
+    "active_salts": ["Glimepiride", "Metformin"],
+    "manufacturer": "USV Ltd",
+    "category": "Anti-diabetic",
+    "strength": "2mg/500mg",
+    "timing_instruction": "Take before breakfast or first main meal",
+    "food_relation": "before_meal"
+  },
+  "GLYCOMET 500": {
+    "brand_name": "Glycomet 500",
+    "generic_name": "Metformin (500mg)",
+    "active_salts": ["Metformin"],
+    "manufacturer": "USV Ltd",
+    "category": "Anti-diabetic",
+    "strength": "500mg",
+    "timing_instruction": "Take with or immediately after meals to reduce gastrointestinal discomfort",
+    "food_relation": "with_meal"
+  },
+  "GLYCOMET SR 500": {
+    "brand_name": "Glycomet SR 500",
+    "generic_name": "Metformin Hydrochloride Sustained Release (500mg)",
+    "active_salts": ["Metformin"],
+    "manufacturer": "USV Ltd",
+    "category": "Anti-diabetic",
+    "strength": "500mg",
+    "timing_instruction": "Take with dinner",
+    "food_relation": "with_meal"
+  },
+  "CETAPIN 500": {
+    "brand_name": "Cetapin 500",
+    "generic_name": "Metformin (500mg)",
+    "active_salts": ["Metformin"],
+    "manufacturer": "Sanofi India Ltd",
+    "category": "Anti-diabetic",
+    "strength": "500mg",
+    "timing_instruction": "Take with or after meals",
+    "food_relation": "with_meal"
+  },
+  "CETAPIN XR 1000": {
+    "brand_name": "Cetapin XR 1000",
+    "generic_name": "Metformin (1000mg)",
+    "active_salts": ["Metformin"],
+    "manufacturer": "Sanofi India Ltd",
+    "category": "Anti-diabetic",
+    "strength": "1000mg",
+    "timing_instruction": "Take once daily with evening meal",
+    "food_relation": "with_meal"
+  },
+  "AUGMENTIN 625": {
+    "brand_name": "Augmentin 625",
+    "generic_name": "Amoxicillin (500mg) + Clavulanic Acid (125mg)",
+    "active_salts": ["Amoxicillin", "Clavulanic Acid"],
+    "manufacturer": "GlaxoSmithKline Pharmaceuticals",
+    "category": "Antibiotic (Penicillin class)",
+    "strength": "625mg",
+    "timing_instruction": "Take at start of a light meal to optimize absorption and reduce GI intolerance",
+    "food_relation": "start_of_meal"
+  },
+  "AUGMENTIN 375": {
+    "brand_name": "Augmentin 375",
+    "generic_name": "Amoxicillin (250mg) + Clavulanic Acid (125mg)",
+    "active_salts": ["Amoxicillin", "Clavulanic Acid"],
+    "manufacturer": "GlaxoSmithKline Pharmaceuticals",
+    "category": "Antibiotic",
+    "strength": "375mg",
+    "timing_instruction": "Take with food",
+    "food_relation": "start_of_meal"
+  },
+  "PAN-D": {
+    "brand_name": "Pan-D",
+    "generic_name": "Pantoprazole (40mg) + Domperidone (30mg)",
+    "active_salts": ["Pantoprazole", "Domperidone"],
+    "manufacturer": "Alkem Laboratories",
+    "category": "Antacid / Proton Pump Inhibitor + Prokinetic",
+    "strength": "40mg/30mg",
+    "timing_instruction": "Take 30-60 minutes before breakfast on an empty stomach",
+    "food_relation": "empty_stomach"
+  },
+  "PAN 40": {
+    "brand_name": "Pan 40",
+    "generic_name": "Pantoprazole (40mg)",
+    "active_salts": ["Pantoprazole"],
+    "manufacturer": "Alkem Laboratories",
+    "category": "Antacid / PPI",
+    "strength": "40mg",
+    "timing_instruction": "Take 30 minutes before first meal of day on empty stomach",
+    "food_relation": "empty_stomach"
+  },
+  "PANTOCID-D": {
+    "brand_name": "Pantocid-D",
+    "generic_name": "Pantoprazole (40mg) + Domperidone (30mg)",
+    "active_salts": ["Pantoprazole", "Domperidone"],
+    "manufacturer": "Sun Pharma Laboratories",
+    "category": "Antacid / Anti-reflux",
+    "strength": "40mg/30mg",
+    "timing_instruction": "Take 30 minutes before breakfast",
+    "food_relation": "empty_stomach"
+  },
+  "TELMA 40": {
+    "brand_name": "Telma 40",
+    "generic_name": "Telmisartan (40mg)",
+    "active_salts": ["Telmisartan"],
+    "manufacturer": "Glenmark Pharmaceuticals",
+    "category": "Antihypertensive (ARB)",
+    "strength": "40mg",
+    "timing_instruction": "Take at the same time each morning with or without food",
+    "food_relation": "independent_of_food"
+  },
+  "TELMA-H": {
+    "brand_name": "Telma-H",
+    "generic_name": "Telmisartan (40mg) + Hydrochlorothiazide (12.5mg)",
+    "active_salts": ["Telmisartan", "Hydrochlorothiazide"],
+    "manufacturer": "Glenmark Pharmaceuticals",
+    "category": "Antihypertensive Combination",
+    "strength": "40mg/12.5mg",
+    "timing_instruction": "Take in the morning with plenty of water to prevent nocturnal diuresis",
+    "food_relation": "morning_with_water"
+  },
+  "TELMA AM": {
+    "brand_name": "Telma AM",
+    "generic_name": "Telmisartan (40mg) + Amlodipine (5mg)",
+    "active_salts": ["Telmisartan", "Amlodipine"],
+    "manufacturer": "Glenmark Pharmaceuticals",
+    "category": "Antihypertensive Combination",
+    "strength": "40mg/5mg",
+    "timing_instruction": "Take once daily in the morning",
+    "food_relation": "independent_of_food"
+  },
+  "ATORVA 10": {
+    "brand_name": "Atorva 10",
+    "generic_name": "Atorvastatin (10mg)",
+    "active_salts": ["Atorvastatin"],
+    "manufacturer": "Zydus Cadila",
+    "category": "Lipid-lowering (Statin)",
+    "strength": "10mg",
+    "timing_instruction": "Take at bedtime or evening for maximal HMG-CoA reductase inhibition",
+    "food_relation": "bedtime"
+  },
+  "ATORVA 20": {
+    "brand_name": "Atorva 20",
+    "generic_name": "Atorvastatin (20mg)",
+    "active_salts": ["Atorvastatin"],
+    "manufacturer": "Zydus Cadila",
+    "category": "Lipid-lowering (Statin)",
+    "strength": "20mg",
+    "timing_instruction": "Take at bedtime with water",
+    "food_relation": "bedtime"
+  },
+  "ROSUVAS 10": {
+    "brand_name": "Rosuvas 10",
+    "generic_name": "Rosuvastatin (10mg)",
+    "active_salts": ["Rosuvastatin"],
+    "manufacturer": "Sun Pharma Laboratories",
+    "category": "Lipid-lowering (Statin)",
+    "strength": "10mg",
+    "timing_instruction": "Take once daily in evening or bedtime",
+    "food_relation": "evening"
+  },
+  "THYRONORM 50": {
+    "brand_name": "Thyronorm 50",
+    "generic_name": "Levothyroxine Sodium (50mcg)",
+    "active_salts": ["Levothyroxine"],
+    "manufacturer": "Abbott India Ltd",
+    "category": "Thyroid Hormone",
+    "strength": "50mcg",
+    "timing_instruction": "Strictly on empty stomach first thing in morning, 30-60 mins before tea/coffee/breakfast",
+    "food_relation": "empty_stomach_morning"
+  },
+  "THYRONORM 25": {
+    "brand_name": "Thyronorm 25",
+    "generic_name": "Levothyroxine Sodium (25mcg)",
+    "active_salts": ["Levothyroxine"],
+    "manufacturer": "Abbott India Ltd",
+    "category": "Thyroid Hormone",
+    "strength": "25mcg",
+    "timing_instruction": "Strictly on empty stomach first thing in morning",
+    "food_relation": "empty_stomach_morning"
+  },
+  "ELTROXIN 50": {
+    "brand_name": "Eltroxin 50",
+    "generic_name": "Levothyroxine Sodium (50mcg)",
+    "active_salts": ["Levothyroxine"],
+    "manufacturer": "GlaxoSmithKline Pharmaceuticals",
+    "category": "Thyroid Hormone",
+    "strength": "50mcg",
+    "timing_instruction": "Empty stomach first thing in morning",
+    "food_relation": "empty_stomach_morning"
+  },
+  "JANUMET 50/500": {
+    "brand_name": "Janumet 50/500",
+    "generic_name": "Sitagliptin (50mg) + Metformin (500mg)",
+    "active_salts": ["Sitagliptin", "Metformin"],
+    "manufacturer": "MSD Pharmaceuticals",
+    "category": "Anti-diabetic (DPP4 + Biguanide)",
+    "strength": "50mg/500mg",
+    "timing_instruction": "Twice daily with meals",
+    "food_relation": "with_meal"
+  },
+  "GALVUS MET 50/500": {
+    "brand_name": "Galvus Met 50/500",
+    "generic_name": "Vildagliptin (50mg) + Metformin (500mg)",
+    "active_salts": ["Vildagliptin", "Metformin"],
+    "manufacturer": "Novartis India Ltd",
+    "category": "Anti-diabetic",
+    "strength": "50mg/500mg",
+    "timing_instruction": "Twice daily with morning and evening meals",
+    "food_relation": "with_meal"
+  },
+  "FORXIGA 10": {
+    "brand_name": "Forxiga 10",
+    "generic_name": "Dapagliflozin (10mg)",
+    "active_salts": ["Dapagliflozin"],
+    "manufacturer": "AstraZeneca Pharma India",
+    "category": "SGLT2 Inhibitor",
+    "strength": "10mg",
+    "timing_instruction": "Take in the morning with or without food. Maintain adequate hydration.",
+    "food_relation": "independent_of_food"
+  },
+  "JARDIANCE 10": {
+    "brand_name": "Jardiance 10",
+    "generic_name": "Empagliflozin (10mg)",
+    "active_salts": ["Empagliflozin"],
+    "manufacturer": "Boehringer Ingelheim",
+    "category": "SGLT2 Inhibitor",
+    "strength": "10mg",
+    "timing_instruction": "Take in the morning with water",
+    "food_relation": "morning"
+  },
+  "DOLO 650": {
+    "brand_name": "Dolo 650",
+    "generic_name": "Paracetamol (650mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "Micro Labs Ltd",
+    "category": "Analgesic & Antipyretic",
+    "strength": "650mg",
+    "timing_instruction": "Take post-meal as needed. Maintain minimum 4-6 hour gap between doses.",
+    "food_relation": "after_food"
+  },
+  "CALPOL 650": {
+    "brand_name": "Calpol 650",
+    "generic_name": "Paracetamol (650mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GlaxoSmithKline Pharmaceuticals",
+    "category": "Analgesic & Antipyretic",
+    "strength": "650mg",
+    "timing_instruction": "Take post-meal as needed with water",
+    "food_relation": "after_food"
+  },
+  "COMBIFLAM": {
+    "brand_name": "Combiflam",
+    "generic_name": "Ibuprofen (400mg) + Paracetamol (325mg)",
+    "active_salts": ["Ibuprofen", "Paracetamol"],
+    "manufacturer": "Sanofi India Ltd",
+    "category": "NSAID Analgesic",
+    "strength": "400mg/325mg",
+    "timing_instruction": "Strictly after food with a full glass of water to avoid gastric irritation",
+    "food_relation": "strictly_after_food"
+  },
+  "MEFTAL-SPAS": {
+    "brand_name": "Meftal-Spas",
+    "generic_name": "Mefenamic Acid (250mg) + Dicyclomine (10mg)",
+    "active_salts": ["Mefenamic Acid", "Dicyclomine"],
+    "manufacturer": "Blue Cross Laboratories",
+    "category": "Antispasmodic",
+    "strength": "250mg/10mg",
+    "timing_instruction": "Take after meals with water",
+    "food_relation": "after_food"
+  },
+  "AZITHRAL 500": {
+    "brand_name": "Azithral 500",
+    "generic_name": "Azithromycin (500mg)",
+    "active_salts": ["Azithromycin"],
+    "manufacturer": "Alembic Pharmaceuticals",
+    "category": "Macrolide Antibiotic",
+    "strength": "500mg",
+    "timing_instruction": "Take 1 hour before or 2 hours after food at the same time daily",
+    "food_relation": "empty_stomach"
+  },
+  "MONTEK-LC": {
+    "brand_name": "Montek-LC",
+    "generic_name": "Montelukast (10mg) + Levocetirizine (5mg)",
+    "active_salts": ["Montelukast", "Levocetirizine"],
+    "manufacturer": "Sun Pharma Laboratories",
+    "category": "Anti-allergic / Bronchodilator",
+    "strength": "10mg/5mg",
+    "timing_instruction": "Take once daily in the evening or bedtime due to mild sedation",
+    "food_relation": "bedtime"
+  },
+  "SHELCAL 500": {
+    "brand_name": "Shelcal 500",
+    "generic_name": "Calcium (500mg) + Vitamin D3 (250IU)",
+    "active_salts": ["Calcium Carbonate", "Cholecalciferol"],
+    "manufacturer": "Torrent Pharmaceuticals",
+    "category": "Mineral & Vitamin Supplement",
+    "strength": "500mg/250IU",
+    "timing_instruction": "Take with or after main meal (lunch or dinner)",
+    "food_relation": "after_meal"
+  },
+  "BECOSULES": {
+    "brand_name": "Becosules",
+    "generic_name": "Vitamin B-Complex + Vitamin C",
+    "active_salts": ["Vitamin B-Complex", "Ascorbic Acid"],
+    "manufacturer": "Pfizer Ltd",
+    "category": "Multivitamin Supplement",
+    "strength": "Standard capsule",
+    "timing_instruction": "Take after breakfast or lunch",
+    "food_relation": "after_meal"
+  },
+  "CALPOL": {
+    "brand_name": "Calpol",
+    "generic_name": "Paracetamol (250mg/5mL)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GSK Pharmaceuticals",
+    "category": "Antipyretic / Analgesic",
+    "strength": "250mg/5mL",
+    "timing_instruction": "Take every 4 to 6 hours as needed for fever; do not exceed 4 doses in 24 hours",
+    "food_relation": "after_food"
+  },
+  "CALPOL 250": {
+    "brand_name": "Calpol 250",
+    "generic_name": "Paracetamol (250mg/5mL)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GSK Pharmaceuticals",
+    "category": "Antipyretic / Analgesic",
+    "strength": "250mg/5mL",
+    "timing_instruction": "Take after meals with water as directed for fever or pain",
+    "food_relation": "after_food"
+  },
+  "CALPOL 500": {
+    "brand_name": "Calpol 500",
+    "generic_name": "Paracetamol (500mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GSK Pharmaceuticals",
+    "category": "Antipyretic / Analgesic",
+    "strength": "500mg",
+    "timing_instruction": "Take after food with water; maximum 4000mg/day",
+    "food_relation": "after_food"
+  },
+  "CALPOL 650": {
+    "brand_name": "Calpol 650",
+    "generic_name": "Paracetamol (650mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GSK Pharmaceuticals",
+    "category": "Antipyretic / Analgesic",
+    "strength": "650mg",
+    "timing_instruction": "Take after food with water",
+    "food_relation": "after_food"
+  },
+  "MEFTAL-P": {
+    "brand_name": "Meftal-P",
+    "generic_name": "Mefenamic Acid (100mg/5mL) + Paracetamol",
+    "active_salts": ["Mefenamic Acid", "Paracetamol"],
+    "manufacturer": "Blue Cross Laboratories",
+    "category": "NSAID / Antipyretic",
+    "strength": "100mg/5mL",
+    "timing_instruction": "Take strictly after food to prevent gastric irritation",
+    "food_relation": "after_food"
+  },
+  "MEFTAL": {
+    "brand_name": "Meftal 500",
+    "generic_name": "Mefenamic Acid (500mg)",
+    "active_salts": ["Mefenamic Acid"],
+    "manufacturer": "Blue Cross Laboratories",
+    "category": "NSAID Analgesic",
+    "strength": "500mg",
+    "timing_instruction": "Take with meals or after food",
+    "food_relation": "after_food"
+  },
+  "LEVOLIN": {
+    "brand_name": "Levolin",
+    "generic_name": "Levosalbutamol (0.63mg/5mL)",
+    "active_salts": ["Levosalbutamol"],
+    "manufacturer": "Cipla Ltd",
+    "category": "Bronchodilator",
+    "strength": "0.63mg/5mL",
+    "timing_instruction": "Take with or without food as prescribed for wheezing / cough",
+    "food_relation": "after_food"
+  },
+  "DELCON": {
+    "brand_name": "Delcon",
+    "generic_name": "Phenylephrine (5mg) + Chlorpheniramine Maleate (2mg)",
+    "active_salts": ["Phenylephrine", "Chlorpheniramine Maleate"],
+    "manufacturer": "Mankind Pharma",
+    "category": "Decongestant / Antihistamine",
+    "strength": "Syrup / Drop",
+    "timing_instruction": "Take after food; may cause mild drowsiness",
+    "food_relation": "after_food"
+  },
+  "DOLO 650": {
+    "brand_name": "Dolo 650",
+    "generic_name": "Paracetamol (650mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "Micro Labs Ltd",
+    "category": "Antipyretic / Analgesic",
+    "strength": "650mg",
+    "timing_instruction": "Take after meals; interval at least 4-6 hours between doses",
+    "food_relation": "after_food"
+  },
+  "CROCIN 650": {
+    "brand_name": "Crocin 650",
+    "generic_name": "Paracetamol (650mg)",
+    "active_salts": ["Paracetamol"],
+    "manufacturer": "GSK Consumer Healthcare",
+    "category": "Antipyretic / Analgesic",
+    "strength": "650mg",
+    "timing_instruction": "Take after food with water",
+    "food_relation": "after_food"
+  },
+  "ASCORIL-LS": {
+    "brand_name": "Ascoril-LS",
+    "generic_name": "Levosalbutamol (1mg) + Ambroxol (30mg) + Guaiphenesin (50mg)",
+    "active_salts": ["Levosalbutamol", "Ambroxol", "Guaiphenesin"],
+    "manufacturer": "Glenmark Pharmaceuticals",
+    "category": "Expectorant / Mucolytic",
+    "strength": "Syrup 100mL",
+    "timing_instruction": "Take after meals with warm water",
+    "food_relation": "after_food"
+  },
+  "ABCIXIMAB": {
+    "brand_name": "Abciximab",
+    "generic_name": "Abciximab (Platelet Aggregation Inhibitor)",
+    "active_salts": ["Abciximab"],
+    "manufacturer": "Eli Lilly / Janssen",
+    "category": "Antiplatelet / Cardiovascular",
+    "strength": "Standard Tablet/Injection",
+    "timing_instruction": "Take in the morning with water as prescribed",
+    "food_relation": "morning"
+  },
+  "VOMILAST": {
+    "brand_name": "Vomilast",
+    "generic_name": "Doxylamine (10mg) + Pyridoxine (10mg) + Folic Acid (2.5mg)",
+    "active_salts": ["Doxylamine Succinate", "Pyridoxine Hydrochloride", "Folic Acid"],
+    "manufacturer": "Mankind Pharma",
+    "category": "Antiemetic / Pregnancy Nausea",
+    "strength": "10mg/10mg/2.5mg",
+    "timing_instruction": "Take 1 in morning, 1 at night after food",
+    "food_relation": "after_food"
+  },
+  "ZOCLAR": {
+    "brand_name": "Zoclar 500",
+    "generic_name": "Clarithromycin (500mg)",
+    "active_salts": ["Clarithromycin"],
+    "manufacturer": "FDC Ltd",
+    "category": "Macrolide Antibiotic",
+    "strength": "500mg",
+    "timing_instruction": "Take in the morning with or after meals",
+    "food_relation": "after_food"
+  },
+  "ZOCLAR 500": {
+    "brand_name": "Zoclar 500",
+    "generic_name": "Clarithromycin (500mg)",
+    "active_salts": ["Clarithromycin"],
+    "manufacturer": "FDC Ltd",
+    "category": "Macrolide Antibiotic",
+    "strength": "500mg",
+    "timing_instruction": "Take in the morning with or after meals",
+    "food_relation": "after_food"
+  },
+  "GESTAKIND": {
+    "brand_name": "Gestakind 10/SR",
+    "generic_name": "Isoxsuprine Hydrochloride (10mg)",
+    "active_salts": ["Isoxsuprine"],
+    "manufacturer": "Mankind Pharma",
+    "category": "Uterine Relaxant / Vasodilator",
+    "strength": "10mg SR",
+    "timing_instruction": "Take at night before sleep after food",
+    "food_relation": "after_food"
+  },
+  "GESTAKIND 10/SR": {
+    "brand_name": "Gestakind 10/SR",
+    "generic_name": "Isoxsuprine Hydrochloride (10mg)",
+    "active_salts": ["Isoxsuprine"],
+    "manufacturer": "Mankind Pharma",
+    "category": "Uterine Relaxant / Vasodilator",
+    "strength": "10mg SR",
+    "timing_instruction": "Take at night before sleep after food",
+    "food_relation": "after_food"
+  }
+}
+

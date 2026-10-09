@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-app: #f8fafc;
+  --color-surface: #ffffff;
+  --color-subtle: #f1f5f9;
+  --color-teal: #0d9488;
+  --color-teal-hover: #0f766e;
+  --color-teal-tint: #f0fdfa;
+  --color-cyan: #0ea5e9;
+  --color-cyan-tint: #f0f9ff;
+  --color-st-low: #3b82f6;
+  --color-st-normal: #10b981;
+  --color-st-elevated: #f59e0b;
+  --color-st-critical: #ef4444;
+  --color-heading: #0f172a;
+  --color-body: #334155;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+
+  --font-sans: 'Plus Jakarta Sans', 'Inter', var(--font-script, ui-sans-serif), system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-hand: 'Caveat', cursive;
+}
+
+html[lang='te'] {
+  --font-script: 'Noto Sans Telugu';
+}
+html[lang='hi'] {
+  --font-script: 'Noto Sans Devanagari';
+}
+html[lang='ta'] {
+  --font-script: 'Noto Sans Tamil';
+}
+
+html,
+body {
+  background: var(--color-app);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.04),
+    0 4px 16px -4px rgb(15 23 42 / 0.06);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.card-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 12px -2px rgb(15 23 42 / 0.08),
+    0 8px 24px -4px rgb(15 23 42 / 0.08);
+}
+
+.interactive-item {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interactive-item:hover {
+  background-color: rgb(240 253 250 / 0.7);
+  transform: translateX(3px);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.bg-grid {
+  position: relative;
+  isolation: isolate;
+}
+.bg-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(14 165 233 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(14 165 233 / 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.paper {
+  background-color: #fffdf8;
+  background-image:
+    radial-gradient(rgb(120 100 60 / 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgb(255 255 255 / 0) 0%, rgb(120 100 60 / 0.04) 100%);
+  background-size: 3px 3px, 100% 100%;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.08),
+    0 12px 32px -8px rgb(15 23 42 / 0.18);
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.pin-pulse {
+  animation: pin-pulse 2s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+.scan-line {
+  animation: scan 4.5s ease-in-out infinite;
+}
+
+@keyframes box-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(13 148 136 / 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(13 148 136 / 0);
+  }
+}
+.box-pulse {
+  animation: box-pulse 1.2s ease-in-out 3;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.shimmer {
+  background-image: linear-gradient(90deg, #0d9488 0%, #0ea5e9 40%, #5eead4 50%, #0ea5e9 60%, #0d9488 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes holo {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+.holo {
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgb(255 255 255 / 0.35) 35%,
+    rgb(14 165 233 / 0.18) 45%,
+    rgb(16 185 129 / 0.18) 55%,
+    rgb(255 255 255 / 0.3) 65%,
+    transparent 80%
+  );
+  background-size: 200% 100%;
+  animation: holo 6s linear infinite;
+  mix-blend-mode: overlay;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Interactivity & Hover Aesthetics */
+.card-interactive {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.12), 0 4px 16px -2px rgba(13, 148, 136, 0.1);
+  border-color: rgba(13, 148, 136, 0.45);
+}
+
+.btn-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-interactive:hover {
+  transform: translateY(-1.5px) scale(1.02);
+}
+.btn-interactive:active {
+  transform: scale(0.97);
+}
+
+.glow-on-hover {
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.glow-on-hover:hover {
+  box-shadow: 0 0 24px -2px rgba(13, 148, 136, 0.35);
+  border-color: rgba(13, 148, 136, 0.5);
+}
+

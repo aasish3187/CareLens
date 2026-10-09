@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  carelens-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carelens-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DEMO_MODE=true
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    restart: unless-stopped
+    volumes:
+      - ./eval:/app/eval
+      - ./tests:/app/tests
+      - ./docs:/app/docs
+
+  carelens-eval:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carelens-eval-runner
+    command: ["python", "eval/run_eval.py", "--save-data"]
+    depends_on:
+      - carelens-api
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./eval:/app/eval

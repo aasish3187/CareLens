@@ -1,0 +1,217 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    
+    <linearGradient id="tier1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#312e81" />
+    </linearGradient>
+
+    <linearGradient id="tier2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c4a6e" />
+      <stop offset="100%" stop-color="#075985" />
+    </linearGradient>
+
+    <linearGradient id="tier3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+
+    <linearGradient id="tier4Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#701a75" />
+      <stop offset="100%" stop-color="#86198f" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="accentEmerald" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad)" />
+
+  <!-- Header Section -->
+  <g id="header">
+    <rect x="40" y="24" width="1120" height="70" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#cardShadow)" />
+    <text x="70" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" fill="#f8fafc">
+      🏥 CareLens System Architecture &amp; Data Pipeline
+    </text>
+    <text x="70" y="78" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500" fill="#94a3b8">
+      Altrix Labs AI-Powered Personal Health Copilot · Multimodal VLM + Deterministic Rules + ABDM FHIR R4
+    </text>
+    <rect x="980" y="42" width="150" height="32" rx="16" fill="#065f46" stroke="#10b981" stroke-width="1" />
+    <text x="1055" y="63" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#34d399" text-anchor="middle">
+      ✓ F1 = 100% Verified
+    </text>
+  </g>
+
+  <!-- Tier 1: Ingestion & PII Redaction -->
+  <g id="tier1" transform="translate(40, 115)">
+    <rect width="260" height="645" rx="14" fill="url(#tier1Grad)" stroke="#4338ca" stroke-width="1.5" filter="url(#cardShadow)" />
+    <rect x="15" y="15" width="230" height="36" rx="8" fill="#3730a3" />
+    <text x="130" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#e0e7ff" text-anchor="middle">
+      1. INGESTION &amp; PRIVACY
+    </text>
+
+    <!-- Cards inside Tier 1 -->
+    <g transform="translate(15, 65)">
+      <rect width="230" height="95" rx="8" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#a5b4fc">📄 Multi-Source Upload</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Indian Lab PDFs (Apollo, SRL)</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Mobile Camera Doctor Rx</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Hospital Discharge Summaries</text>
+    </g>
+
+    <g transform="translate(15, 175)">
+      <rect width="230" height="95" rx="8" fill="#1e1b4b" stroke="#4f46e5" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#a5b4fc">📐 Pre-processing</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Auto-deskew &amp; Perspective Warp</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• CLAHE Contrast Enhancement</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• 300 DPI Resolution Normalizer</text>
+    </g>
+
+    <g transform="translate(15, 285)">
+      <rect width="230" height="115" rx="8" fill="#1e1b4b" stroke="#ec4899" stroke-width="1.5" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#f472b6">🔒 PII Redaction Filter</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Aadhaar Masking: 12-Digit</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Phone (+91) &amp; Email Masking</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Mock ABHA Token Injection</text>
+      <text x="15" y="96" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#ec4899">Zero PII Leaked to Cloud AI</text>
+    </g>
+  </g>
+
+  <!-- Tier 2: Multimodal Extraction & Grounding -->
+  <g id="tier2" transform="translate(325, 115)">
+    <rect width="260" height="645" rx="14" fill="url(#tier2Grad)" stroke="#0284c7" stroke-width="1.5" filter="url(#cardShadow)" />
+    <rect x="15" y="15" width="230" height="36" rx="8" fill="#0369a1" />
+    <text x="130" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#e0f2fe" text-anchor="middle">
+      2. MULTIMODAL AI CORE
+    </text>
+
+    <g transform="translate(15, 65)">
+      <rect width="230" height="105" rx="8" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc">🧠 Dual Multimodal Pipeline</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Gemini / MedGemma VLM</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• PaddleOCR Bounding Boxes</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Dual-Pass Consensus Merge</text>
+      <text x="15" y="94" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#38bdf8">Target Extraction F1 &gt; 95%</text>
+    </g>
+
+    <g transform="translate(15, 185)">
+      <rect width="230" height="105" rx="8" fill="#082f49" stroke="#38bdf8" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc">💊 Indian Rx Normalizer</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• 300,000+ Indian Brands DB</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Brand → Generic Mapping</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Food Timing &amp; Frequency</text>
+    </g>
+
+    <g transform="translate(15, 305)">
+      <rect width="230" height="115" rx="8" fill="#082f49" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#fbbf24">🎯 Evidence Grounding Engine</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Every claim tagged [fact_id]</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Visual Bounding Box Links</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Strict 0% Hallucination Policy</text>
+      <text x="15" y="96" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#fbbf24">Interactive Clickable Citations</text>
+    </g>
+  </g>
+
+  <!-- Tier 3: Deterministic Clinical Intelligence & ABDM -->
+  <g id="tier3" transform="translate(610, 115)">
+    <rect width="260" height="645" rx="14" fill="url(#tier3Grad)" stroke="#059669" stroke-width="1.5" filter="url(#cardShadow)" />
+    <rect x="15" y="15" width="230" height="36" rx="8" fill="#047857" />
+    <text x="130" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#d1fae5" text-anchor="middle">
+      3. CLINICAL RULES &amp; ABDM
+    </text>
+
+    <g transform="translate(15, 65)">
+      <rect width="230" height="105" rx="8" fill="#022c22" stroke="#34d399" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">⚖️ Deterministic Rules Engine</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Code computes Normal/Elevated</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• NEVER trusts LLM for ranges</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• ICMR / WHO / ADA standard</text>
+      <text x="15" y="94" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#34d399">100% Mathematical Safety</text>
+    </g>
+
+    <g transform="translate(15, 185)">
+      <rect width="230" height="105" rx="8" fill="#022c22" stroke="#34d399" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#6ee7b7">🇮🇳 ABDM FHIR R4 Engine</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• NRCeS India Profiles</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• LOINC + SNOMED + ICD-10</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Mock ABHA 1-Click Export</text>
+      <text x="15" y="94" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#34d399">Govt Health Stack Ready</text>
+    </g>
+
+    <g transform="translate(15, 305)">
+      <rect width="230" height="115" rx="8" fill="#022c22" stroke="#22d3ee" stroke-width="1.5" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#67e8f9">🌐 Translation Guard</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Telugu (తెలుగు) &amp; Hindi (हिन्दी)</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Number &amp; Unit Lock Engine</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Zero Translation Drift</text>
+      <text x="15" y="96" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#22d3ee">1:1 Preserved Quantities</text>
+    </g>
+  </g>
+
+  <!-- Tier 4: Interactive Presentation & Experience -->
+  <g id="tier4" transform="translate(895, 115)">
+    <rect width="265" height="645" rx="14" fill="url(#tier4Grad)" stroke="#c026d3" stroke-width="1.5" filter="url(#cardShadow)" />
+    <rect x="15" y="15" width="235" height="36" rx="8" fill="#a21caf" />
+    <text x="132" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#fae8ff" text-anchor="middle">
+      4. USER EXPERIENCE &amp; UI
+    </text>
+
+    <g transform="translate(15, 65)">
+      <rect width="235" height="105" rx="8" fill="#4a044e" stroke="#f0abfc" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#f5d0fe">🧍 3D Body Scan (Light Mode)</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Interactive Organ Pins</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Green/Amber/Red Status</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Organ Aggregation API</text>
+      <text x="15" y="94" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#f0abfc">Signature Visual WOW</text>
+    </g>
+
+    <g transform="translate(15, 185)">
+      <rect width="235" height="105" rx="8" fill="#4a044e" stroke="#f0abfc" stroke-width="1" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#f5d0fe">📑 Split Verification Studio</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Left: Original Document Scan</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Right: AI Summary + Badges</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Click badge → Zoom highlight</text>
+      <text x="15" y="94" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#f0abfc">Physician Grade Auditability</text>
+    </g>
+
+    <g transform="translate(15, 305)">
+      <rect width="235" height="115" rx="8" fill="#4a044e" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="15" y="25" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#7dd3fc">🎛️ Layman vs Clinical Mode</text>
+      <text x="15" y="46" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• Dot-Slider Range Indicators</text>
+      <text x="15" y="62" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• 6th-Grade Patient Summaries</text>
+      <text x="15" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" fill="#cbd5e1">• LOINC / ICD-10 Doctor View</text>
+      <text x="15" y="96" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" fill="#38bdf8">Empowered Patients &amp; Doctors</text>
+    </g>
+  </g>
+
+  <!-- Connective Data Flow Arrows -->
+  <g id="arrows" stroke="#94a3b8" stroke-width="2" fill="none">
+    <!-- Tier 1 to Tier 2 -->
+    <path d="M 300 230 L 325 230" marker-end="url(#arrow)" stroke="#818cf8" stroke-dasharray="4 2" />
+    <path d="M 300 340 L 325 340" marker-end="url(#arrow)" stroke="#818cf8" stroke-dasharray="4 2" />
+    <!-- Tier 2 to Tier 3 -->
+    <path d="M 585 230 L 610 230" marker-end="url(#arrow)" stroke="#38bdf8" stroke-dasharray="4 2" />
+    <path d="M 585 360 L 610 360" marker-end="url(#arrow)" stroke="#38bdf8" stroke-dasharray="4 2" />
+    <!-- Tier 3 to Tier 4 -->
+    <path d="M 870 230 L 895 230" marker-end="url(#arrow)" stroke="#34d399" stroke-dasharray="4 2" />
+    <path d="M 870 360 L 895 360" marker-end="url(#arrow)" stroke="#34d399" stroke-dasharray="4 2" />
+  </g>
+</svg>

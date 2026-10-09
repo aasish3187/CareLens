@@ -1,0 +1,32 @@
+{
+  "cardiovascular": {
+    "display_name": "Cardiovascular (Heart & Vessels)",
+    "loinc_codes": ["2093-3", "2085-9", "13457-7", "2571-8", "718-7", "777-3"],
+    "keywords": ["cholesterol", "lipid", "triglyceride", "hdl", "ldl", "blood pressure", "ecg", "troponin", "hypertension", "hemoglobin", "platelet", "cardiac"]
+  },
+  "endocrine": {
+    "display_name": "Endocrine & Metabolic",
+    "loinc_codes": ["4548-4", "2345-7", "3016-3"],
+    "keywords": ["hba1c", "glucose", "blood sugar", "fasting sugar", "postprandial", "tsh", "t3", "t4", "thyroid", "insulin", "diabetes"]
+  },
+  "respiratory": {
+    "display_name": "Respiratory System (Lungs)",
+    "loinc_codes": ["6690-2"],
+    "keywords": ["spo2", "oxygen", "chest x-ray", "pulmonary", "asthma", "bronchitis", "fev1", "wbc", "cough", "breath", "pneumonia"]
+  },
+  "renal": {
+    "display_name": "Renal System (Kidneys)",
+    "loinc_codes": ["2160-0", "3094-0"],
+    "keywords": ["creatinine", "bun", "urea", "egfr", "uric acid", "potassium", "urine routine", "kidney", "renal"]
+  },
+  "hepatic": {
+    "display_name": "Hepatic System (Liver)",
+    "loinc_codes": ["1742-6", "1920-8"],
+    "keywords": ["sgpt", "alt", "sgot", "ast", "bilirubin", "alkaline phosphatase", "albumin", "liver", "hepatic", "jaundice"]
+  },
+  "neurological": {
+    "display_name": "Neurological & Cognitive (Brain)",
+    "loinc_codes": ["2132-9", "2157-6"],
+    "keywords": ["vitamin b12", "electrolytes", "mri brain", "ct head", "neuropathy", "headache", "dizziness", "seizure", "migraine"]
+  }
+}

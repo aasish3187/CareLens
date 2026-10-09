@@ -1,0 +1,1927 @@
+[
+  {
+    "doc_id": "APOLLO_LAB_001",
+    "provider_name": "Apollo Diagnostics, Jubilee Hills, Hyderabad",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-03-15",
+    "patient_info": {
+      "name": "Ramesh Kumar Sharma",
+      "age": 52,
+      "gender": "M",
+      "mock_abha_id": "91-8721-4432-1098 (MOCK)"
+    },
+    "raw_text": "APOLLO DIAGNOSTICS - CLINICAL BIOCHEMISTRY REPORT\nPatient: Ramesh Kumar Sharma | Age: 52 Y / M | Date: 15/03/2026\nTest Name                 Result      Units       Reference Interval\nHbA1c (Glycated Hb)       7.4         %           4.0 - 5.6 (Good Control < 7.0)\nEstimated Avg Glucose     166         mg/dL       70 - 126\nFasting Blood Sugar (FBS) 128         mg/dL       70 - 99\nPost Prandial Sugar (PPBS)184         mg/dL       < 140\nTotal Cholesterol         218         mg/dL       125 - 200\nSerum Triglycerides       192         mg/dL       < 150\nHDL Cholesterol           41          mg/dL       40 - 60\nLDL Cholesterol           138         mg/dL       < 100\nSerum Creatinine          1.05        mg/dL       0.70 - 1.20\nRemarks: Advised physician consultation regarding glycemic control & lipid management.",
+    "gold_standard": {
+      "document_date": "2026-03-15",
+      "organ_system": "Endocrine & Metabolic / Cardiovascular",
+      "labs": [
+        {
+          "test_name": "HbA1c",
+          "value": 7.4,
+          "unit": "%",
+          "reference_range": "4.0 - 5.6",
+          "flag": "ELEVATED",
+          "loinc_code": "4548-4"
+        },
+        {
+          "test_name": "Estimated Average Glucose",
+          "value": 166,
+          "unit": "mg/dL",
+          "reference_range": "70 - 126",
+          "flag": "ELEVATED",
+          "loinc_code": "27353-2"
+        },
+        {
+          "test_name": "Fasting Blood Sugar",
+          "value": 128,
+          "unit": "mg/dL",
+          "reference_range": "70 - 99",
+          "flag": "ELEVATED",
+          "loinc_code": "1558-6"
+        },
+        {
+          "test_name": "Post Prandial Blood Sugar",
+          "value": 184,
+          "unit": "mg/dL",
+          "reference_range": "< 140",
+          "flag": "ELEVATED",
+          "loinc_code": "1521-4"
+        },
+        {
+          "test_name": "Total Cholesterol",
+          "value": 218,
+          "unit": "mg/dL",
+          "reference_range": "125 - 200",
+          "flag": "ELEVATED",
+          "loinc_code": "2093-3"
+        },
+        {
+          "test_name": "Serum Triglycerides",
+          "value": 192,
+          "unit": "mg/dL",
+          "reference_range": "< 150",
+          "flag": "ELEVATED",
+          "loinc_code": "2571-8"
+        },
+        {
+          "test_name": "HDL Cholesterol",
+          "value": 41,
+          "unit": "mg/dL",
+          "reference_range": "40 - 60",
+          "flag": "NORMAL",
+          "loinc_code": "2085-9"
+        },
+        {
+          "test_name": "LDL Cholesterol",
+          "value": 138,
+          "unit": "mg/dL",
+          "reference_range": "< 100",
+          "flag": "ELEVATED",
+          "loinc_code": "13457-7"
+        },
+        {
+          "test_name": "Serum Creatinine",
+          "value": 1.05,
+          "unit": "mg/dL",
+          "reference_range": "0.70 - 1.20",
+          "flag": "NORMAL",
+          "loinc_code": "2160-0"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Type 2 Diabetes Mellitus (Suboptimal control)",
+        "Dyslipidemia"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Your HbA1c is 7.4% [fact_1], reflecting an estimated average glucose of 166 mg/dL [fact_2]. Fasting blood sugar is 128 mg/dL [fact_3] and postprandial sugar is 184 mg/dL [fact_4]. Total cholesterol is slightly elevated at 218 mg/dL [fact_5] with LDL at 138 mg/dL [fact_6]. Kidneys show healthy normal function with creatinine at 1.05 mg/dL [fact_7].",
+      "text_te": "మీ HbA1c 7.4% [fact_1], సగటు గ్లూకోజ్ 166 mg/dL [fact_2] గా నమోదైంది. పరగడుపున రక్తంలో చక్కెర 128 mg/dL [fact_3], తిన్న తర్వాత చక్కెర 184 mg/dL [fact_4] గా ఉంది. కొలెస్ట్రాల్ 218 mg/dL [fact_5], LDL 138 mg/dL [fact_6] వద్ద కొద్దిగా పెరిగాయి. కిడ్నీలు క్ర్రియేటినిన్ 1.05 mg/dL [fact_7] తో సాధారణంగా పనిచేస్తున్నాయి.",
+      "text_hi": "आपका HbA1c 7.4% [fact_1] है, जो 166 mg/dL [fact_2] का अनुमानित औसत ग्लूकोज दर्शाता है। खाली पेट रक्त शर्करा 128 mg/dL [fact_3] और भोजन के बाद 184 mg/dL [fact_4] है। कुल कोलेस्ट्रॉल 218 mg/dL [fact_5] और LDL 138 mg/dL [fact_6] थोड़ा बढ़ा हुआ है। सीरम क्रिएटिनिन 1.05 mg/dL [fact_7] के साथ गुर्दे सामान्य कार्य कर रहे हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "HbA1c 7.4 %"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Estimated Average Glucose 166 mg/dL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Fasting blood sugar 128 mg/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Post Prandial sugar 184 mg/dL"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Total cholesterol 218 mg/dL"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "LDL cholesterol 138 mg/dL"
+        },
+        {
+          "fact_id": "fact_7",
+          "claim": "Serum creatinine 1.05 mg/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "LAL_PATH_002",
+    "provider_name": "Dr Lal PathLabs, Connaught Place, New Delhi",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-02-18",
+    "patient_info": {
+      "name": "Sunita Verma",
+      "age": 38,
+      "gender": "F",
+      "mock_abha_id": "91-4412-9901-3321 (MOCK)"
+    },
+    "raw_text": "DR LAL PATHLABS - LABORATORY INVESTIGATION REPORT\nPatient: Sunita Verma | Age: 38 / Female | Date: 18-02-2026\nTEST                              VALUE       UNIT        BIO REFERENCE RANGE\nTSH (Ultrasensitive)              6.85        uIU/mL      0.35 - 4.94\nFree T3                           2.9         pg/mL       1.71 - 3.71\nFree T4                           1.02        ng/dL       0.70 - 1.48\nHemoglobin (Hb)                   10.8        g/dL        12.0 - 15.0\nTotal RBC Count                   3.85        mil/uL      3.80 - 4.80\nPacked Cell Volume (PCV)          33.2        %           36.0 - 46.0\nPlatelet Count                    245000      /cumm       150000 - 450000\nTotal WBC (TLC)                   7200        /cumm       4000 - 11000\nImpression: Elevated TSH consistent with subclinical hypothyroidism; mild microcytic anemia.",
+    "gold_standard": {
+      "document_date": "2026-02-18",
+      "organ_system": "Endocrine / Thyroid & Hematology",
+      "labs": [
+        {
+          "test_name": "TSH",
+          "value": 6.85,
+          "unit": "uIU/mL",
+          "reference_range": "0.35 - 4.94",
+          "flag": "ELEVATED",
+          "loinc_code": "3016-3"
+        },
+        {
+          "test_name": "Free T3",
+          "value": 2.9,
+          "unit": "pg/mL",
+          "reference_range": "1.71 - 3.71",
+          "flag": "NORMAL",
+          "loinc_code": "3051-0"
+        },
+        {
+          "test_name": "Free T4",
+          "value": 1.02,
+          "unit": "ng/dL",
+          "reference_range": "0.70 - 1.48",
+          "flag": "NORMAL",
+          "loinc_code": "3024-7"
+        },
+        {
+          "test_name": "Hemoglobin",
+          "value": 10.8,
+          "unit": "g/dL",
+          "reference_range": "12.0 - 15.0",
+          "flag": "LOW",
+          "loinc_code": "718-7"
+        },
+        {
+          "test_name": "Total RBC Count",
+          "value": 3.85,
+          "unit": "mil/uL",
+          "reference_range": "3.80 - 4.80",
+          "flag": "NORMAL",
+          "loinc_code": "789-8"
+        },
+        {
+          "test_name": "Packed Cell Volume",
+          "value": 33.2,
+          "unit": "%",
+          "reference_range": "36.0 - 46.0",
+          "flag": "LOW",
+          "loinc_code": "20570-8"
+        },
+        {
+          "test_name": "Platelet Count",
+          "value": 245000,
+          "unit": "/cumm",
+          "reference_range": "150000 - 450000",
+          "flag": "NORMAL",
+          "loinc_code": "777-3"
+        },
+        {
+          "test_name": "Total WBC Count",
+          "value": 7200,
+          "unit": "/cumm",
+          "reference_range": "4000 - 11000",
+          "flag": "NORMAL",
+          "loinc_code": "6690-2"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Subclinical Hypothyroidism",
+        "Mild Anemia"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "TSH is elevated at 6.85 uIU/mL [fact_1] with normal Free T3 (2.9 pg/mL) [fact_2] and Free T4 (1.02 ng/dL) [fact_3]. Hemoglobin is mildly reduced at 10.8 g/dL [fact_4] with PCV at 33.2% [fact_5]. Platelet count (245000 /cumm) [fact_6] and WBC count (7200 /cumm) [fact_7] remain within normal ranges.",
+      "text_te": "TSH 6.85 uIU/mL [fact_1] తో పెరిగింది, ఫ్రీ T3 (2.9 pg/mL) [fact_2] మరియు ఫ్రీ T4 (1.02 ng/dL) [fact_3] సాధారణంగా ఉన్నాయి. హిమోగ్లోబిన్ 10.8 g/dL [fact_4] కు స్వల్పంగా తగ్గింది మరియు PCV 33.2% [fact_5] గా ఉంది. ప్లేట్‌లెట్స్ (245000 /cumm) [fact_6] మరియు WBC (7200 /cumm) [fact_7] సాధారణ స్థాయిలో ఉన్నాయి.",
+      "text_hi": "TSH 6.85 uIU/mL [fact_1] पर बढ़ा हुआ है, जबकि फ्री T3 (2.9 pg/mL) [fact_2] और फ्री T4 (1.02 ng/dL) [fact_3] सामान्य हैं। हीमोग्लोबिन थोड़ा कम होकर 10.8 g/dL [fact_4] और PCV 33.2% [fact_5] है। प्लेटलेट काउंट (245000 /cumm) [fact_6] और WBC (7200 /cumm) [fact_7] सामान्य सीमा में हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "TSH 6.85 uIU/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Free T3 2.9 pg/mL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Free T4 1.02 ng/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Hemoglobin 10.8 g/dL"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Packed Cell Volume 33.2 %"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Platelet Count 245000 /cumm"
+        },
+        {
+          "fact_id": "fact_7",
+          "claim": "Total WBC 7200 /cumm"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "METROPOLIS_003",
+    "provider_name": "Metropolis Healthcare, Mumbai",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-01-24",
+    "patient_info": {
+      "name": "Anil Deshmukh",
+      "age": 47,
+      "gender": "M",
+      "mock_abha_id": "91-5521-1288-7740 (MOCK)"
+    },
+    "raw_text": "METROPOLIS HEALTHCARE LIMITED - BIOCHEMISTRY PROFILE\nPatient: Anil Deshmukh | 47 Yrs / Male | Date: 24/01/2026\nTest                              Observed    Units       Normal Reference\nSGOT / AST                        58          IU/L        10 - 40\nSGPT / ALT                        72          IU/L        10 - 45\nSerum Alkaline Phosphatase (ALP)  112         IU/L        40 - 130\nTotal Bilirubin                   0.9         mg/dL       0.2 - 1.2\nDirect Bilirubin                  0.25        mg/dL       0.0 - 0.3\nSerum Albumin                     4.4         g/dL        3.5 - 5.0\nBlood Urea Nitrogen (BUN)         14          mg/dL       7 - 20\nSerum Creatinine                  0.92        mg/dL       0.7 - 1.3\nSerum Uric Acid                   6.2         mg/dL       3.5 - 7.2\nClinical Notes: Elevated transaminases indicative of mild hepatic steatosis.",
+    "gold_standard": {
+      "document_date": "2026-01-24",
+      "organ_system": "Hepatic / Liver & Renal",
+      "labs": [
+        {
+          "test_name": "SGOT / AST",
+          "value": 58,
+          "unit": "IU/L",
+          "reference_range": "10 - 40",
+          "flag": "ELEVATED",
+          "loinc_code": "1920-8"
+        },
+        {
+          "test_name": "SGPT / ALT",
+          "value": 72,
+          "unit": "IU/L",
+          "reference_range": "10 - 45",
+          "flag": "ELEVATED",
+          "loinc_code": "1742-6"
+        },
+        {
+          "test_name": "Alkaline Phosphatase",
+          "value": 112,
+          "unit": "IU/L",
+          "reference_range": "40 - 130",
+          "flag": "NORMAL",
+          "loinc_code": "6768-6"
+        },
+        {
+          "test_name": "Total Bilirubin",
+          "value": 0.9,
+          "unit": "mg/dL",
+          "reference_range": "0.2 - 1.2",
+          "flag": "NORMAL",
+          "loinc_code": "1975-2"
+        },
+        {
+          "test_name": "Direct Bilirubin",
+          "value": 0.25,
+          "unit": "mg/dL",
+          "reference_range": "0.0 - 0.3",
+          "flag": "NORMAL",
+          "loinc_code": "1968-7"
+        },
+        {
+          "test_name": "Serum Albumin",
+          "value": 4.4,
+          "unit": "g/dL",
+          "reference_range": "3.5 - 5.0",
+          "flag": "NORMAL",
+          "loinc_code": "1751-7"
+        },
+        {
+          "test_name": "Blood Urea Nitrogen",
+          "value": 14,
+          "unit": "mg/dL",
+          "reference_range": "7 - 20",
+          "flag": "NORMAL",
+          "loinc_code": "3094-0"
+        },
+        {
+          "test_name": "Serum Creatinine",
+          "value": 0.92,
+          "unit": "mg/dL",
+          "reference_range": "0.7 - 1.3",
+          "flag": "NORMAL",
+          "loinc_code": "2160-0"
+        },
+        {
+          "test_name": "Serum Uric Acid",
+          "value": 6.2,
+          "unit": "mg/dL",
+          "reference_range": "3.5 - 7.2",
+          "flag": "NORMAL",
+          "loinc_code": "3084-1"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Elevated Transaminases / Fatty Liver (Grade 1)"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Liver enzymes AST is 58 IU/L [fact_1] and ALT is 72 IU/L [fact_2], showing mild elevation. Total bilirubin is normal at 0.9 mg/dL [fact_3] and ALP is 112 IU/L [fact_4]. Kidney function is healthy with BUN 14 mg/dL [fact_5], creatinine 0.92 mg/dL [fact_6], and uric acid 6.2 mg/dL [fact_7].",
+      "text_te": "కాలేయ ఎంజైమ్‌లు AST 58 IU/L [fact_1] మరియు ALT 72 IU/L [fact_2] స్వల్పంగా పెరిగాయి. మొత్తం బిలిరుబిన్ 0.9 mg/dL [fact_3] మరియు ALP 112 IU/L [fact_4] సాధారణంగా ఉన్నాయి. BUN 14 mg/dL [fact_5], క్ర్రియేటినిన్ 0.92 mg/dL [fact_6], యూరిక్ యాసిడ్ 6.2 mg/dL [fact_7] తో కిడ్నీలు చక్కగా పనిచేస్తున్నాయి.",
+      "text_hi": "लिवर एंजाइम AST 58 IU/L [fact_1] और ALT 72 IU/L [fact_2] पर थोड़े बढ़े हुए हैं। कुल बिलीरुबिन 0.9 mg/dL [fact_3] और ALP 112 IU/L [fact_4] सामान्य हैं। BUN 14 mg/dL [fact_5], क्रिएटिनिन 0.92 mg/dL [fact_6] और यूरिक एसिड 6.2 mg/dL [fact_7] के साथ गुर्दे स्वस्थ हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "SGOT / AST 58 IU/L"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "SGPT / ALT 72 IU/L"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Total Bilirubin 0.9 mg/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Alkaline Phosphatase 112 IU/L"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Blood Urea Nitrogen 14 mg/dL"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Serum Creatinine 0.92 mg/dL"
+        },
+        {
+          "fact_id": "fact_7",
+          "claim": "Serum Uric Acid 6.2 mg/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "MAX_RX_004",
+    "provider_name": "Max Super Speciality Hospital, Saket, New Delhi",
+    "document_type": "Prescription & Clinical Summary",
+    "document_date": "2026-03-02",
+    "patient_info": {
+      "name": "Vikram Malhotra",
+      "age": 59,
+      "gender": "M",
+      "mock_abha_id": "91-3390-1122-8877 (MOCK)"
+    },
+    "raw_text": "MAX HEALTHCARE - CARDIOLOGY OUTPATIENT CLINIC\nConsultant: Dr. S. K. Gupta, MD, DM (Cardiology)\nPatient: Vikram Malhotra | Age: 59 M | Date: 02/03/2026\nDiagnosis: Essential Hypertension, Dyslipidemia, Primary CAD Prophylaxis\nVitals: BP 142/90 mmHg, Pulse 74 bpm, Weight 78 kg\nRx (Prescriptions):\n1. Tab Telma 40 (Telmisartan 40mg) - 1 tab OD morning after breakfast\n2. Tab Rosuvas 10 (Rosuvastatin 10mg) - 1 tab HS night after dinner\n3. Tab Ecosprin 75 (Aspirin 75mg) - 1 tab OD after lunch\n4. Tab Pan 40 (Pantoprazole 40mg) - 1 tab OD before breakfast for 14 days\nAdvice: Low sodium diet, 30 min brisk walk, review after 6 weeks.",
+    "gold_standard": {
+      "document_date": "2026-03-02",
+      "organ_system": "Cardiovascular / Heart",
+      "labs": [],
+      "medications": [
+        {
+          "brand_name": "Telma 40",
+          "generic_name": "Telmisartan",
+          "strength": "40mg",
+          "frequency": "1 tab OD morning",
+          "food_relation": "after breakfast"
+        },
+        {
+          "brand_name": "Rosuvas 10",
+          "generic_name": "Rosuvastatin",
+          "strength": "10mg",
+          "frequency": "1 tab HS night",
+          "food_relation": "after dinner"
+        },
+        {
+          "brand_name": "Ecosprin 75",
+          "generic_name": "Aspirin",
+          "strength": "75mg",
+          "frequency": "1 tab OD",
+          "food_relation": "after lunch"
+        },
+        {
+          "brand_name": "Pan 40",
+          "generic_name": "Pantoprazole",
+          "strength": "40mg",
+          "frequency": "1 tab OD",
+          "food_relation": "before breakfast"
+        }
+      ],
+      "diagnoses": [
+        "Essential Hypertension",
+        "Dyslipidemia"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Prescribed Telma 40 (Telmisartan 40mg) once daily in the morning [fact_1], Rosuvas 10 (Rosuvastatin 10mg) at night [fact_2], and Ecosprin 75 (Aspirin 75mg) after lunch [fact_3]. Pan 40 (Pantoprazole 40mg) is given before breakfast [fact_4]. Blood pressure was measured at 142/90 mmHg [fact_5].",
+      "text_te": "ఉదయం పూట Telma 40 (Telmisartan 40mg) రోజుకు ఒకసారి [fact_1], రాత్రి పూట Rosuvas 10 (Rosuvastatin 10mg) [fact_2], భోజనం తర్వాత Ecosprin 75 (Aspirin 75mg) [fact_3] సూచించబడ్డాయి. అల్పాహారానికి ముందు Pan 40 (Pantoprazole 40mg) [fact_4] ఇవ్వబడింది. రక్తపోటు 142/90 mmHg [fact_5] గా నమోదైంది.",
+      "text_hi": "सुबह में Telma 40 (Telmisartan 40mg) प्रतिदिन एक बार [fact_1], रात में Rosuvas 10 (Rosuvastatin 10mg) [fact_2], और दोपहर के भोजन के बाद Ecosprin 75 (Aspirin 75mg) [fact_3] निर्धारित की गई है। नाश्ते से पहले Pan 40 (Pantoprazole 40mg) [fact_4] दी गई है। रक्तचाप 142/90 mmHg [fact_5] दर्ज किया गया।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Telma 40 1 tab OD morning"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Rosuvas 10 1 tab HS night"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Ecosprin 75 1 tab OD after lunch"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Pan 40 1 tab OD before breakfast"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Blood Pressure 142/90 mmHg"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "FORTIS_RX_005",
+    "provider_name": "Fortis Memorial Research Institute, Gurugram",
+    "document_type": "Prescription",
+    "document_date": "2026-03-10",
+    "patient_info": {
+      "name": "Kavita R. Nair",
+      "age": 45,
+      "gender": "F",
+      "mock_abha_id": "91-9920-3344-5566 (MOCK)"
+    },
+    "raw_text": "FORTIS HEALTHCARE - ENDOCRINOLOGY CLINIC\nDate: 10-03-2026 | Patient: Kavita R. Nair (45/F)\nDiagnosis: T2DM, Acid Peptic Disease, Vitamin D Deficiency\nPrescription:\n1. Tab Glycomet-GP 1 (Metformin 500mg + Glimepiride 1mg) - 1 tab BD before meals\n2. Tab Januvia 100 (Sitagliptin 100mg) - 1 tab OD with lunch\n3. Cap Pan-D (Pantoprazole 40mg + Domperidone 30mg) - 1 cap OD before breakfast\n4. Sachet Calcirol (Cholecalciferol 60000 IU) - 1 sachet weekly with warm milk x 8 weeks\nFollow up in 3 months with repeat HbA1c & Vitamin D3.",
+    "gold_standard": {
+      "document_date": "2026-03-10",
+      "organ_system": "Endocrine & Gastrointestinal",
+      "labs": [],
+      "medications": [
+        {
+          "brand_name": "Glycomet-GP 1",
+          "generic_name": "Metformin + Glimepiride",
+          "strength": "500mg/1mg",
+          "frequency": "1 tab BD",
+          "food_relation": "before meals"
+        },
+        {
+          "brand_name": "Januvia 100",
+          "generic_name": "Sitagliptin",
+          "strength": "100mg",
+          "frequency": "1 tab OD",
+          "food_relation": "with lunch"
+        },
+        {
+          "brand_name": "Pan-D",
+          "generic_name": "Pantoprazole + Domperidone",
+          "strength": "40mg/30mg",
+          "frequency": "1 cap OD",
+          "food_relation": "before breakfast"
+        },
+        {
+          "brand_name": "Calcirol",
+          "generic_name": "Cholecalciferol",
+          "strength": "60000 IU",
+          "frequency": "1 sachet weekly",
+          "food_relation": "with warm milk"
+        }
+      ],
+      "diagnoses": [
+        "Type 2 Diabetes Mellitus",
+        "Acid Peptic Disease",
+        "Vitamin D Deficiency"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Prescribed Glycomet-GP 1 twice daily before meals [fact_1], Januvia 100mg once daily [fact_2], Pan-D capsule before breakfast [fact_3], and Calcirol 60000 IU sachet once weekly [fact_4]. Follow up scheduled in 3 months [fact_5].",
+      "text_te": "భోజనానికి ముందు Glycomet-GP 1 రోజుకు రెండుసార్లు [fact_1], Januvia 100mg రోజుకు ఒకసారి [fact_2], అల్పాహారానికి ముందు Pan-D క్యాప్సూల్ [fact_3], మరియు Calcirol 60000 IU వారానికి ఒకసారి [fact_4] సూచించబడ్డాయి. 3 నెలల తర్వాత తదుపరి సమీక్ష నిర్ణయించబడింది [fact_5].",
+      "text_hi": "भोजन से पहले Glycomet-GP 1 दिन में दो बार [fact_1], Januvia 100mg दिन में एक बार [fact_2], नाश्ते से पहले Pan-D कैप्सूल [fact_3], और Calcirol 60000 IU सप्ताह में एक बार [fact_4] निर्धारित किया गया है। 3 महीने में फॉलो-अप निर्धारित है [fact_5]।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Glycomet-GP 1 1 tab BD before meals"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Januvia 100 1 tab OD with lunch"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Pan-D 1 cap OD before breakfast"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Calcirol 60000 IU 1 sachet weekly"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Follow up in 3 months"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "SRL_NEPHRO_006",
+    "provider_name": "SRL Diagnostics, Bengaluru",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-02-28",
+    "patient_info": {
+      "name": "Manish G. Patel",
+      "age": 56,
+      "gender": "M",
+      "mock_abha_id": "91-7711-2299-4400 (MOCK)"
+    },
+    "raw_text": "SRL LIMITED - RENAL & URINARY PROTEIN EVALUATION\nPatient: Manish G. Patel | 56/M | Date: 28/02/2026\nTest                              Result      Units       Biological Reference\nUrine Microalbumin (Spot)         48.5        mg/L        < 20.0\nUrine Creatinine (Spot)           110         mg/dL       40 - 278\nAlbumin to Creatinine Ratio (UACR)44.1        mg/g        < 30.0 (Microalbuminuria 30-300)\nSerum Creatinine                  1.18        mg/dL       0.70 - 1.30\nEstimated GFR (CKD-EPI)           73          mL/min/1.73m2 >= 90\nSerum Potassium                   4.6         mEq/L       3.5 - 5.1\nSerum Sodium                      139         mEq/L       136 - 145\nInterpretation: Spot UACR shows microalbuminuria (Stage A2); eGFR reflects mildly decreased kidney filtration.",
+    "gold_standard": {
+      "document_date": "2026-02-28",
+      "organ_system": "Nephrology / Kidneys",
+      "labs": [
+        {
+          "test_name": "Urine Microalbumin",
+          "value": 48.5,
+          "unit": "mg/L",
+          "reference_range": "< 20.0",
+          "flag": "ELEVATED",
+          "loinc_code": "14957-5"
+        },
+        {
+          "test_name": "Urine Creatinine",
+          "value": 110,
+          "unit": "mg/dL",
+          "reference_range": "40 - 278",
+          "flag": "NORMAL",
+          "loinc_code": "2161-8"
+        },
+        {
+          "test_name": "Urine Albumin Creatinine Ratio (UACR)",
+          "value": 44.1,
+          "unit": "mg/g",
+          "reference_range": "< 30.0",
+          "flag": "ELEVATED",
+          "loinc_code": "9318-7"
+        },
+        {
+          "test_name": "Serum Creatinine",
+          "value": 1.18,
+          "unit": "mg/dL",
+          "reference_range": "0.70 - 1.30",
+          "flag": "NORMAL",
+          "loinc_code": "2160-0"
+        },
+        {
+          "test_name": "Estimated GFR",
+          "value": 73,
+          "unit": "mL/min/1.73m2",
+          "reference_range": ">= 90",
+          "flag": "LOW",
+          "loinc_code": "33914-3"
+        },
+        {
+          "test_name": "Serum Potassium",
+          "value": 4.6,
+          "unit": "mEq/L",
+          "reference_range": "3.5 - 5.1",
+          "flag": "NORMAL",
+          "loinc_code": "2823-3"
+        },
+        {
+          "test_name": "Serum Sodium",
+          "value": 139,
+          "unit": "mEq/L",
+          "reference_range": "136 - 145",
+          "flag": "NORMAL",
+          "loinc_code": "2951-2"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Microalbuminuria (Early Diabetic Kidney Disease)",
+        "Mildly Decreased eGFR"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Urine microalbumin is elevated at 48.5 mg/L [fact_1] with a UACR of 44.1 mg/g [fact_2], indicating early microalbuminuria. Serum creatinine is 1.18 mg/dL [fact_3] and eGFR is 73 mL/min/1.73m2 [fact_4]. Electrolytes are balanced with potassium at 4.6 mEq/L [fact_5] and sodium at 139 mEq/L [fact_6].",
+      "text_te": "యూరిన్ మైక్రోఅల్బుమిన్ 48.5 mg/L [fact_1] మరియు UACR 44.1 mg/g [fact_2] తో పెరిగింది. సీరం క్రియాటినిన్ 1.18 mg/dL [fact_3] మరియు eGFR 73 mL/min/1.73m2 [fact_4] గా ఉంది. పొటాషియం 4.6 mEq/L [fact_5], సోడియం 139 mEq/L [fact_6] సాధారణ స్థాయిలో ఉన్నాయి.",
+      "text_hi": "मूत्र माइक्रोएल्ब्यूमिन 48.5 mg/L [fact_1] और UACR 44.1 mg/g [fact_2] पर बढ़ा हुआ है। सीरम क्रिएटिनिन 1.18 mg/dL [fact_3] और eGFR 73 mL/min/1.73m2 [fact_4] है। पोटेशियम 4.6 mEq/L [fact_5] और सोडियम 139 mEq/L [fact_6] सामान्य स्तर पर हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Urine Microalbumin 48.5 mg/L"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Urine Albumin Creatinine Ratio 44.1 mg/g"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Serum Creatinine 1.18 mg/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Estimated GFR 73 mL/min/1.73m2"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Serum Potassium 4.6 mEq/L"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Serum Sodium 139 mEq/L"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "VIJAYA_VIT_007",
+    "provider_name": "Vijaya Diagnostic Centre, Himayatnagar, Hyderabad",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-03-05",
+    "patient_info": {
+      "name": "Pooja Reddy",
+      "age": 29,
+      "gender": "F",
+      "mock_abha_id": "91-1234-5678-9012 (MOCK)"
+    },
+    "raw_text": "VIJAYA DIAGNOSTIC CENTRE - VITAMIN & ANEMIA PANEL\nPatient: Pooja Reddy | 29 Yrs / Female | Date: 05/03/2026\nTest Name                         Observed    Units       Ref Interval\nVitamin B12 (Cyanocobalamin)      142         pg/mL       211 - 911 (Deficient < 200)\n25-Hydroxy Vitamin D (Total)      14.2        ng/mL       30.0 - 100.0 (Deficient < 20)\nSerum Ferritin                    9.4         ng/mL       13.0 - 150.0\nSerum Iron                        42          mcg/dL      60 - 170\nTotal Iron Binding Capacity (TIBC)410         mcg/dL      250 - 400\nHemoglobin                        11.1        g/dL        12.0 - 15.0\nImpression: Combined Vitamin B12 and Vitamin D3 deficiency with Iron Deficiency Anemia.",
+    "gold_standard": {
+      "document_date": "2026-03-05",
+      "organ_system": "Nutritional & Hematology",
+      "labs": [
+        {
+          "test_name": "Vitamin B12",
+          "value": 142,
+          "unit": "pg/mL",
+          "reference_range": "211 - 911",
+          "flag": "LOW",
+          "loinc_code": "2132-9"
+        },
+        {
+          "test_name": "25-Hydroxy Vitamin D",
+          "value": 14.2,
+          "unit": "ng/mL",
+          "reference_range": "30.0 - 100.0",
+          "flag": "LOW",
+          "loinc_code": "62292-8"
+        },
+        {
+          "test_name": "Serum Ferritin",
+          "value": 9.4,
+          "unit": "ng/mL",
+          "reference_range": "13.0 - 150.0",
+          "flag": "LOW",
+          "loinc_code": "2276-4"
+        },
+        {
+          "test_name": "Serum Iron",
+          "value": 42,
+          "unit": "mcg/dL",
+          "reference_range": "60 - 170",
+          "flag": "LOW",
+          "loinc_code": "2498-4"
+        },
+        {
+          "test_name": "TIBC",
+          "value": 410,
+          "unit": "mcg/dL",
+          "reference_range": "250 - 400",
+          "flag": "ELEVATED",
+          "loinc_code": "2500-7"
+        },
+        {
+          "test_name": "Hemoglobin",
+          "value": 11.1,
+          "unit": "g/dL",
+          "reference_range": "12.0 - 15.0",
+          "flag": "LOW",
+          "loinc_code": "718-7"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Vitamin B12 Deficiency",
+        "Vitamin D Deficiency",
+        "Iron Deficiency Anemia"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Vitamin B12 is deficient at 142 pg/mL [fact_1] and Vitamin D is low at 14.2 ng/mL [fact_2]. Serum ferritin is 9.4 ng/mL [fact_3] and serum iron is 42 mcg/dL [fact_4] with TIBC elevated at 410 mcg/dL [fact_5]. Hemoglobin is 11.1 g/dL [fact_6].",
+      "text_te": "విటమిన్ B12 142 pg/mL [fact_1] మరియు విటమిన్ D 14.2 ng/mL [fact_2] తో తక్కువగా ఉన్నాయి. సీరం ఫెర్రిటిన్ 9.4 ng/mL [fact_3] మరియు ఐరన్ 42 mcg/dL [fact_4] వద్ద ఉన్నాయి, TIBC 410 mcg/dL [fact_5] కు పెరిగింది. హిమోగ్లోబిన్ 11.1 g/dL [fact_6] గా నమోదైంది.",
+      "text_hi": "विटामिन B12 142 pg/mL [fact_1] और विटामिन D 14.2 ng/mL [fact_2] पर कम है। सीरम फेरिटिन 9.4 ng/mL [fact_3] और सीरम आयरन 42 mcg/dL [fact_4] है जबकि TIBC 410 mcg/dL [fact_5] पर बढ़ा हुआ है। हीमोग्लोबिन 11.1 g/dL [fact_6] है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Vitamin B12 142 pg/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "25-Hydroxy Vitamin D 14.2 ng/mL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Serum Ferritin 9.4 ng/mL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Serum Iron 42 mcg/dL"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "TIBC 410 mcg/dL"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Hemoglobin 11.1 g/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "MEDALL_INF_008",
+    "provider_name": "Medall Healthcare, Chennai",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-03-01",
+    "patient_info": {
+      "name": "Karthik Sundaram",
+      "age": 31,
+      "gender": "M",
+      "mock_abha_id": "91-6677-8899-0011 (MOCK)"
+    },
+    "raw_text": "MEDALL HEALTHCARE - FEVER & HEMATOLOGY WORKUP\nPatient: Karthik Sundaram | 31/M | Date: 01-03-2026\nInvestigation                     Result      Units       Biological Reference\nDengue NS1 Antigen (ELISA)        POSITIVE    -           Negative\nDengue IgM Antibody               NEGATIVE    -           Negative\nPlatelet Count                    88000       /cumm       150000 - 450000 (Low)\nTotal Leucocyte Count (WBC)       3400        /cumm       4000 - 11000 (Leukopenia)\nHematocrit (PCV)                  44.5        %           40.0 - 50.0\nWidal Slide Agglutination (TO/TH) Negative    -           Negative (< 1:80)\nSerum Bilirubin Total             0.8         mg/dL       0.2 - 1.2\nImpression: Acute Dengue Infection (NS1 Positive) with Thrombocytopenia.",
+    "gold_standard": {
+      "document_date": "2026-03-01",
+      "organ_system": "Immune & Hematology",
+      "labs": [
+        {
+          "test_name": "Dengue NS1 Antigen",
+          "value": "POSITIVE",
+          "unit": "",
+          "reference_range": "Negative",
+          "flag": "ELEVATED",
+          "loinc_code": "51590-8"
+        },
+        {
+          "test_name": "Platelet Count",
+          "value": 88000,
+          "unit": "/cumm",
+          "reference_range": "150000 - 450000",
+          "flag": "CRITICAL_LOW",
+          "loinc_code": "777-3"
+        },
+        {
+          "test_name": "Total Leucocyte Count",
+          "value": 3400,
+          "unit": "/cumm",
+          "reference_range": "4000 - 11000",
+          "flag": "LOW",
+          "loinc_code": "6690-2"
+        },
+        {
+          "test_name": "Hematocrit",
+          "value": 44.5,
+          "unit": "%",
+          "reference_range": "40.0 - 50.0",
+          "flag": "NORMAL",
+          "loinc_code": "20570-8"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Acute Dengue Infection",
+        "Thrombocytopenia",
+        "Leukopenia"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Dengue NS1 antigen is POSITIVE [fact_1]. Platelet count is critically low at 88000 /cumm [fact_2] and WBC is reduced at 3400 /cumm [fact_3]. Hematocrit is currently stable at 44.5% [fact_4]. Close clinical monitoring of platelets is essential.",
+      "text_te": "డెంగ్యూ NS1 యాంటిజెన్ పాజిటివ్ [fact_1] గా వచ్చింది. ప్లేట్‌లెట్స్ 88000 /cumm [fact_2] కు తీవ్రంగా తగ్గాయి, WBC 3400 /cumm [fact_3] వద్ద ఉంది. హెమటోక్రిట్ 44.5% [fact_4] వద్ద స్థిరంగా ఉంది. ప్లేట్‌లెట్లపై నిరంతర నిఘా అవసరం.",
+      "text_hi": "डेंगू NS1 एंटीजन पॉजिटिव [fact_1] आया है। प्लेटलेट काउंट 88000 /cumm [fact_2] पर काफी कम है और WBC 3400 /cumm [fact_3] पर है। हेमेटोक्रिट 44.5% [fact_4] पर स्थिर है। प्लेटलेट्स की निरंतर निगरानी आवश्यक है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Dengue NS1 Antigen POSITIVE"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Platelet Count 88000 /cumm"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Total Leucocyte Count 3400 /cumm"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Hematocrit 44.5 %"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "NARAYANA_CAR_009",
+    "provider_name": "Narayana Institute of Cardiac Sciences, Bengaluru",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-03-08",
+    "patient_info": {
+      "name": "Subramanian Iyer",
+      "age": 63,
+      "gender": "M",
+      "mock_abha_id": "91-2233-4455-6677 (MOCK)"
+    },
+    "raw_text": "NARAYANA HEALTH - CARDIAC BIOCHEMISTRY & BIOMARKERS\nPatient: Subramanian Iyer | 63/M | Date: 08/03/2026\nTest                              Result      Units       Biological Reference\nHigh Sensitivity Troponin I (hsTnI)0.012      ng/mL       < 0.040 (Negative)\nNT-proBNP                         185         pg/mL       < 125 (Age-adjusted)\nHigh Sensitivity CRP (hs-CRP)     3.8         mg/L        < 1.0 (High Risk > 3.0)\nCreatine Kinase-MB (CK-MB)        14.2        U/L         0.0 - 24.0\nTotal Cholesterol                 188         mg/dL       125 - 200\nSerum Potassium                   4.2         mEq/L       3.5 - 5.1\nImpression: No evidence of acute myocardial necrosis (hs-TnI normal). Elevated hs-CRP indicates cardiovascular inflammation; mildly elevated NT-proBNP.",
+    "gold_standard": {
+      "document_date": "2026-03-08",
+      "organ_system": "Cardiovascular / Heart",
+      "labs": [
+        {
+          "test_name": "hs-Troponin I",
+          "value": 0.012,
+          "unit": "ng/mL",
+          "reference_range": "< 0.040",
+          "flag": "NORMAL",
+          "loinc_code": "89579-7"
+        },
+        {
+          "test_name": "NT-proBNP",
+          "value": 185,
+          "unit": "pg/mL",
+          "reference_range": "< 125",
+          "flag": "ELEVATED",
+          "loinc_code": "33762-6"
+        },
+        {
+          "test_name": "hs-CRP",
+          "value": 3.8,
+          "unit": "mg/L",
+          "reference_range": "< 1.0",
+          "flag": "ELEVATED",
+          "loinc_code": "30522-7"
+        },
+        {
+          "test_name": "CK-MB",
+          "value": 14.2,
+          "unit": "U/L",
+          "reference_range": "0.0 - 24.0",
+          "flag": "NORMAL",
+          "loinc_code": "13969-1"
+        },
+        {
+          "test_name": "Total Cholesterol",
+          "value": 188,
+          "unit": "mg/dL",
+          "reference_range": "125 - 200",
+          "flag": "NORMAL",
+          "loinc_code": "2093-3"
+        },
+        {
+          "test_name": "Serum Potassium",
+          "value": 4.2,
+          "unit": "mEq/L",
+          "reference_range": "3.5 - 5.1",
+          "flag": "NORMAL",
+          "loinc_code": "2823-3"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Elevated hs-CRP (Cardiovascular Risk)",
+        "Mildly Elevated NT-proBNP"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Troponin I is reassuringly normal at 0.012 ng/mL [fact_1] and CK-MB is 14.2 U/L [fact_2]. However, hs-CRP is elevated at 3.8 mg/L [fact_3] and NT-proBNP is 185 pg/mL [fact_4]. Cholesterol is 188 mg/dL [fact_5] and potassium is 4.2 mEq/L [fact_6].",
+      "text_te": "ట్రోపోనిన్ I 0.012 ng/mL [fact_1] మరియు CK-MB 14.2 U/L [fact_2] తో సాధారణంగా ఉన్నాయి. కానీ hs-CRP 3.8 mg/L [fact_3] మరియు NT-proBNP 185 pg/mL [fact_4] వద్ద పెరిగాయి. కొలెస్ట్రాల్ 188 mg/dL [fact_5], పొటాషియం 4.2 mEq/L [fact_6] గా నమోదైంది.",
+      "text_hi": "ट्रोपोनिन I 0.012 ng/mL [fact_1] और CK-MB 14.2 U/L [fact_2] पर सामान्य हैं। हालांकि hs-CRP 3.8 mg/L [fact_3] और NT-proBNP 185 pg/mL [fact_4] पर बढ़े हुए हैं। कोलेस्ट्रॉल 188 mg/dL [fact_5] और पोटेशियम 4.2 mEq/L [fact_6] है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "hs-Troponin I 0.012 ng/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "CK-MB 14.2 U/L"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "hs-CRP 3.8 mg/L"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "NT-proBNP 185 pg/mL"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Total Cholesterol 188 mg/dL"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Serum Potassium 4.2 mEq/L"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "ASTER_RESP_010",
+    "provider_name": "Aster CMI Hospital, Hebbal, Bengaluru",
+    "document_type": "Pulmonology Assessment",
+    "document_date": "2026-02-14",
+    "patient_info": {
+      "name": "Deepak Nambiar",
+      "age": 35,
+      "gender": "M",
+      "mock_abha_id": "91-8899-0011-2233 (MOCK)"
+    },
+    "raw_text": "ASTER DM HEALTHCARE - DEPARTMENT OF PULMONOLOGY\nPatient: Deepak Nambiar | Age: 35 M | Date: 14/02/2026\nClinical Notes: Chronic episodic wheeze, nighttime cough x 3 months\nInvestigations:\nSerum Total IgE                  480         IU/mL       < 100\nAbsolute Eosinophil Count (AEC)   650         /cumm       40 - 450\nFEV1 / FVC Ratio                  68          %           > 75 (Reversible Post-BD +14%)\nRx (Prescription):\n1. Inhaler Foracort 200 (Budesonide 200mcg + Formoterol 6mcg) - 2 puffs BD with spacer\n2. Tab Montair-LC (Montelukast 10mg + Levocetirizine 5mg) - 1 tab HS night x 30 days\n3. Inhaler Asthalin 100mcg - 2 puffs SOS for acute breathlessness\nDiagnosis: Moderate Persistent Bronchial Asthma with Atopy.",
+    "gold_standard": {
+      "document_date": "2026-02-14",
+      "organ_system": "Respiratory / Lungs",
+      "labs": [
+        {
+          "test_name": "Total IgE",
+          "value": 480,
+          "unit": "IU/mL",
+          "reference_range": "< 100",
+          "flag": "ELEVATED",
+          "loinc_code": "19113-0"
+        },
+        {
+          "test_name": "Absolute Eosinophil Count",
+          "value": 650,
+          "unit": "/cumm",
+          "reference_range": "40 - 450",
+          "flag": "ELEVATED",
+          "loinc_code": "706-2"
+        },
+        {
+          "test_name": "FEV1 / FVC Ratio",
+          "value": 68,
+          "unit": "%",
+          "reference_range": "> 75",
+          "flag": "LOW",
+          "loinc_code": "19926-5"
+        }
+      ],
+      "medications": [
+        {
+          "brand_name": "Foracort 200",
+          "generic_name": "Budesonide + Formoterol",
+          "strength": "200mcg/6mcg",
+          "frequency": "2 puffs BD",
+          "food_relation": ""
+        },
+        {
+          "brand_name": "Montair-LC",
+          "generic_name": "Montelukast + Levocetirizine",
+          "strength": "10mg/5mg",
+          "frequency": "1 tab HS night",
+          "food_relation": ""
+        },
+        {
+          "brand_name": "Asthalin 100mcg",
+          "generic_name": "Salbutamol",
+          "strength": "100mcg",
+          "frequency": "2 puffs SOS",
+          "food_relation": ""
+        }
+      ],
+      "diagnoses": [
+        "Moderate Persistent Bronchial Asthma",
+        "Atopy / Allergy"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Total IgE is elevated at 480 IU/mL [fact_1] and AEC is 650 /cumm [fact_2], with FEV1/FVC at 68% [fact_3]. Prescribed Foracort 200 inhaler twice daily [fact_4], Montair-LC at bedtime [fact_5], and Asthalin SOS [fact_6].",
+      "text_te": "మొత్తం IgE 480 IU/mL [fact_1] మరియు AEC 650 /cumm [fact_2] తో పెరిగాయి, FEV1/FVC 68% [fact_3] వద్ద ఉంది. Foracort 200 ఇన్‌హేలర్ రోజుకు రెండుసార్లు [fact_4], రాత్రి Montair-LC [fact_5], మరియు అవసరమైనప్పుడు Asthalin [fact_6] సూచించబడ్డాయి.",
+      "text_hi": "कुल IgE 480 IU/mL [fact_1] और AEC 650 /cumm [fact_2] पर बढ़े हुए हैं, तथा FEV1/FVC 68% [fact_3] है। Foracort 200 इनहेलर दिन में दो बार [fact_4], रात में Montair-LC [fact_5], और जरूरत पड़ने पर Asthalin [fact_6] दिया गया है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Total IgE 480 IU/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Absolute Eosinophil Count 650 /cumm"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "FEV1 / FVC Ratio 68 %"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Foracort 200 2 puffs BD"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Montair-LC 1 tab HS night"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Asthalin 100mcg 2 puffs SOS"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "KIMS_ENDO_011",
+    "provider_name": "KIMS Hospitals, Secunderabad",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-02-22",
+    "patient_info": {
+      "name": "Ananya Singhania",
+      "age": 26,
+      "gender": "F",
+      "mock_abha_id": "91-7788-9900-1122 (MOCK)"
+    },
+    "raw_text": "KIMS HOSPITALS - ENDOCRINE & HORMONAL INVESTIGATIONS\nPatient: Ananya Singhania | 26/F | Date: 22/02/2026\nInvestigation                     Observed    Units       Reference Range (Follicular)\nSerum LH                          14.8        mIU/mL      2.4 - 12.6\nSerum FSH                         4.9         mIU/mL      3.5 - 12.5\nLH to FSH Ratio                   3.02        -           < 2.0 (Reversed/PCOS indicator)\nTotal Testosterone                68          ng/dL       15 - 70\nFasting Insulin                   18.4        uIU/mL      2.6 - 24.9 (Optimal < 10)\nSerum Prolactin                   16.2        ng/mL       4.8 - 23.3\nImpression: LH/FSH ratio is 3.02 with borderline hyperinsulinemia, suggestive of Polycystic Ovarian Syndrome.",
+    "gold_standard": {
+      "document_date": "2026-02-22",
+      "organ_system": "Endocrine & Reproductive",
+      "labs": [
+        {
+          "test_name": "Serum LH",
+          "value": 14.8,
+          "unit": "mIU/mL",
+          "reference_range": "2.4 - 12.6",
+          "flag": "ELEVATED",
+          "loinc_code": "10501-5"
+        },
+        {
+          "test_name": "Serum FSH",
+          "value": 4.9,
+          "unit": "mIU/mL",
+          "reference_range": "3.5 - 12.5",
+          "flag": "NORMAL",
+          "loinc_code": "15067-2"
+        },
+        {
+          "test_name": "LH to FSH Ratio",
+          "value": 3.02,
+          "unit": "",
+          "reference_range": "< 2.0",
+          "flag": "ELEVATED",
+          "loinc_code": ""
+        },
+        {
+          "test_name": "Total Testosterone",
+          "value": 68,
+          "unit": "ng/dL",
+          "reference_range": "15 - 70",
+          "flag": "NORMAL",
+          "loinc_code": "2986-8"
+        },
+        {
+          "test_name": "Fasting Insulin",
+          "value": 18.4,
+          "unit": "uIU/mL",
+          "reference_range": "2.6 - 24.9",
+          "flag": "NORMAL",
+          "loinc_code": "20448-7"
+        },
+        {
+          "test_name": "Serum Prolactin",
+          "value": 16.2,
+          "unit": "ng/mL",
+          "reference_range": "4.8 - 23.3",
+          "flag": "NORMAL",
+          "loinc_code": "2842-3"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Polycystic Ovarian Syndrome (PCOS)",
+        "Elevated LH/FSH Ratio"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "LH is elevated at 14.8 mIU/mL [fact_1] and FSH is 4.9 mIU/mL [fact_2], resulting in a high LH/FSH ratio of 3.02 [fact_3]. Fasting insulin is 18.4 uIU/mL [fact_4] and prolactin is normal at 16.2 ng/mL [fact_5].",
+      "text_te": "LH 14.8 mIU/mL [fact_1] మరియు FSH 4.9 mIU/mL [fact_2] తో, LH/FSH నిష్పత్తి 3.02 [fact_3] గా పెరిగింది. పరగడుపున ఇన్సులిన్ 18.4 uIU/mL [fact_4] మరియు ప్రోలాక్టిన్ 16.2 ng/mL [fact_5] సాధారణంగా ఉన్నాయి.",
+      "text_hi": "LH 14.8 mIU/mL [fact_1] और FSH 4.9 mIU/mL [fact_2] है, जिससे LH/FSH अनुपात 3.02 [fact_3] हो गया है। खाली पेट इंसुलिन 18.4 uIU/mL [fact_4] और प्रोलैक्टिन 16.2 ng/mL [fact_5] सामान्य हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Serum LH 14.8 mIU/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Serum FSH 4.9 mIU/mL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "LH to FSH Ratio 3.02"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Fasting Insulin 18.4 uIU/mL"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Serum Prolactin 16.2 ng/mL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "YASHODA_RHEUM_012",
+    "provider_name": "Yashoda Hospitals, Somajiguda, Hyderabad",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-03-12",
+    "patient_info": {
+      "name": "Meenakshi Sundaram",
+      "age": 49,
+      "gender": "F",
+      "mock_abha_id": "91-4455-6677-8899 (MOCK)"
+    },
+    "raw_text": "YASHODA HOSPITALS - IMMUNOLOGY & RHEUMATOLOGY\nPatient: Meenakshi Sundaram | 49/F | Date: 12/03/2026\nTest                              Observed    Units       Normal Reference\nRheumatoid Factor (RA Factor)     64.2        IU/mL       < 14.0 (Positive)\nAnti-CCP Antibodies (ACPA)        78.5        U/mL        < 20.0 (Strong Positive)\nC-Reactive Protein (CRP)          18.6        mg/L        < 5.0\nErythrocyte Sedimentation Rate    48          mm/1st hr   0 - 20\nSerum Uric Acid                   4.8         mg/dL       2.4 - 5.7\nImpression: Strong seropositive Rheumatoid Arthritis with active systemic inflammation.",
+    "gold_standard": {
+      "document_date": "2026-03-12",
+      "organ_system": "Musculoskeletal & Immunology",
+      "labs": [
+        {
+          "test_name": "Rheumatoid Factor",
+          "value": 64.2,
+          "unit": "IU/mL",
+          "reference_range": "< 14.0",
+          "flag": "ELEVATED",
+          "loinc_code": "11572-5"
+        },
+        {
+          "test_name": "Anti-CCP Antibodies",
+          "value": 78.5,
+          "unit": "U/mL",
+          "reference_range": "< 20.0",
+          "flag": "ELEVATED",
+          "loinc_code": "33935-8"
+        },
+        {
+          "test_name": "C-Reactive Protein",
+          "value": 18.6,
+          "unit": "mg/L",
+          "reference_range": "< 5.0",
+          "flag": "ELEVATED",
+          "loinc_code": "1988-5"
+        },
+        {
+          "test_name": "ESR",
+          "value": 48,
+          "unit": "mm/1st hr",
+          "reference_range": "0 - 20",
+          "flag": "ELEVATED",
+          "loinc_code": "4537-7"
+        },
+        {
+          "test_name": "Serum Uric Acid",
+          "value": 4.8,
+          "unit": "mg/dL",
+          "reference_range": "2.4 - 5.7",
+          "flag": "NORMAL",
+          "loinc_code": "3084-1"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Seropositive Rheumatoid Arthritis",
+        "Active Inflammatory State"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Rheumatoid Factor is elevated at 64.2 IU/mL [fact_1] and Anti-CCP is strongly positive at 78.5 U/mL [fact_2]. Inflammatory markers are elevated with CRP at 18.6 mg/L [fact_3] and ESR at 48 mm/1st hr [fact_4]. Uric acid is normal at 4.8 mg/dL [fact_5].",
+      "text_te": "రుమటాయిడ్ ఫ్యాక్టర్ 64.2 IU/mL [fact_1] మరియు యాంటీ-CCP 78.5 U/mL [fact_2] వద్ద పెరిగాయి. మంటను సూచించే CRP 18.6 mg/L [fact_3] మరియు ESR 48 mm/1st hr [fact_4] గా ఉన్నాయి. యూరిక్ యాసిడ్ 4.8 mg/dL [fact_5] సాధారణంగా ఉంది.",
+      "text_hi": "रुमेटीइड फैक्टर 64.2 IU/mL [fact_1] और एंटी-CCP 78.5 U/mL [fact_2] पर बढ़े हुए हैं। सूजन मार्कर CRP 18.6 mg/L [fact_3] और ESR 48 mm/1st hr [fact_4] पर हैं। यूरिक एसिड 4.8 mg/dL [fact_5] सामान्य है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Rheumatoid Factor 64.2 IU/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Anti-CCP Antibodies 78.5 U/mL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "C-Reactive Protein 18.6 mg/L"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "ESR 48 mm/1st hr"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Serum Uric Acid 4.8 mg/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "APOLLO_TELE_013",
+    "provider_name": "Apollo 24|7 Virtual Care Clinic",
+    "document_type": "Digital Prescription",
+    "document_date": "2026-03-14",
+    "patient_info": {
+      "name": "Naveen Reddy",
+      "age": 28,
+      "gender": "M",
+      "mock_abha_id": "91-1199-2288-3377 (MOCK)"
+    },
+    "raw_text": "APOLLO 247 - DIGITAL E-PRESCRIPTION\nPhysician: Dr. Preeti Rao, MBBS, DNB (General Medicine)\nPatient: Naveen Reddy | Age: 28/M | Date: 14-03-2026\nChief Complaints: Fever, productive cough, throat pain x 4 days\nRx:\n1. Tab Augmentin 625 (Amoxicillin 500mg + Clavulanic Acid 125mg) - 1 tab BD after food x 5 days\n2. Tab Dolo 650 (Paracetamol 650mg) - 1 tab TDS SOS for fever\n3. Tab Allegra 120 (Fexofenadine 120mg) - 1 tab OD at night x 5 days\n4. Syrup Ascoril-LS - 10ml TDS after food x 5 days\nGeneral Advice: Steam inhalation twice daily, warm saline gargle.",
+    "gold_standard": {
+      "document_date": "2026-03-14",
+      "organ_system": "Respiratory / ENT",
+      "labs": [],
+      "medications": [
+        {
+          "brand_name": "Augmentin 625",
+          "generic_name": "Amoxicillin + Clavulanic Acid",
+          "strength": "625mg",
+          "frequency": "1 tab BD",
+          "food_relation": "after food"
+        },
+        {
+          "brand_name": "Dolo 650",
+          "generic_name": "Paracetamol",
+          "strength": "650mg",
+          "frequency": "1 tab TDS SOS",
+          "food_relation": ""
+        },
+        {
+          "brand_name": "Allegra 120",
+          "generic_name": "Fexofenadine",
+          "strength": "120mg",
+          "frequency": "1 tab OD",
+          "food_relation": "at night"
+        },
+        {
+          "brand_name": "Ascoril-LS",
+          "generic_name": "Levosalbutamol + Ambroxol + Guaiphenesin",
+          "strength": "10ml",
+          "frequency": "10ml TDS",
+          "food_relation": "after food"
+        }
+      ],
+      "diagnoses": [
+        "Acute Upper Respiratory Tract Infection (URTI)",
+        "Acute Pharyngitis"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Prescribed Augmentin 625 twice daily after food for 5 days [fact_1], Dolo 650 three times daily as needed for fever [fact_2], Allegra 120 once daily at night [fact_3], and Ascoril-LS syrup 10ml thrice daily [fact_4].",
+      "text_te": "ఆహారం తర్వాత 5 రోజుల పాటు రోజుకు రెండుసార్లు Augmentin 625 [fact_1], జ్వరానికి అవసరమైనప్పుడు రోజుకు మూడుసార్లు Dolo 650 [fact_2], రాత్రి Allegra 120 [fact_3], మరియు Ascoril-LS సిరప్ 10ml రోజుకు మూడుసార్లు [fact_4] సూచించబడ్డాయి.",
+      "text_hi": "भोजन के बाद 5 दिनों के लिए दिन में दो बार Augmentin 625 [fact_1], बुखार के लिए जरूरत पड़ने पर दिन में तीन बार Dolo 650 [fact_2], रात में Allegra 120 [fact_3], और Ascoril-LS सिरप 10ml दिन में तीन बार [fact_4] निर्धारित किया गया है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Augmentin 625 1 tab BD after food"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Dolo 650 1 tab TDS SOS"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Allegra 120 1 tab OD at night"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Syrup Ascoril-LS 10ml TDS"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "SUBURBAN_COAG_014",
+    "provider_name": "Suburban Diagnostics, Andheri, Mumbai",
+    "document_type": "Diagnostic Report",
+    "document_date": "2026-02-10",
+    "patient_info": {
+      "name": "Arun K. Sen",
+      "age": 67,
+      "gender": "M",
+      "mock_abha_id": "91-3344-5566-7788 (MOCK)"
+    },
+    "raw_text": "SUBURBAN DIAGNOSTICS - HEMATOLOGY & COAGULATION\nPatient: Arun K. Sen | Age: 67 / M | Date: 10/02/2026\nTest                              Value       Units       Reference Interval\nProthrombin Time (PT)             14.8        seconds     11.0 - 13.5\nINR (International Normalized)    1.24        -           0.8 - 1.2 (Therapeutic 2.0-3.0)\nAPTT                              32.4        seconds     26.0 - 38.0\nD-Dimer                           320         ng/mL FEU   < 500\nFibrinogen                        310         mg/dL       200 - 400\nImpression: Mild prolongation in Prothrombin Time; D-Dimer within normal limits.",
+    "gold_standard": {
+      "document_date": "2026-02-10",
+      "organ_system": "Cardiovascular & Hematology",
+      "labs": [
+        {
+          "test_name": "Prothrombin Time",
+          "value": 14.8,
+          "unit": "seconds",
+          "reference_range": "11.0 - 13.5",
+          "flag": "ELEVATED",
+          "loinc_code": "5902-2"
+        },
+        {
+          "test_name": "INR",
+          "value": 1.24,
+          "unit": "",
+          "reference_range": "0.8 - 1.2",
+          "flag": "ELEVATED",
+          "loinc_code": "6301-6"
+        },
+        {
+          "test_name": "APTT",
+          "value": 32.4,
+          "unit": "seconds",
+          "reference_range": "26.0 - 38.0",
+          "flag": "NORMAL",
+          "loinc_code": "3173-2"
+        },
+        {
+          "test_name": "D-Dimer",
+          "value": 320,
+          "unit": "ng/mL FEU",
+          "reference_range": "< 500",
+          "flag": "NORMAL",
+          "loinc_code": "48065-7"
+        },
+        {
+          "test_name": "Fibrinogen",
+          "value": 310,
+          "unit": "mg/dL",
+          "reference_range": "200 - 400",
+          "flag": "NORMAL",
+          "loinc_code": "3255-7"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Mildly Elevated INR / PT",
+        "Normal D-Dimer"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Prothrombin Time is 14.8 seconds [fact_1] with an INR of 1.24 [fact_2]. APTT is normal at 32.4 seconds [fact_3], D-Dimer is normal at 320 ng/mL FEU [fact_4], and fibrinogen is 310 mg/dL [fact_5].",
+      "text_te": "ప్రోథ్రాంబిన్ సమయం 14.8 సెకన్లు [fact_1] మరియు INR 1.24 [fact_2] గా ఉంది. APTT 32.4 సెకన్లు [fact_3], D-Dimer 320 ng/mL [fact_4], ఫైబ్రినోజెన్ 310 mg/dL [fact_5] సాధారణంగా ఉన్నాయి.",
+      "text_hi": "प्रोथ्रोम्बिन टाइम 14.8 सेकंड [fact_1] और INR 1.24 [fact_2] है। APTT 32.4 सेकंड [fact_3], डी-डिमर 320 ng/mL [fact_4], और फाइब्रिनोजेन 310 mg/dL [fact_5] सामान्य हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Prothrombin Time 14.8 seconds"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "INR 1.24"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "APTT 32.4 seconds"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "D-Dimer 320 ng/mL FEU"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Fibrinogen 310 mg/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "AIG_GASTRO_015",
+    "provider_name": "Asian Institute of Gastroenterology (AIG), Gachibowli, Hyderabad",
+    "document_type": "Diagnostic & Endoscopy Summary",
+    "document_date": "2026-03-04",
+    "patient_info": {
+      "name": "Venkatesh Murthy",
+      "age": 42,
+      "gender": "M",
+      "mock_abha_id": "91-9988-7766-5544 (MOCK)"
+    },
+    "raw_text": "AIG HOSPITALS - MEDICAL GASTROENTEROLOGY\nPatient: Venkatesh Murthy | 42/M | Date: 04/03/2026\nUpper GI Endoscopy Findings: Antral erythema, mild duodenal erosions.\nRapid Urease Test (RUT): POSITIVE (Helicobacter pylori)\nSerum Lipase: 36 U/L (Reference: 13 - 60)\nSerum Amylase: 54 U/L (Reference: 28 - 100)\nPrescription (H. pylori Eradication Kit):\n1. Tab Sompraz 40 (Esomeprazole 40mg) - 1 tab BD before meals x 14 days\n2. Tab Clavam 625 (Amoxicillin + Clavulanate) - 1 tab BD after food x 14 days\n3. Tab Claribid 500 (Clarithromycin 500mg) - 1 tab BD after food x 14 days\nImpression: H. pylori Antral Gastritis.",
+    "gold_standard": {
+      "document_date": "2026-03-04",
+      "organ_system": "Gastrointestinal / Stomach",
+      "labs": [
+        {
+          "test_name": "Rapid Urease Test (RUT)",
+          "value": "POSITIVE",
+          "unit": "",
+          "reference_range": "Negative",
+          "flag": "ELEVATED",
+          "loinc_code": "29893-5"
+        },
+        {
+          "test_name": "Serum Lipase",
+          "value": 36,
+          "unit": "U/L",
+          "reference_range": "13 - 60",
+          "flag": "NORMAL",
+          "loinc_code": "3040-3"
+        },
+        {
+          "test_name": "Serum Amylase",
+          "value": 54,
+          "unit": "U/L",
+          "reference_range": "28 - 100",
+          "flag": "NORMAL",
+          "loinc_code": "1798-8"
+        }
+      ],
+      "medications": [
+        {
+          "brand_name": "Sompraz 40",
+          "generic_name": "Esomeprazole",
+          "strength": "40mg",
+          "frequency": "1 tab BD",
+          "food_relation": "before meals"
+        },
+        {
+          "brand_name": "Clavam 625",
+          "generic_name": "Amoxicillin + Clavulanic Acid",
+          "strength": "625mg",
+          "frequency": "1 tab BD",
+          "food_relation": "after food"
+        },
+        {
+          "brand_name": "Claribid 500",
+          "generic_name": "Clarithromycin",
+          "strength": "500mg",
+          "frequency": "1 tab BD",
+          "food_relation": "after food"
+        }
+      ],
+      "diagnoses": [
+        "Helicobacter pylori Gastritis",
+        "Antral Erythema"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Rapid Urease Test is POSITIVE for H. pylori [fact_1]. Lipase (36 U/L) [fact_2] and Amylase (54 U/L) [fact_3] are normal. Prescribed Sompraz 40 twice daily [fact_4], Clavam 625 twice daily [fact_5], and Claribid 500 twice daily [fact_6] for 14 days.",
+      "text_te": "H. pylori కోసం రాపిడ్ యూరియేస్ పరీక్ష పాజిటివ్ [fact_1] గా వచ్చింది. లైపేస్ (36 U/L) [fact_2] మరియు అమైలేస్ (54 U/L) [fact_3] సాధారణంగా ఉన్నాయి. 14 రోజుల పాటు Sompraz 40 [fact_4], Clavam 625 [fact_5], Claribid 500 [fact_6] రోజుకు రెండుసార్లు సూచించబడ్డాయి.",
+      "text_hi": "H. pylori के लिए रैपिड यूरिएज टेस्ट पॉजिटिव [fact_1] आया है। लाइपेज (36 U/L) [fact_2] और एमाइलेज (54 U/L) [fact_3] सामान्य हैं। 14 दिनों के लिए Sompraz 40 [fact_4], Clavam 625 [fact_5], और Claribid 500 [fact_6] दिन में दो बार दिए गए हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Rapid Urease Test POSITIVE"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Serum Lipase 36 U/L"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Serum Amylase 54 U/L"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Sompraz 40 1 tab BD"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Clavam 625 1 tab BD"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Claribid 500 1 tab BD"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "CARE_MHC_016",
+    "provider_name": "CARE Hospitals, Banjara Hills, Hyderabad",
+    "document_type": "Executive Health Package",
+    "document_date": "2026-02-05",
+    "patient_info": {
+      "name": "Rajeshwari Rao",
+      "age": 50,
+      "gender": "F",
+      "mock_abha_id": "91-5566-7788-9900 (MOCK)"
+    },
+    "raw_text": "CARE HOSPITALS - EXECUTIVE HEALTH SUMMARY\nPatient: Rajeshwari Rao | 50/F | Date: 05/02/2026\nFasting Blood Sugar: 94 mg/dL (70 - 100)\nHbA1c: 5.4 % (4.0 - 5.6)\nSerum Creatinine: 0.81 mg/dL (0.6 - 1.1)\neGFR: 98 mL/min/1.73m2 (> 90)\nTotal Bilirubin: 0.7 mg/dL (0.2 - 1.2)\nSerum Uric Acid: 4.1 mg/dL (2.4 - 5.7)\nConclusion: All biochemical parameters within optimal healthy reference bounds.",
+    "gold_standard": {
+      "document_date": "2026-02-05",
+      "organ_system": "General Metabolic / Multi-organ",
+      "labs": [
+        {
+          "test_name": "Fasting Blood Sugar",
+          "value": 94,
+          "unit": "mg/dL",
+          "reference_range": "70 - 100",
+          "flag": "NORMAL",
+          "loinc_code": "1558-6"
+        },
+        {
+          "test_name": "HbA1c",
+          "value": 5.4,
+          "unit": "%",
+          "reference_range": "4.0 - 5.6",
+          "flag": "NORMAL",
+          "loinc_code": "4548-4"
+        },
+        {
+          "test_name": "Serum Creatinine",
+          "value": 0.81,
+          "unit": "mg/dL",
+          "reference_range": "0.6 - 1.1",
+          "flag": "NORMAL",
+          "loinc_code": "2160-0"
+        },
+        {
+          "test_name": "eGFR",
+          "value": 98,
+          "unit": "mL/min/1.73m2",
+          "reference_range": "> 90",
+          "flag": "NORMAL",
+          "loinc_code": "33914-3"
+        },
+        {
+          "test_name": "Total Bilirubin",
+          "value": 0.7,
+          "unit": "mg/dL",
+          "reference_range": "0.2 - 1.2",
+          "flag": "NORMAL",
+          "loinc_code": "1975-2"
+        },
+        {
+          "test_name": "Serum Uric Acid",
+          "value": 4.1,
+          "unit": "mg/dL",
+          "reference_range": "2.4 - 5.7",
+          "flag": "NORMAL",
+          "loinc_code": "3084-1"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Healthy Biochemical Profile"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Fasting blood sugar is optimal at 94 mg/dL [fact_1] and HbA1c is healthy at 5.4% [fact_2]. Serum creatinine is 0.81 mg/dL [fact_3] with eGFR of 98 mL/min/1.73m2 [fact_4]. Bilirubin (0.7 mg/dL) [fact_5] and uric acid (4.1 mg/dL) [fact_6] are completely normal.",
+      "text_te": "పరగడుపున రక్తంలో చక్కెర 94 mg/dL [fact_1] మరియు HbA1c 5.4% [fact_2] తో ఆరోగ్యకరంగా ఉన్నాయి. సీరం క్రియాటినిన్ 0.81 mg/dL [fact_3], eGFR 98 mL/min/1.73m2 [fact_4] గా ఉంది. బిలిరుబిన్ (0.7 mg/dL) [fact_5] మరియు యూరిక్ యాసిడ్ (4.1 mg/dL) [fact_6] పూర్తిగా సాధారణంగా ఉన్నాయి.",
+      "text_hi": "खाली पेट रक्त शर्करा 94 mg/dL [fact_1] और HbA1c 5.4% [fact_2] पर पूरी तरह स्वस्थ है। सीरम क्रिएटिनिन 0.81 mg/dL [fact_3] और eGFR 98 mL/min/1.73m2 [fact_4] है। बिलीरुबिन (0.7 mg/dL) [fact_5] और यूरिक एसिड (4.1 mg/dL) [fact_6] सामान्य हैं।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Fasting Blood Sugar 94 mg/dL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "HbA1c 5.4 %"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Serum Creatinine 0.81 mg/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "eGFR 98 mL/min/1.73m2"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Total Bilirubin 0.7 mg/dL"
+        },
+        {
+          "fact_id": "fact_6",
+          "claim": "Serum Uric Acid 4.1 mg/dL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "REDDY_GERI_017",
+    "provider_name": "Dr. Reddy's Senior Care Clinic, Visakhapatnam",
+    "document_type": "Clinical Review & Medication Chart",
+    "document_date": "2026-03-07",
+    "patient_info": {
+      "name": "Krishnamurthy V.",
+      "age": 74,
+      "gender": "M",
+      "mock_abha_id": "91-1122-3344-9988 (MOCK)"
+    },
+    "raw_text": "DR. REDDY'S GERIATRIC CLINIC\nPatient: Krishnamurthy V. | Age: 74 M | Date: 07-03-2026\nActive Diagnoses: Hypertension, BPH, Mild Osteoarthritis\nMedication Review:\n1. Tab Cilacar 10 (Cilnidipine 10mg) - 1 tab OD morning after food\n2. Tab Urimax 0.4 (Tamsulosin 0.4mg) - 1 tab HS night after food\n3. Tab Shellcal 500 (Calcium Carbonate 500mg + Vit D3) - 1 tab OD after lunch\n4. Gel Voveran (Diclofenac Sodium 1%) - Apply topically on knees BD\nAdvice: Fall prevention precautions, hydration > 2 Liters daily.",
+    "gold_standard": {
+      "document_date": "2026-03-07",
+      "organ_system": "Cardiovascular, Renal/Urology & Bone",
+      "labs": [],
+      "medications": [
+        {
+          "brand_name": "Cilacar 10",
+          "generic_name": "Cilnidipine",
+          "strength": "10mg",
+          "frequency": "1 tab OD",
+          "food_relation": "after food"
+        },
+        {
+          "brand_name": "Urimax 0.4",
+          "generic_name": "Tamsulosin",
+          "strength": "0.4mg",
+          "frequency": "1 tab HS",
+          "food_relation": "after food"
+        },
+        {
+          "brand_name": "Shellcal 500",
+          "generic_name": "Calcium Carbonate + Vitamin D3",
+          "strength": "500mg",
+          "frequency": "1 tab OD",
+          "food_relation": "after lunch"
+        },
+        {
+          "brand_name": "Voveran Gel",
+          "generic_name": "Diclofenac Sodium",
+          "strength": "1%",
+          "frequency": "Apply BD",
+          "food_relation": "topical"
+        }
+      ],
+      "diagnoses": [
+        "Hypertension",
+        "Benign Prostatic Hyperplasia (BPH)",
+        "Knee Osteoarthritis"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Prescribed Cilacar 10 once daily in morning [fact_1], Urimax 0.4 at bedtime [fact_2], Shellcal 500 after lunch [fact_3], and Voveran gel applied topically twice daily [fact_4].",
+      "text_te": "ఉదయం పూట Cilacar 10 రోజుకు ఒకసారి [fact_1], రాత్రి Urimax 0.4 [fact_2], భోజనం తర్వాత Shellcal 500 [fact_3], మరియు రోజుకు రెండుసార్లు మోకాళ్లపై Voveran జెల్ [fact_4] సూచించబడ్డాయి.",
+      "text_hi": "सुबह में Cilacar 10 दिन में एक बार [fact_1], रात में Urimax 0.4 [fact_2], दोपहर के भोजन के बाद Shellcal 500 [fact_3], और दिन में दो बार Voveran जेल [fact_4] लगाने की सलाह दी गई है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Cilacar 10 1 tab OD morning"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Urimax 0.4 1 tab HS night"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Shellcal 500 1 tab OD after lunch"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Voveran Gel Apply BD topical"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "AMRITA_PED_018",
+    "provider_name": "Amrita Institute of Medical Sciences, Kochi",
+    "document_type": "Pediatric Diagnostic Report",
+    "document_date": "2026-02-25",
+    "patient_info": {
+      "name": "Master Aarav Menon",
+      "age": 7,
+      "gender": "M",
+      "mock_abha_id": "91-4433-2211-0099 (MOCK)"
+    },
+    "raw_text": "AMRITA INSTITUTE OF MEDICAL SCIENCES - PEDIATRIC LAB\nPatient: Master Aarav Menon | Age: 7 Y / M | Date: 25/02/2026\nTest                              Observed    Units       Pediatric Reference\nHemoglobin                        11.8        g/dL        11.5 - 15.5\nTotal WBC Count                   8100        /cumm       5000 - 13000\nPlatelet Count                    310000      /cumm       150000 - 450000\nSerum Ferritin                    28          ng/mL       14 - 120\nUrine Routine Albumin             NIL         -           Nil\nUrine Sugar                       NIL         -           Nil\nImpression: Normal pediatric complete blood count and iron stores.",
+    "gold_standard": {
+      "document_date": "2026-02-25",
+      "organ_system": "Pediatric Hematology",
+      "labs": [
+        {
+          "test_name": "Hemoglobin",
+          "value": 11.8,
+          "unit": "g/dL",
+          "reference_range": "11.5 - 15.5",
+          "flag": "NORMAL",
+          "loinc_code": "718-7"
+        },
+        {
+          "test_name": "Total WBC Count",
+          "value": 8100,
+          "unit": "/cumm",
+          "reference_range": "5000 - 13000",
+          "flag": "NORMAL",
+          "loinc_code": "6690-2"
+        },
+        {
+          "test_name": "Platelet Count",
+          "value": 310000,
+          "unit": "/cumm",
+          "reference_range": "150000 - 450000",
+          "flag": "NORMAL",
+          "loinc_code": "777-3"
+        },
+        {
+          "test_name": "Serum Ferritin",
+          "value": 28,
+          "unit": "ng/mL",
+          "reference_range": "14 - 120",
+          "flag": "NORMAL",
+          "loinc_code": "2276-4"
+        }
+      ],
+      "medications": [],
+      "diagnoses": [
+        "Normal Pediatric Hematology Profile"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Hemoglobin is 11.8 g/dL [fact_1] with WBC at 8100 /cumm [fact_2]. Platelet count is healthy at 310000 /cumm [fact_3] and serum ferritin is normal at 28 ng/mL [fact_4].",
+      "text_te": "హిమోగ్లోబిన్ 11.8 g/dL [fact_1] మరియు WBC 8100 /cumm [fact_2] గా నమోదైంది. ప్లేట్‌లెట్స్ 310000 /cumm [fact_3] మరియు సీరం ఫెర్రిటిన్ 28 ng/mL [fact_4] తో సాధారణంగా ఉన్నాయి.",
+      "text_hi": "हीमोग्लोबिन 11.8 g/dL [fact_1] और WBC 8100 /cumm [fact_2] है। प्लेटलेट काउंट 310000 /cumm [fact_3] और सीरम फेरिटिन 28 ng/mL [fact_4] पर सामान्य है।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Hemoglobin 11.8 g/dL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Total WBC Count 8100 /cumm"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Platelet Count 310000 /cumm"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Serum Ferritin 28 ng/mL"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "MANIPAL_DISC_019",
+    "provider_name": "Manipal Hospitals, Old Airport Road, Bengaluru",
+    "document_type": "Discharge Summary & Prescription",
+    "document_date": "2026-03-09",
+    "patient_info": {
+      "name": "Sanjay K. Roy",
+      "age": 44,
+      "gender": "M",
+      "mock_abha_id": "91-6655-4433-2211 (MOCK)"
+    },
+    "raw_text": "MANIPAL HOSPITALS - DEPARTMENT OF GENERAL SURGERY\nDISCHARGE SUMMARY\nPatient: Sanjay K. Roy | Age: 44 M | Date of Discharge: 09/03/2026\nProcedure: Laparoscopic Cholecystectomy (Symptomatic Cholelithiasis)\nDischarge Medications:\n1. Tab Zifi-CV 200 (Cefixime 200mg + Clavulanic Acid 125mg) - 1 tab BD x 5 days\n2. Tab Zerodol-SP (Aceclofenac 100mg + Paracetamol 325mg + Serratiopeptidase 15mg) - 1 tab BD after food x 3 days\n3. Tab Razo 20 (Rabeprazole 20mg) - 1 tab OD before breakfast x 7 days\n4. Syp Duphalac (Lactulose 10g/15ml) - 15ml HS as needed\nFollow-up: Suture removal and review on 16/03/2026.",
+    "gold_standard": {
+      "document_date": "2026-03-09",
+      "organ_system": "Surgical / Gastrointestinal",
+      "labs": [],
+      "medications": [
+        {
+          "brand_name": "Zifi-CV 200",
+          "generic_name": "Cefixime + Clavulanic Acid",
+          "strength": "200mg/125mg",
+          "frequency": "1 tab BD",
+          "food_relation": ""
+        },
+        {
+          "brand_name": "Zerodol-SP",
+          "generic_name": "Aceclofenac + Paracetamol + Serratiopeptidase",
+          "strength": "100mg/325mg/15mg",
+          "frequency": "1 tab BD",
+          "food_relation": "after food"
+        },
+        {
+          "brand_name": "Razo 20",
+          "generic_name": "Rabeprazole",
+          "strength": "20mg",
+          "frequency": "1 tab OD",
+          "food_relation": "before breakfast"
+        },
+        {
+          "brand_name": "Duphalac",
+          "generic_name": "Lactulose",
+          "strength": "10g/15ml",
+          "frequency": "15ml HS",
+          "food_relation": "as needed"
+        }
+      ],
+      "diagnoses": [
+        "Status Post Laparoscopic Cholecystectomy",
+        "Cholelithiasis"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "Discharge medications include Zifi-CV 200 twice daily [fact_1], Zerodol-SP twice daily after food [fact_2], Razo 20 once daily before breakfast [fact_3], and Duphalac syrup at bedtime as needed [fact_4]. Follow-up appointment is on 16/03/2026 [fact_5].",
+      "text_te": "డిశ్చార్జ్ మందులలో Zifi-CV 200 రోజుకు రెండుసార్లు [fact_1], ఆహారం తర్వాత Zerodol-SP రోజుకు రెండుసార్లు [fact_2], అల్పాహారానికి ముందు Razo 20 [fact_3], మరియు రాత్రి అవసరమైతే Duphalac సిరప్ [fact_4] ఉన్నాయి. తదుపరి అపాయింట్‌మెంట్ 16/03/2026 న ఉంది [fact_5].",
+      "text_hi": "डिस्चार्ज दवाओं में Zifi-CV 200 दिन में दो बार [fact_1], भोजन के बाद Zerodol-SP दिन में दो बार [fact_2], नाश्ते से पहले Razo 20 [fact_3], और जरूरत पड़ने पर रात में Duphalac सिरप [fact_4] शामिल हैं। फॉलो-अप 16/03/2026 को निर्धारित है [fact_5]।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Zifi-CV 200 1 tab BD"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Zerodol-SP 1 tab BD after food"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Razo 20 1 tab OD before breakfast"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "Duphalac 15ml HS as needed"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Follow-up on 16/03/2026"
+        }
+      ]
+    }
+  },
+  {
+    "doc_id": "AIIMS_OUTP_020",
+    "provider_name": "All India Institute of Medical Sciences (AIIMS), New Delhi",
+    "document_type": "Outpatient Assessment",
+    "document_date": "2026-03-11",
+    "patient_info": {
+      "name": "Geeta Bhattacharya",
+      "age": 41,
+      "gender": "F",
+      "mock_abha_id": "91-7766-5544-3322 (MOCK)"
+    },
+    "raw_text": "ALL INDIA INSTITUTE OF MEDICAL SCIENCES, NEW DELHI\nDEPARTMENT OF ENDOCRINOLOGY & METABOLISM\nPatient: Geeta Bhattacharya | 41 Yrs / Female | Date: 11/03/2026\nLaboratory Results:\nSerum TSH: 2.45 uIU/mL (0.35 - 4.94)\nFree T4: 1.15 ng/dL (0.70 - 1.48)\nFasting Blood Glucose: 92 mg/dL (70 - 100)\nHbA1c: 5.6 % (4.0 - 5.6)\nPrescription:\n1. Tab Thyronorm 50mcg (Levothyroxine 50mcg) - 1 tab OD empty stomach in morning 30 min before tea/breakfast\nPlan: Maintain current dose of Thyronorm 50mcg. Repeat TSH in 6 months.",
+    "gold_standard": {
+      "document_date": "2026-03-11",
+      "organ_system": "Endocrine / Thyroid & Metabolic",
+      "labs": [
+        {
+          "test_name": "Serum TSH",
+          "value": 2.45,
+          "unit": "uIU/mL",
+          "reference_range": "0.35 - 4.94",
+          "flag": "NORMAL",
+          "loinc_code": "3016-3"
+        },
+        {
+          "test_name": "Free T4",
+          "value": 1.15,
+          "unit": "ng/dL",
+          "reference_range": "0.70 - 1.48",
+          "flag": "NORMAL",
+          "loinc_code": "3024-7"
+        },
+        {
+          "test_name": "Fasting Blood Glucose",
+          "value": 92,
+          "unit": "mg/dL",
+          "reference_range": "70 - 100",
+          "flag": "NORMAL",
+          "loinc_code": "1558-6"
+        },
+        {
+          "test_name": "HbA1c",
+          "value": 5.6,
+          "unit": "%",
+          "reference_range": "4.0 - 5.6",
+          "flag": "NORMAL",
+          "loinc_code": "4548-4"
+        }
+      ],
+      "medications": [
+        {
+          "brand_name": "Thyronorm 50mcg",
+          "generic_name": "Levothyroxine",
+          "strength": "50mcg",
+          "frequency": "1 tab OD",
+          "food_relation": "empty stomach morning"
+        }
+      ],
+      "diagnoses": [
+        "Euthyroid State on Levothyroxine Replacement",
+        "Normal Glycemic Status"
+      ]
+    },
+    "grounded_summary": {
+      "text_en": "TSH is well-controlled at 2.45 uIU/mL [fact_1] and Free T4 is 1.15 ng/dL [fact_2]. Fasting glucose is 92 mg/dL [fact_3] and HbA1c is 5.6% [fact_4]. Continue Thyronorm 50mcg once daily on empty stomach [fact_5].",
+      "text_te": "TSH 2.45 uIU/mL [fact_1] తో అదుపులో ఉంది మరియు ఫ్రీ T4 1.15 ng/dL [fact_2] గా ఉంది. పరగడుపున గ్లూకోజ్ 92 mg/dL [fact_3], HbA1c 5.6% [fact_4] వద్ద ఉన్నాయి. ఉదయం పరగడుపున Thyronorm 50mcg రోజుకు ఒకసారి కొనసాగించండి [fact_5].",
+      "text_hi": "TSH 2.45 uIU/mL [fact_1] पर अच्छी तरह नियंत्रित है और फ्री T4 1.15 ng/dL [fact_2] है। खाली पेट ग्लूकोज 92 mg/dL [fact_3] और HbA1c 5.6% [fact_4] है। सुबह खाली पेट Thyronorm 50mcg प्रतिदिन एक बार जारी रखें [fact_5]।",
+      "facts": [
+        {
+          "fact_id": "fact_1",
+          "claim": "Serum TSH 2.45 uIU/mL"
+        },
+        {
+          "fact_id": "fact_2",
+          "claim": "Free T4 1.15 ng/dL"
+        },
+        {
+          "fact_id": "fact_3",
+          "claim": "Fasting Blood Glucose 92 mg/dL"
+        },
+        {
+          "fact_id": "fact_4",
+          "claim": "HbA1c 5.6 %"
+        },
+        {
+          "fact_id": "fact_5",
+          "claim": "Thyronorm 50mcg 1 tab OD empty stomach"
+        }
+      ]
+    }
+  }
+]

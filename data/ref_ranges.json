@@ -1,0 +1,254 @@
+{
+  "4548-4": {
+    "name": "HbA1c (Glycated Hemoglobin)",
+    "loinc": "4548-4",
+    "unit": "%",
+    "organ_system": "endocrine",
+    "zones": {
+      "low": {"min": 0.0, "max": 3.9},
+      "normal": {"min": 4.0, "max": 5.6},
+      "elevated": {"min": 5.7, "max": 6.4},
+      "critical": {"min": 6.5, "max": 18.0}
+    },
+    "interpretation": {
+      "low": "Lower than expected glycemic index. May indicate hypoglycemia risk or anemia.",
+      "normal": "Normal average blood glucose control over the preceding 90 days.",
+      "elevated": "Prediabetes range. Increased risk for type 2 diabetes. Lifestyle changes recommended.",
+      "critical": "Elevated diabetic range. Suboptimal glycemic control requiring clinical consultation."
+    }
+  },
+  "2345-7": {
+    "name": "Fasting Blood Glucose",
+    "loinc": "2345-7",
+    "unit": "mg/dL",
+    "organ_system": "endocrine",
+    "zones": {
+      "low": {"min": 0.0, "max": 69.9},
+      "normal": {"min": 70.0, "max": 99.9},
+      "elevated": {"min": 100.0, "max": 125.9},
+      "critical": {"min": 126.0, "max": 500.0}
+    },
+    "interpretation": {
+      "low": "Low blood sugar (hypoglycemia). Consult physician if symptomatic.",
+      "normal": "Normal fasting blood glucose level.",
+      "elevated": "Impaired fasting glucose (prediabetic range).",
+      "critical": "Elevated fasting blood sugar in diabetic range."
+    }
+  },
+  "2160-0": {
+    "name": "Serum Creatinine",
+    "loinc": "2160-0",
+    "unit": "mg/dL",
+    "organ_system": "renal",
+    "zones": {
+      "low": {"min": 0.0, "max": 0.59},
+      "normal": {"min": 0.6, "max": 1.2},
+      "elevated": {"min": 1.21, "max": 1.99},
+      "critical": {"min": 2.0, "max": 15.0}
+    },
+    "interpretation": {
+      "low": "Below normal range. Often related to low muscle mass.",
+      "normal": "Healthy kidney filtration function.",
+      "elevated": "Mildly reduced renal clearance. Requires follow-up hydration check.",
+      "critical": "Significantly impaired kidney filtration. Immediate nephrology evaluation recommended."
+    }
+  },
+  "3094-0": {
+    "name": "Blood Urea Nitrogen (BUN)",
+    "loinc": "3094-0",
+    "unit": "mg/dL",
+    "organ_system": "renal",
+    "zones": {
+      "low": {"min": 0.0, "max": 6.9},
+      "normal": {"min": 7.0, "max": 20.0},
+      "elevated": {"min": 20.1, "max": 39.9},
+      "critical": {"min": 40.0, "max": 150.0}
+    },
+    "interpretation": {
+      "low": "Low urea level. Usually benign; may correlate with low protein diet.",
+      "normal": "Normal kidney nitrogen excretion.",
+      "elevated": "Elevated blood urea. May indicate dehydration or altered kidney clearance.",
+      "critical": "Markedly elevated blood urea. Potential acute or chronic renal compromise."
+    }
+  },
+  "1742-6": {
+    "name": "Alanine Aminotransferase (ALT / SGPT)",
+    "loinc": "1742-6",
+    "unit": "U/L",
+    "organ_system": "hepatic",
+    "zones": {
+      "low": {"min": 0.0, "max": 6.9},
+      "normal": {"min": 7.0, "max": 45.0},
+      "elevated": {"min": 45.1, "max": 89.9},
+      "critical": {"min": 90.0, "max": 1000.0}
+    },
+    "interpretation": {
+      "low": "Normal baseline liver enzyme level.",
+      "normal": "Healthy liver cell integrity.",
+      "elevated": "Mild hepatocellular irritation. May be associated with fatty liver or medications.",
+      "critical": "Marked hepatic enzyme elevation. Medical investigation needed."
+    }
+  },
+  "1920-8": {
+    "name": "Aspartate Aminotransferase (AST / SGOT)",
+    "loinc": "1920-8",
+    "unit": "U/L",
+    "organ_system": "hepatic",
+    "zones": {
+      "low": {"min": 0.0, "max": 7.9},
+      "normal": {"min": 8.0, "max": 40.0},
+      "elevated": {"min": 40.1, "max": 79.9},
+      "critical": {"min": 80.0, "max": 1000.0}
+    },
+    "interpretation": {
+      "low": "Normal baseline liver/muscle enzyme level.",
+      "normal": "Healthy cellular profile.",
+      "elevated": "Mild elevation. Can arise from liver stress or vigorous exercise.",
+      "critical": "Significant transaminase elevation. Clinical assessment indicated."
+    }
+  },
+  "2093-3": {
+    "name": "Total Cholesterol",
+    "loinc": "2093-3",
+    "unit": "mg/dL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 124.9},
+      "normal": {"min": 125.0, "max": 199.9},
+      "elevated": {"min": 200.0, "max": 239.9},
+      "critical": {"min": 240.0, "max": 600.0}
+    },
+    "interpretation": {
+      "low": "Low total cholesterol.",
+      "normal": "Desirable cardiovascular cholesterol range.",
+      "elevated": "Borderline high total cholesterol. Dietary attention advised.",
+      "critical": "High total cholesterol. Elevated cardiovascular risk factor."
+    }
+  },
+  "2085-9": {
+    "name": "HDL Cholesterol (Good)",
+    "loinc": "2085-9",
+    "unit": "mg/dL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 39.9},
+      "normal": {"min": 40.0, "max": 59.9},
+      "elevated": {"min": 60.0, "max": 100.0},
+      "critical": {"min": 100.1, "max": 200.0}
+    },
+    "interpretation": {
+      "low": "Low HDL cholesterol. Associated with reduced cardiovascular protection.",
+      "normal": "Standard protective HDL cholesterol level.",
+      "elevated": "Optimal protective HDL cholesterol level.",
+      "critical": "Extremely high HDL."
+    }
+  },
+  "13457-7": {
+    "name": "LDL Cholesterol (Calculated)",
+    "loinc": "13457-7",
+    "unit": "mg/dL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 49.9},
+      "normal": {"min": 50.0, "max": 99.9},
+      "elevated": {"min": 100.0, "max": 159.9},
+      "critical": {"min": 160.0, "max": 400.0}
+    },
+    "interpretation": {
+      "low": "Very low LDL level.",
+      "normal": "Optimal atherogenic risk profile.",
+      "elevated": "Borderline/elevated LDL cholesterol.",
+      "critical": "High LDL cholesterol. Statin therapy or lifestyle change often evaluated by physician."
+    }
+  },
+  "2571-8": {
+    "name": "Triglycerides",
+    "loinc": "2571-8",
+    "unit": "mg/dL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 49.9},
+      "normal": {"min": 50.0, "max": 149.9},
+      "elevated": {"min": 150.0, "max": 199.9},
+      "critical": {"min": 200.0, "max": 1000.0}
+    },
+    "interpretation": {
+      "low": "Low triglyceride level.",
+      "normal": "Normal circulating triglyceride range.",
+      "elevated": "Borderline high blood lipid level.",
+      "critical": "High triglyceride level. Pancreatic and vascular risk consideration."
+    }
+  },
+  "718-7": {
+    "name": "Hemoglobin",
+    "loinc": "718-7",
+    "unit": "g/dL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 11.9},
+      "normal": {"min": 12.0, "max": 16.5},
+      "elevated": {"min": 16.6, "max": 18.5},
+      "critical": {"min": 18.6, "max": 25.0}
+    },
+    "interpretation": {
+      "low": "Low hemoglobin. May indicate anemia, iron deficiency, or blood loss.",
+      "normal": "Healthy oxygen-carrying capacity in red blood cells.",
+      "elevated": "Borderline high hemoglobin.",
+      "critical": "High hemoglobin (polycythemia). Requires hematological assessment."
+    }
+  },
+  "6690-2": {
+    "name": "White Blood Cell Count (WBC)",
+    "loinc": "6690-2",
+    "unit": "/uL",
+    "organ_system": "respiratory",
+    "zones": {
+      "low": {"min": 0.0, "max": 3999.0},
+      "normal": {"min": 4000.0, "max": 11000.0},
+      "elevated": {"min": 11001.0, "max": 15000.0},
+      "critical": {"min": 15001.0, "max": 50000.0}
+    },
+    "interpretation": {
+      "low": "Leukopenia. Lowered immune response or marrow suppression.",
+      "normal": "Normal immune cell balance.",
+      "elevated": "Leukocytosis. Often reflects reactive immune response to infection or inflammation.",
+      "critical": "Markedly elevated WBC. Urgent evaluation for acute infection or hematologic condition."
+    }
+  },
+  "777-3": {
+    "name": "Platelet Count",
+    "loinc": "777-3",
+    "unit": "10^3/uL",
+    "organ_system": "cardiovascular",
+    "zones": {
+      "low": {"min": 0.0, "max": 149.9},
+      "normal": {"min": 150.0, "max": 450.0},
+      "elevated": {"min": 450.1, "max": 600.0},
+      "critical": {"min": 600.1, "max": 2000.0}
+    },
+    "interpretation": {
+      "low": "Thrombocytopenia. Bleeding risk; monitor for petechiae or bruising.",
+      "normal": "Adequate platelet clotting potential.",
+      "elevated": "Reactive thrombocytosis. May reflect secondary inflammation.",
+      "critical": "Marked thrombocytosis. Hematology review indicated."
+    }
+  },
+  "3016-3": {
+    "name": "Thyroid Stimulating Hormone (TSH)",
+    "loinc": "3016-3",
+    "unit": "uIU/mL",
+    "organ_system": "endocrine",
+    "zones": {
+      "low": {"min": 0.0, "max": 0.39},
+      "normal": {"min": 0.4, "max": 4.5},
+      "elevated": {"min": 4.51, "max": 10.0},
+      "critical": {"min": 10.1, "max": 100.0}
+    },
+    "interpretation": {
+      "low": "Suppressed TSH. Potential hyperthyroidism or medication effect.",
+      "normal": "Healthy euthyroid pituitary-thyroid axis regulation.",
+      "elevated": "Subclinical hypothyroidism. Thyroid underactivity requiring evaluation.",
+      "critical": "Marked hypothyroidism. Hormone replacement consultation recommended."
+    }
+  }
+}
