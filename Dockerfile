@@ -1,7 +1,7 @@
-# Multi-stage Dockerfile for CareLens Backend & Eval Suite
-# Target Platforms: Render / Railway / Local Docker
+# Dockerfile for CareLens AI Health Copilot
+# Target Platforms: Railway / Render / Local Docker
 
-FROM python:3.11-slim AS base
+FROM python:3.11-slim
 
 # Prevent Python from writing .pyc files and enable unbuffered logging
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -33,9 +33,5 @@ USER carelensuser
 # Expose API port
 EXPOSE 8000
 
-# Health check probe
-HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/api/health || exit 1
-
 # Launch production Uvicorn server
-CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
