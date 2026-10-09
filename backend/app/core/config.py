@@ -10,11 +10,11 @@ class Settings(BaseSettings):
 
     # AI Model Keys & Configs
     GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY", None)
-    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-3.8-flash")
+    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-flash-lite-latest")
     LLM_TEMPERATURE: float = 0.0
 
     GROQ_API_KEY: Optional[str] = os.getenv("GROQ_API_KEY", None)
-    GROQ_MODEL: str = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+    GROQ_MODEL: str = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
     GROQ_BASE_URL: str = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 
     OPENROUTER_API_KEY: Optional[str] = os.getenv("OPENROUTER_API_KEY", None)

@@ -743,6 +743,24 @@ export default function EvidenceStudio() {
         </button>
       </div>
 
+      {(!isDemo && liveData && liveData.observations.length === 0 && liveData.medications.length === 0) && (
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-300 bg-amber-50/90 p-3.5 text-sm text-amber-900 shadow-xs">
+          <div className="flex items-center gap-2.5">
+            <AlertTriangle className="size-5 text-amber-600 shrink-0" />
+            <span className="font-medium">This document currently has 0 clinical facts extracted. Run Multimodal Vision AI to extract all lab tests and medications.</span>
+          </div>
+          <button
+            type="button"
+            onClick={handleReprocess}
+            disabled={reprocessing}
+            className="flex items-center gap-1.5 rounded-lg bg-teal px-4 py-2 text-xs font-semibold text-white hover:bg-teal-hover transition-all cursor-pointer shadow-xs disabled:opacity-50"
+          >
+            <RefreshCw className={`size-3.5 ${reprocessing ? 'animate-spin' : ''}`} />
+            <span>{reprocessing ? 'Analyzing Document with AI...' : 'Run Vision AI Analysis'}</span>
+          </button>
+        </div>
+      )}
+
       {/* Main Split-Screen Workspace */}
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Left: Interactive Document Viewer */}
@@ -876,7 +894,20 @@ export default function EvidenceStudio() {
                   })}
                 </ul>
               ) : (
-                <p className="text-sm text-muted">{t('evidence.noMeds')}</p>
+                <div className="py-2 text-center">
+                  <p className="text-sm text-muted">{t('evidence.noMeds')}</p>
+                  {!isDemo && (
+                    <button
+                      type="button"
+                      onClick={handleReprocess}
+                      disabled={reprocessing}
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-teal/30 bg-teal-tint/50 px-3 py-1.5 text-xs font-semibold text-teal-hover hover:bg-teal-tint transition-all cursor-pointer"
+                    >
+                      <RefreshCw className={`size-3.5 ${reprocessing ? 'animate-spin' : ''}`} />
+                      <span>{reprocessing ? 'Extracting...' : 'Extract Medicines with AI'}</span>
+                    </button>
+                  )}
+                </div>
               )
             ) : (
               // Static demo fallback
@@ -966,7 +997,20 @@ export default function EvidenceStudio() {
                   })}
                 </ul>
               ) : (
-                <p className="text-sm text-muted">{t('evidence.noLabs')}</p>
+                <div className="py-2 text-center">
+                  <p className="text-sm text-muted">{t('evidence.noLabs')}</p>
+                  {!isDemo && (
+                    <button
+                      type="button"
+                      onClick={handleReprocess}
+                      disabled={reprocessing}
+                      className="mt-2 inline-flex items-center gap-1.5 rounded-lg border border-teal/30 bg-teal-tint/50 px-3 py-1.5 text-xs font-semibold text-teal-hover hover:bg-teal-tint transition-all cursor-pointer"
+                    >
+                      <RefreshCw className={`size-3.5 ${reprocessing ? 'animate-spin' : ''}`} />
+                      <span>{reprocessing ? 'Extracting...' : 'Extract Lab Markers with AI'}</span>
+                    </button>
+                  )}
+                </div>
               )
             ) : (
               // Static demo fallback

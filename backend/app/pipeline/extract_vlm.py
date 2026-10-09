@@ -251,8 +251,16 @@ def call_gemini(api_key: str, file_path: Path, prompt: str) -> Optional[str]:
         import google.generativeai as genai
         genai.configure(api_key=api_key)
 
-        preferred = getattr(settings, "GEMINI_MODEL", "gemini-3.8-flash")
-        candidate_models = [preferred, "gemini-3.8-flash", "gemini-flash-latest", "gemini-2.5-flash"]
+        preferred = getattr(settings, "GEMINI_MODEL", "gemini-flash-lite-latest")
+        candidate_models = [
+            "gemini-flash-lite-latest",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-flash-lite",
+            "gemini-3.8-flash",
+            "gemini-3.7-flash",
+            "gemini-flash-latest",
+            preferred
+        ]
         seen = set()
         models_to_try = [m for m in candidate_models if m and not (m in seen or seen.add(m))]
 
@@ -284,9 +292,6 @@ def call_gemini(api_key: str, file_path: Path, prompt: str) -> Optional[str]:
             except Exception as model_err:
                 err_str = str(model_err)
                 logger.warning(f"[Gemini VLM] Model {model_name} failed: {model_err}")
-                if "429" in err_str or "quota" in err_str.lower() or "resourceexhausted" in err_str.lower():
-                    logger.warning("[Gemini VLM] Daily Gemini free quota exhausted. Switching immediately to RapidOCR + Groq Clinical Reasoning.")
-                    break
                 continue
 
         logger.error("[Gemini VLM] All candidate Gemini models failed.")

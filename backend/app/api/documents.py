@@ -55,7 +55,7 @@ async def get_ai_status():
 
     active_parts = []
     if has_gemini:
-        active_parts.append(f"Gemini Vision ({getattr(settings, 'GEMINI_MODEL', 'gemini-3.8-flash')})")
+        active_parts.append(f"Gemini Vision ({getattr(settings, 'GEMINI_MODEL', 'gemini-flash-lite-latest')})")
     if has_groq:
         active_parts.append("Groq Dual-Pass Verifier")
     if has_openrouter and not has_gemini:
@@ -68,7 +68,7 @@ async def get_ai_status():
         "groq_configured": has_groq,
         "openrouter_configured": has_openrouter,
         "active_engine": " + ".join(active_parts),
-        "model": getattr(settings, "GEMINI_MODEL", "gemini-3.8-flash"),
+        "model": getattr(settings, "GEMINI_MODEL", "gemini-flash-lite-latest"),
         "ocr_engine_ready": ocr_ready,
         "demo_mode": getattr(settings, "DEMO_MODE", False),
         "supported_formats": ["PDF", "JPG", "JPEG", "PNG", "WEBP"]
@@ -87,7 +87,7 @@ async def update_ai_key(payload: AIKeyPayload):
     try:
         import google.generativeai as genai
         genai.configure(api_key=key)
-        model = genai.GenerativeModel(payload.model or "gemini-1.5-flash")
+        model = genai.GenerativeModel(payload.model or "gemini-flash-lite-latest")
         resp = model.generate_content("Ping")
         if resp:
             settings.GEMINI_API_KEY = key
@@ -430,6 +430,114 @@ async def get_raw_document_file(doc_id: str, session: Session = Depends(get_sess
         raise HTTPException(status_code=404, detail="File missing.")
     return FileResponse(str(path), filename=doc.original_filename, headers={"Cache-Control": "public, max-age=86400"})
 
+@router.post("/{doc_id}/reprocess")
+async def reprocess_document(
+    doc_id: str,
+    session: Session = Depends(get_session)
+):
+    """Explicitly triggers fresh multimodal extraction for an uploaded document."""
+    try:
+        uid = UUID(doc_id)
+        doc = session.get(Document, uid)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid document UUID")
+
+    if not doc:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    clean_path_str = (doc.storage_path or "").replace("\\", "/")
+    filename = Path(clean_path_str).name
+    candidates = [
+        Path(clean_path_str),
+        UPLOAD_DIR / filename,
+        Path("uploads") / filename,
+        Path(__file__).resolve().parent.parent.parent / "uploads" / filename,
+        Path(__file__).resolve().parent.parent.parent.parent / "uploads" / filename,
+    ]
+    stored_p = None
+    for cand in candidates:
+        if cand.exists():
+            stored_p = cand
+            break
+
+    if not stored_p or not stored_p.exists():
+        raise HTTPException(status_code=404, detail="Stored document file missing on disk.")
+
+    # Clear old records
+    obs_records = session.exec(select(Observation).where(Observation.document_id == doc.id)).all()
+    for o in obs_records: session.delete(o)
+    med_records = session.exec(select(Medication).where(Medication.document_id == doc.id)).all()
+    for m in med_records: session.delete(m)
+    cond_records = session.exec(select(Condition).where(Condition.document_id == doc.id)).all()
+    for c in cond_records: session.delete(c)
+    session.commit()
+
+    # Re-run extraction
+    fresh_extraction = pipeline.extract_document(stored_p)
+    for obs in fresh_extraction.observations:
+        bbox_str = json.dumps(obs.bounding_box.model_dump()) if obs.bounding_box else None
+        session.add(Observation(
+            document_id=doc.id,
+            person_id=doc.person_id,
+            fact_id=obs.id,
+            name=obs.name,
+            loinc_code=obs.loinc_code,
+            value_text=obs.value,
+            numeric_value=obs.numeric_value,
+            unit=obs.unit,
+            ref_range=obs.ref_range,
+            flag=obs.computed_flag or "normal",
+            organ_system=obs.organ_system,
+            confidence=obs.confidence,
+            source_page=obs.source_page,
+            bounding_box_json=bbox_str
+        ))
+    for med in fresh_extraction.medications:
+        bbox_str = json.dumps(med.bounding_box.model_dump()) if med.bounding_box else None
+        session.add(Medication(
+            document_id=doc.id,
+            person_id=doc.person_id,
+            fact_id=med.id,
+            brand_name=med.brand_name,
+            generic_name=med.generic_name,
+            strength=med.strength,
+            frequency=med.frequency,
+            timing=med.timing,
+            duration=med.duration,
+            confidence=med.confidence,
+            source_page=med.source_page,
+            bounding_box_json=bbox_str
+        ))
+    for diag in fresh_extraction.diagnoses:
+        d_bbox_str = json.dumps(diag.bounding_box.model_dump()) if diag.bounding_box else None
+        session.add(Condition(
+            document_id=doc.id,
+            person_id=doc.person_id,
+            fact_id=diag.id,
+            text=diag.text,
+            icd10=diag.icd10_hint,
+            organ_system=diag.organ_system,
+            confidence=diag.confidence,
+            bounding_box_json=d_bbox_str
+        ))
+    if fresh_extraction.doc_type:
+        doc.doc_type = fresh_extraction.doc_type
+    if fresh_extraction.clinician_name:
+        doc.clinician_name = fresh_extraction.clinician_name
+    if fresh_extraction.facility_name:
+        doc.facility_name = fresh_extraction.facility_name
+    doc.status = "ready"
+    session.commit()
+
+    return {
+        "message": "Document reprocessed successfully.",
+        "document_id": str(doc.id),
+        "doc_type": doc.doc_type,
+        "extracted_observations": len(fresh_extraction.observations),
+        "extracted_medications": len(fresh_extraction.medications),
+        "extracted_diagnoses": len(fresh_extraction.diagnoses)
+    }
+
 @router.get("/{doc_id}/analysis")
 async def get_document_analysis(
     doc_id: str,
@@ -523,8 +631,22 @@ async def get_document_analysis(
         or any("ANDSAMPLE" in (c.text or "") for c in cond_records)
     )
     if needs_auto_reprocess and doc.storage_path:
-        stored_p = Path(doc.storage_path)
-        if stored_p.exists():
+        clean_path_str = (doc.storage_path or "").replace("\\", "/")
+        filename = Path(clean_path_str).name
+        candidates = [
+            Path(clean_path_str),
+            UPLOAD_DIR / filename,
+            Path("uploads") / filename,
+            Path(__file__).resolve().parent.parent.parent / "uploads" / filename,
+            Path(__file__).resolve().parent.parent.parent.parent / "uploads" / filename,
+        ]
+        stored_p = None
+        for cand in candidates:
+            if cand.exists():
+                stored_p = cand
+                break
+
+        if stored_p and stored_p.exists():
             for o in obs_records: session.delete(o)
             for m in med_records: session.delete(m)
             for c in cond_records: session.delete(c)
