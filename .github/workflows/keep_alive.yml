@@ -1,0 +1,16 @@
+name: Render Keep-Alive Ping
+
+on:
+  schedule:
+    # Runs every 5 minutes to prevent Render free-tier idle spin down (inactivity threshold is 15 mins)
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping CareLens Render Service
+        run: |
+          echo "Pinging CareLens on Render..."
+          curl -s -f -m 30 "https://care-lens-health.onrender.com/api/health" || echo "Ping attempted (waking up)"
