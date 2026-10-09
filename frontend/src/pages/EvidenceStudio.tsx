@@ -41,6 +41,7 @@ import DocumentViewer, { type BoundingBoxFact } from '../components/DocumentView
 import GroundingBar from '../components/GroundingBar'
 import DotRangeSlider from '../components/DotRangeSlider'
 import type { Segment, Zone, Status } from '../data/types'
+import { notifyPatientDataUpdated } from '../hooks/usePatientData'
 
 type LiveAnalysisPayload = {
   document: {
@@ -354,6 +355,7 @@ export default function EvidenceStudio() {
         const payload = await aResp.json()
         setLiveData(payload)
       }
+      notifyPatientDataUpdated()
     } catch (err: any) {
       setReprocessMsg('Error: ' + (err.message || 'Failed'))
     } finally {

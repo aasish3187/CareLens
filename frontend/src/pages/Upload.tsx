@@ -13,6 +13,7 @@ const STAGE_MS = 620
 const ACCEPT = ['application/pdf', 'image/jpeg', 'image/png']
 
 import { apiUrl } from '../config/api'
+import { notifyPatientDataUpdated } from '../hooks/usePatientData'
 
 type Job = { name: string; size: string; kind: 'pdf' | 'image'; docId: string; preview?: string; isDemo: boolean }
 
@@ -128,6 +129,7 @@ export default function Upload() {
     try {
       const docId = await uploadToBackend(file)
       if (docId) {
+        notifyPatientDataUpdated()
         setApiDocId(docId)
         // Ensure animation completes before navigating
         if (currentStage < stages.length) {

@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { apiUrl } from '../config/api'
 
 export interface PatientInfo {
   id: string
@@ -10,10 +11,14 @@ export interface PatientInfo {
 
 export interface PatientKPIs {
   health_score: number
+  score_note?: string
   total_documents: number
+  docs_note?: string
   total_medications: number
+  meds_note?: string
   total_observations: number
   abnormal_count: number
+  abnormal_note?: string
   active_prescriptions: number
 }
 
@@ -130,7 +135,7 @@ export function usePatientData() {
 
   const fetchData = useCallback(async () => {
     try {
-      const res = await fetch('/api/patients/summary')
+      const res = await fetch(apiUrl('/api/patients/summary'), { cache: 'no-store' })
       if (res.ok) {
         const json = await res.json()
         setData((prev) => ({
@@ -154,13 +159,23 @@ export function usePatientData() {
     // Poll every 5 seconds for live document updates
     const interval = setInterval(fetchData, 5000)
     const handleFocus = () => fetchData()
+    const handleUpdate = () => fetchData()
+
     window.addEventListener('focus', handleFocus)
+    window.addEventListener('patient-data-updated', handleUpdate)
 
     return () => {
       clearInterval(interval)
       window.removeEventListener('focus', handleFocus)
+      window.removeEventListener('patient-data-updated', handleUpdate)
     }
   }, [fetchData])
 
   return { data, loading, error, refresh: fetchData }
+}
+
+export function notifyPatientDataUpdated() {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('patient-data-updated'))
+  }
 }

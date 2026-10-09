@@ -54,9 +54,10 @@ body {
 
 .card-hover-lift:hover {
   transform: translateY(-2px);
+  border-color: var(--color-teal, #0d9488);
   box-shadow:
-    0 4px 12px -2px rgb(15 23 42 / 0.08),
-    0 8px 24px -4px rgb(15 23 42 / 0.08);
+    0 4px 16px -2px rgb(13 148 136 / 0.15),
+    0 8px 24px -4px rgb(13 148 136 / 0.08);
 }
 
 .interactive-item {

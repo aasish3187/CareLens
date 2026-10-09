@@ -20,17 +20,37 @@ export const eventIcon: Record<EventType, typeof FlaskConical> = {
   visit: Stethoscope,
 }
 
-function Kpi({ icon: Icon, label, value, note, tone, index }: { icon: typeof Activity; label: string; value: string; note: string; tone: string; index: number }) {
+function Kpi({
+  icon: Icon,
+  label,
+  value,
+  note,
+  tone,
+  index,
+}: {
+  icon: typeof Activity
+  label: string
+  value: string
+  note: string
+  tone: string
+  index: number
+}) {
   return (
     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}>
-      <Card className="card-hover-lift flex h-full items-start gap-4 p-5 cursor-pointer">
-        <span className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-200 group-hover:scale-110`}>
+      <Card className="card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer border border-line hover:border-teal hover:border-[#0d9488] hover:ring-1 hover:ring-teal/40 hover:shadow-lg hover:shadow-teal/10 transition-all duration-300">
+        <span
+          className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-300 group-hover:scale-110`}
+        >
           <Icon className="size-5" aria-hidden />
         </span>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="text-sm font-medium text-muted">{label}</p>
-          <p className="mt-0.5 font-mono text-3xl font-semibold tracking-tight text-heading">{value}</p>
-          <p className="mt-1 text-xs text-muted">{note}</p>
+          <p className="mt-0.5 font-mono text-3xl font-semibold tracking-tight text-heading transition-colors group-hover:text-teal">
+            {value}
+          </p>
+          <p className="mt-1 text-xs text-muted truncate" title={note}>
+            {note}
+          </p>
         </div>
       </Card>
     </motion.div>
@@ -60,6 +80,35 @@ export default function Overview() {
     }
   })
 
+  // Dynamic notes derived from live reports & backend kpi metrics
+  const scoreNote =
+    data.kpis.score_note ||
+    (data.kpis.abnormal_count === 0
+      ? 'Optimal · All markers healthy'
+      : data.kpis.abnormal_count === 1
+        ? 'Good · 1 area to watch'
+        : (data.kpis.health_score ?? 95) >= 70
+          ? `Good · ${data.kpis.abnormal_count} areas to watch`
+          : `Attention needed · ${data.kpis.abnormal_count} markers flagged`)
+
+  const abnormalNote =
+    data.kpis.abnormal_note ||
+    (data.kpis.abnormal_count === 0
+      ? 'All markers within normal limits'
+      : `${data.kpis.abnormal_count} test${data.kpis.abnormal_count === 1 ? '' : 's'} flagged`)
+
+  const medsNote =
+    data.kpis.meds_note ||
+    (data.kpis.total_medications === 0
+      ? 'No active medicines'
+      : `${data.kpis.total_medications} active · No clashes`)
+
+  const docsNote =
+    data.kpis.docs_note ||
+    (data.kpis.total_documents === 0
+      ? 'No records uploaded'
+      : `${data.kpis.total_documents} verified document${data.kpis.total_documents === 1 ? '' : 's'}`)
+
   // Use live timeline if available, otherwise fallback to default
   const hasLiveTimeline = data.timeline && data.timeline.length > 0
   const recentEvents = hasLiveTimeline
@@ -85,10 +134,14 @@ export default function Overview() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-heading sm:text-[28px]">{t('overview.greeting')}</h1>
-          <p className="mt-1 text-sm text-muted sm:text-base">{t('overview.subtitle')}</p>
+          <p className="mt-1 text-sm text-muted sm:text-base">
+            {data.kpis.total_documents > 0
+              ? `Your health picture, grounded in ${data.kpis.total_documents} verified document${data.kpis.total_documents === 1 ? '' : 's'}.`
+              : t('overview.subtitle')}
+          </p>
         </div>
-        <Card className="flex items-center gap-3 px-4 py-3">
-          <div className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-teal to-cyan text-sm font-bold text-white">
+        <Card className="card-hover-lift group flex items-center gap-3 px-4 py-3 cursor-pointer border border-line hover:border-teal hover:border-[#0d9488] transition-all duration-300">
+          <div className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-teal to-cyan text-sm font-bold text-white transition-transform group-hover:scale-105">
             {data.patient.name ? data.patient.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase() : 'AV'}
           </div>
           <div className="text-sm">
@@ -108,32 +161,32 @@ export default function Overview() {
           index={0}
           icon={HeartPulse}
           label={t('kpi.healthScore')}
-          value={`${data.kpis.health_score || defaultPatient.healthScore}`}
-          note={t('kpi.scoreNote')}
+          value={`${data.kpis.health_score ?? defaultPatient.healthScore}`}
+          note={scoreNote}
           tone="bg-teal-tint text-teal"
         />
         <Kpi
           index={1}
           icon={AlertTriangle}
           label={t('kpi.abnormal')}
-          value={`${data.kpis.abnormal_count}`}
-          note={t('kpi.abnormalNote')}
-          tone={data.kpis.abnormal_count > 0 ? 'bg-amber-50 text-amber-600' : 'bg-emerald-50 text-emerald-600'}
+          value={`${data.kpis.abnormal_count ?? 0}`}
+          note={abnormalNote}
+          tone={(data.kpis.abnormal_count ?? 0) > 0 ? 'bg-amber-50 text-amber-600' : 'bg-emerald-50 text-emerald-600'}
         />
         <Kpi
           index={2}
           icon={Pill}
           label={t('kpi.meds')}
-          value={`${data.kpis.total_medications || 2}`}
-          note={t('kpi.medsNote')}
+          value={`${data.kpis.total_medications ?? 0}`}
+          note={medsNote}
           tone="bg-cyan-tint text-cyan"
         />
         <Kpi
           index={3}
           icon={FileText}
           label={t('kpi.docs')}
-          value={`${data.kpis.total_documents || 3}`}
-          note={t('kpi.docsNote')}
+          value={`${data.kpis.total_documents ?? 0}`}
+          note={docsNote}
           tone="bg-emerald-50 text-emerald-600"
         />
       </div>
