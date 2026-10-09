@@ -19,7 +19,7 @@ type Job = { name: string; size: string; kind: 'pdf' | 'image'; docId: string; p
 const fmtSize = (bytes: number) => (bytes > 1e6 ? `${(bytes / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(bytes / 1e3))} KB`)
 
 // API base URL — uses configured backend if present, otherwise relative /api
-const getApiEndpoint = (path: string) => apiUrl(path)
+const API_BASE = apiUrl('/api')
 
 export default function Upload() {
   const t = useT()
