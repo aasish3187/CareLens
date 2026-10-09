@@ -2,6 +2,7 @@ import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 
 from backend.app.core.config import settings
 from backend.app.database import init_db
@@ -30,6 +31,9 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan
 )
+
+# GZip Compression for ultra-fast asset & API loading
+app.add_middleware(GZipMiddleware, minimum_size=500)
 
 # CORS Middleware
 app.add_middleware(

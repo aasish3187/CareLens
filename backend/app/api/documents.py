@@ -357,13 +357,29 @@ async def get_document_page_image(doc_id: str, page_num: int = 1, session: Sessi
     if not doc or not doc.storage_path:
         raise HTTPException(status_code=404, detail="Document file not found.")
 
-    path = Path(doc.storage_path)
-    if not path.exists():
+    clean_path_str = doc.storage_path.replace("\\", "/")
+    filename = Path(clean_path_str).name
+    candidates = [
+        Path(clean_path_str),
+        UPLOAD_DIR / filename,
+        Path("uploads") / filename,
+        Path(__file__).resolve().parent.parent.parent / "uploads" / filename,
+        Path(__file__).resolve().parent.parent.parent.parent / "uploads" / filename,
+    ]
+    path = None
+    for cand in candidates:
+        if cand.exists():
+            path = cand
+            break
+
+    if not path or not path.exists():
         raise HTTPException(status_code=404, detail="Stored file missing on disk.")
+
+    headers = {"Cache-Control": "public, max-age=86400, immutable"}
 
     # Image files
     if path.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp", ".bmp"}:
-        return FileResponse(str(path))
+        return FileResponse(str(path), headers=headers)
 
     # PDF files: render page via pypdfium2
     if path.suffix.lower() == ".pdf":
@@ -377,11 +393,11 @@ async def get_document_page_image(doc_id: str, page_num: int = 1, session: Sessi
             buf = io.BytesIO()
             pil_image.save(buf, format="PNG")
             buf.seek(0)
-            return Response(content=buf.getvalue(), media_type="image/png")
+            return Response(content=buf.getvalue(), media_type="image/png", headers=headers)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Failed to render PDF page: {e}")
 
-    return FileResponse(str(path))
+    return FileResponse(str(path), headers=headers)
 
 @router.get("/{doc_id}/file")
 async def get_raw_document_file(doc_id: str, session: Session = Depends(get_session)):
@@ -395,10 +411,24 @@ async def get_raw_document_file(doc_id: str, session: Session = Depends(get_sess
     if not doc or not doc.storage_path:
         raise HTTPException(status_code=404, detail="Document file not found.")
 
-    path = Path(doc.storage_path)
-    if not path.exists():
+    clean_path_str = doc.storage_path.replace("\\", "/")
+    filename = Path(clean_path_str).name
+    candidates = [
+        Path(clean_path_str),
+        UPLOAD_DIR / filename,
+        Path("uploads") / filename,
+        Path(__file__).resolve().parent.parent.parent / "uploads" / filename,
+        Path(__file__).resolve().parent.parent.parent.parent / "uploads" / filename,
+    ]
+    path = None
+    for cand in candidates:
+        if cand.exists():
+            path = cand
+            break
+
+    if not path or not path.exists():
         raise HTTPException(status_code=404, detail="File missing.")
-    return FileResponse(str(path), filename=doc.original_filename)
+    return FileResponse(str(path), filename=doc.original_filename, headers={"Cache-Control": "public, max-age=86400"})
 
 @router.get("/{doc_id}/analysis")
 async def get_document_analysis(

@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState, type ReactNode 
 import { ChevronLeft, ChevronRight, Minus, Plus, ScanLine } from 'lucide-react'
 import type { DocMeta } from '../data/documents'
 import { useT } from '../i18n/I18nContext'
+import { apiUrl } from '../config/api'
 
 type FactCtxValue = { active: string | null; nonce: number; onSelect: (fact: string) => void }
 const FactCtx = createContext<FactCtxValue>({ active: null, nonce: 0, onSelect: () => {} })
@@ -372,18 +373,18 @@ export default function DocumentViewer({ doc, activeFact, nonce, onSelectFact, b
                 {doc.id === 'max' && <MaxPage page={page} />}
               </div>
             ) : (
-              <div className="relative overflow-hidden rounded-md border border-slate-300 bg-white shadow-xl">
+              <div className="relative min-h-[500px] overflow-hidden rounded-md border border-slate-300 bg-white shadow-xl">
                 <img
-                  src={imageUrl || `/api/documents/${doc.id}/pages/${page}`}
+                  src={imageUrl || apiUrl(`/api/documents/${doc.id}/pages/${page}`)}
                   alt={doc.file}
                   className="block h-auto w-full select-none"
+                  loading="eager"
                   onLoad={(e) => {
                     e.currentTarget.style.display = 'block'
                   }}
                   onError={(e) => {
-                    // Fallback to sample document if image load fails
-                    const target = e.currentTarget
-                    target.style.display = 'none'
+                    // Do not completely hide; keep height so bounding boxes and overlay remain aligned
+                    console.warn(`Page image load failed for document: ${doc.id}`)
                   }}
                 />
                 {/* Visual Bounding Box Overlay Layer */}
