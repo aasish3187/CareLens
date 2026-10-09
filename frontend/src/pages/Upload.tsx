@@ -69,8 +69,8 @@ export default function Upload() {
     setJob(j)
   }
 
-  // Real file upload to backend API
-  const uploadToBackend = async (file: File): Promise<string | null> => {
+  // Real file upload to backend API with automatic retry for 502/503/504
+  const uploadToBackend = async (file: File, retryCount = 0): Promise<string | null> => {
     const formData = new FormData()
     formData.append('file', file)
 
@@ -81,7 +81,15 @@ export default function Upload() {
       })
 
       if (!response.ok) {
-        let errorDetail = `Server error ${response.status}`
+        // If server is cold-starting or deploying (502 / 503 / 504), automatically retry up to 2 times
+        if ([502, 503, 504].includes(response.status) && retryCount < 2) {
+          await new Promise((resolve) => setTimeout(resolve, 2500 * (retryCount + 1)))
+          return uploadToBackend(file, retryCount + 1)
+        }
+
+        let errorDetail = [502, 503, 504].includes(response.status)
+          ? 'Server is waking up. Please wait a few seconds and try again.'
+          : `Server error ${response.status}`
         try {
           const contentType = response.headers.get('content-type') || ''
           if (contentType.includes('application/json')) {
@@ -95,7 +103,9 @@ export default function Upload() {
             }
           } else {
             const text = await response.text()
-            if (text && text.length < 150) errorDetail = text.trim()
+            if (text && text.length < 150 && !text.includes('<!DOCTYPE') && !text.includes('<html')) {
+              errorDetail = text.trim()
+            }
           }
         } catch {
           // ignore
@@ -106,6 +116,10 @@ export default function Upload() {
       const data = await response.json()
       return data.document_id
     } catch (err: unknown) {
+      if (err instanceof TypeError && retryCount < 2) {
+        await new Promise((resolve) => setTimeout(resolve, 2500))
+        return uploadToBackend(file, retryCount + 1)
+      }
       const message = err instanceof Error ? err.message : 'Upload connection failed'
       throw new Error(message)
     }
