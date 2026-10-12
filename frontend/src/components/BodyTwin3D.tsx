@@ -637,16 +637,25 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
     <div
       className={`relative size-full select-none overflow-hidden ${
         viewTheme === 'studio'
-          ? 'bg-gradient-to-b from-white via-slate-50 to-slate-100'
-          : 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white'
+          ? 'bg-[radial-gradient(ellipse_80%_80%_at_50%_40%,#ffffff_0%,#f8fafc_55%,#edf2f7_100%)]'
+          : 'bg-[radial-gradient(ellipse_80%_80%_at_50%_40%,#0f172a_0%,#090d16_70%,#020617_100%)] text-white'
       } ${className}`}
     >
+      {/* Subtle Ambient Torso Stage Lighting Glow */}
+      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center" aria-hidden>
+        <div
+          className={`h-[400px] w-[320px] rounded-full blur-[90px] transition-all duration-700 ${
+            viewTheme === 'studio' ? 'bg-teal/8 opacity-80' : 'bg-teal/20 opacity-90'
+          }`}
+        />
+      </div>
+
       {/* 3D WebGL Canvas Viewport */}
-      <div ref={mountRef} className="size-full cursor-grab active:cursor-grabbing" />
+      <div ref={mountRef} className="relative z-1 size-full cursor-grab active:cursor-grabbing" />
 
       {/* Loading Overlay */}
       {!modelLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm">
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/80 backdrop-blur-sm">
           <div className="flex flex-col items-center gap-3 text-slate-700">
             <span className="size-8 animate-spin rounded-full border-3 border-teal border-t-transparent" />
             <p className="font-mono text-xs font-semibold uppercase tracking-wider">Loading Anatomical Twin 3D...</p>
@@ -655,7 +664,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
       )}
 
       {/* SVG Dynamic Dotted Curved Leader Lines (Exact match to reference) */}
-      <svg className="pointer-events-none absolute inset-0 size-full" aria-hidden>
+      <svg className="pointer-events-none absolute inset-0 z-10 size-full" aria-hidden>
         <defs>
           <filter id="lineGlow" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -683,7 +692,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
           const endX = startX + 140
           const endY = startY - 14
 
-          const strokeColor = active ? (isProblem ? '#F59E0B' : '#2563EB') : '#93C5FD'
+          const strokeColor = active ? (isProblem ? '#F59E0B' : '#0D9488') : '#93C5FD'
           const strokeWidth = active ? 2.4 : 1.6
 
           return (
@@ -704,7 +713,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
       </svg>
 
       {/* Interactive 3D Hotspot Pins (Matching reference with concentric rings and '+' button) */}
-      <div className="pointer-events-none absolute inset-0 size-full">
+      <div className="pointer-events-none absolute inset-0 z-10 size-full">
         {projectedHotspots.map((spot) => {
           if (!spot.visible) return null
           const isFullBodyMode = selected === 'all' || selected === 'full' || selected === 'default'
@@ -735,14 +744,14 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
               <div
                 className={`absolute rounded-full transition-all duration-300 ${
                   active
-                    ? 'size-12 ring-2 ring-blue-500 animate-ping opacity-60'
+                    ? 'size-12 ring-2 ring-teal animate-ping opacity-60'
                     : 'size-10 ring-1.5 ring-blue-400/75 opacity-55'
                 }`}
               />
               <div
                 className={`absolute rounded-full border border-dashed transition-all ${
                   active
-                    ? 'size-9 border-blue-500 animate-spin opacity-85'
+                    ? 'size-9 border-teal animate-spin opacity-85'
                     : 'size-8 border-blue-400/60 opacity-60'
                 }`}
                 style={{ animationDuration: '9s' }}
@@ -753,8 +762,8 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
                 type="button"
                 className={`relative flex items-center justify-center rounded-full shadow-lg transition-all duration-200 ${
                   active
-                    ? 'size-7 bg-blue-600 text-white scale-110 ring-2 ring-white shadow-blue-500/50'
-                    : 'size-6 bg-white/95 text-blue-600 ring-1.5 ring-blue-300 hover:bg-blue-500 hover:text-white'
+                    ? 'size-7 bg-teal text-white scale-110 ring-2 ring-white shadow-teal/50'
+                    : 'size-6 bg-white/95 text-blue-600 ring-1.5 ring-blue-300 hover:bg-teal hover:text-white'
                 }`}
                 title={`Inspect ${spot.label}`}
                 aria-label={`Inspect ${spot.label}`}
@@ -762,18 +771,25 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
                 <Plus className="size-3.5 stroke-[2.8]" />
               </button>
 
-              {/* Floating Clinical Card at end of leader line (matching reference cards) */}
+              {/* Floating Clinical HUD Card at end of leader line (Frosted glass with clinical accent) */}
               {(isPrimary || active) && (
                 <div
-                  className={`pointer-events-none absolute left-[142px] top-[-14px] z-20 -translate-y-1/2 whitespace-nowrap rounded-lg px-3 py-1.5 text-xs shadow-xl backdrop-blur-md ring-1 transition-all duration-200 animate-in fade-in zoom-in-95 ${
-                    active
-                      ? 'bg-slate-900 text-white ring-blue-500 scale-105'
-                      : 'bg-white/95 text-slate-800 ring-slate-200/90 shadow-slate-200/60'
+                  className={`pointer-events-none absolute left-[142px] top-[-14px] z-20 -translate-y-1/2 whitespace-nowrap rounded-xl px-3.5 py-2 text-xs shadow-md backdrop-blur-md transition-all duration-200 animate-in fade-in zoom-in-95 ${
+                    viewTheme === 'studio'
+                      ? active
+                        ? 'bg-white/95 text-slate-900 ring-2 ring-teal shadow-teal/15 scale-105'
+                        : 'bg-white/90 text-slate-800 ring-1 ring-slate-200/90 shadow-slate-200/60'
+                      : active
+                        ? 'bg-slate-900/95 text-white ring-2 ring-teal shadow-teal/25 scale-105'
+                        : 'bg-slate-900/85 text-slate-200 ring-1 ring-slate-700/80 shadow-slate-950/60'
                   }`}
-                  style={{ borderLeft: `3.5px solid ${statusColor}` }}
+                  style={{ borderLeft: `4px solid ${statusColor}` }}
                 >
-                  <p className="font-semibold text-[11px] leading-tight">{spot.label}</p>
-                  <p className={`font-mono text-[10px] leading-tight ${active ? 'text-slate-300' : 'text-slate-500'}`}>
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-1.5 rounded-full" style={{ background: statusColor }} />
+                    <p className="font-semibold text-[11.5px] leading-tight text-heading">{spot.label}</p>
+                  </div>
+                  <p className={`font-mono text-[10.5px] leading-tight mt-0.5 ${viewTheme === 'studio' ? 'text-slate-600' : 'text-slate-400'}`}>
                     {spot.sublabel}
                   </p>
                 </div>
@@ -783,8 +799,8 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
         })}
       </div>
 
-      {/* Top Bar Status Badges */}
-      <div className="absolute left-4 top-4 z-10 flex flex-wrap items-center gap-2">
+      {/* Top Bar Status Badges (Clean, de-duplicated command bar) */}
+      <div className="absolute left-4 top-4 z-20 flex items-center gap-2">
         <div
           className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur-md ring-1 ${
             viewTheme === 'studio'
@@ -798,22 +814,6 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
           </span>
           Live 3D Anatomical Twin
         </div>
-
-        <button
-          type="button"
-          onClick={() => onSelect('all')}
-          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur-md transition-all ring-1 ${
-            selected === 'all' || selected === 'full' || selected === 'default'
-              ? 'bg-teal text-white ring-teal shadow-teal/30'
-              : viewTheme === 'studio'
-                ? 'bg-white/90 text-slate-700 ring-slate-200 hover:bg-slate-100'
-                : 'bg-slate-900/80 text-slate-300 ring-slate-700 hover:text-white'
-          }`}
-          title="Zoom out to full body view and display all clinical problems"
-        >
-          <Activity className="size-3.5" />
-          Full Body (All Problems)
-        </button>
 
         <button
           type="button"
@@ -832,7 +832,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
       </div>
 
       {/* Top Right Theme & Reset Actions */}
-      <div className="absolute right-4 top-4 z-10 flex items-center gap-2">
+      <div className="absolute right-4 top-4 z-20 flex items-center gap-2">
         <button
           type="button"
           onClick={() => setViewTheme(viewTheme === 'studio' ? 'hologram' : 'studio')}
