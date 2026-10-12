@@ -175,8 +175,6 @@ export default function Overview() {
           value={`${data.kpis.health_score ?? defaultPatient.healthScore}`}
           note={scoreNote}
           tone="bg-teal-tint text-teal"
-          onMouseEnter={() => setHoveredOrgan('heart')}
-          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={1}
@@ -185,8 +183,6 @@ export default function Overview() {
           value={`${data.kpis.abnormal_count ?? 0}`}
           note={abnormalNote}
           tone={(data.kpis.abnormal_count ?? 0) > 0 ? 'bg-amber-50 text-amber-600' : 'bg-emerald-50 text-emerald-600'}
-          onMouseEnter={() => setHoveredOrgan('pancreas')}
-          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={2}
@@ -195,8 +191,6 @@ export default function Overview() {
           value={`${data.kpis.total_medications ?? 0}`}
           note={medsNote}
           tone="bg-cyan-tint text-cyan"
-          onMouseEnter={() => setHoveredOrgan('liver')}
-          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={3}
@@ -205,8 +199,6 @@ export default function Overview() {
           value={`${data.kpis.total_documents ?? 0}`}
           note={docsNote}
           tone="bg-emerald-50 text-emerald-600"
-          onMouseEnter={() => setHoveredOrgan('lungs')}
-          onMouseLeave={() => setHoveredOrgan(null)}
         />
       </div>
 
@@ -220,7 +212,7 @@ export default function Overview() {
                 3D Fly-Through Active
               </span>
             </div>
-            <p className="text-xs text-muted">{t('overview.twinHint')} · Hover metrics to pulse organ beacons</p>
+            <p className="text-xs text-muted">{t('overview.twinHint')}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center rounded-lg bg-subtle p-1 ring-1 ring-line">
