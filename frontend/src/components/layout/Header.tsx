@@ -1,14 +1,33 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { Menu, Plus, RefreshCw, Search } from 'lucide-react'
+import { Menu, Plus, RefreshCw, Search, Volume2, VolumeX } from 'lucide-react'
 import { useT } from '../../i18n/I18nContext'
 import LanguageSwitcher from '../LanguageSwitcher'
 import PatientProfileModal, { type PatientProfile } from '../PatientProfileModal'
+import { isSoundMuted, setSoundMuted, playGlassClickSound } from '../../utils/soundEffects'
 
 export default function Header({ onMenu }: { onMenu: () => void }) {
   const t = useT()
   const [profileModalOpen, setProfileModalOpen] = useState(false)
   const [patientName, setPatientName] = useState('Arjun Verma')
+  const [soundMuted, setSoundMutedState] = useState(() => isSoundMuted())
+
+  const toggleSound = () => {
+    const next = !soundMuted
+    setSoundMutedState(next)
+    setSoundMuted(next)
+    if (!next) {
+      setTimeout(() => playGlassClickSound(), 50)
+    }
+  }
+
+  useEffect(() => {
+    const handleSoundToggle = (e: any) => {
+      setSoundMutedState(e.detail?.muted ?? isSoundMuted())
+    }
+    window.addEventListener('carelens_sound_toggle', handleSoundToggle)
+    return () => window.removeEventListener('carelens_sound_toggle', handleSoundToggle)
+  }, [])
 
   useEffect(() => {
     const updateActivePatient = () => {
@@ -63,10 +82,15 @@ export default function Header({ onMenu }: { onMenu: () => void }) {
           />
         </label>
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
-          <span className="hidden items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-200 xl:inline-flex">
-            <RefreshCw className="size-3" aria-hidden />
-            {t('header.abhaSynced')}
-          </span>
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={soundMuted ? 'Unmute sound effects' : 'Mute sound effects'}
+            className="grid size-9 place-items-center rounded-lg border border-line bg-white text-muted hover:border-teal/40 hover:text-teal focus:outline-none transition-colors"
+            title={soundMuted ? 'Sound Effects: Muted (Click to enable)' : 'Sound Effects: Active (Click to mute)'}
+          >
+            {soundMuted ? <VolumeX className="size-4 text-muted" /> : <Volume2 className="size-4 text-teal animate-pulse" />}
+          </button>
           <LanguageSwitcher />
           <Link
             to="/upload"

@@ -14,6 +14,7 @@ const ACCEPT = ['application/pdf', 'image/jpeg', 'image/png']
 
 import { apiUrl } from '../config/api'
 import { notifyPatientDataUpdated } from '../hooks/usePatientData'
+import { playScanBeamSound, playSuccessChime } from '../utils/soundEffects'
 
 type Job = { name: string; size: string; kind: 'pdf' | 'image'; docId: string; preview?: string; isDemo: boolean }
 
@@ -40,6 +41,7 @@ export default function Upload() {
     if (job.isDemo) {
       // Demo mode: animate stages then navigate
       if (stage >= stages.length) {
+        playSuccessChime()
         const id = setTimeout(() => navigate(`/evidence/${job.docId}`), 900)
         return () => clearTimeout(id)
       }
@@ -51,6 +53,7 @@ export default function Upload() {
   // For real uploads: navigate when API returns
   useEffect(() => {
     if (apiDocId && stage >= stages.length) {
+      playSuccessChime()
       const id = setTimeout(() => navigate(`/evidence/live?doc=${apiDocId}`), 900)
       return () => clearTimeout(id)
     }
@@ -67,6 +70,7 @@ export default function Upload() {
     setError(null)
     setStage(0)
     setJob(j)
+    playScanBeamSound()
   }
 
   // Real file upload to backend API with automatic retry for 502/503/504
@@ -290,6 +294,109 @@ export default function Upload() {
                   <div className="mt-4 h-2 overflow-hidden rounded-full bg-subtle">
                     <motion.div className="shimmer h-full rounded-full" animate={{ width: `${Math.max(4, progress)}%` }} transition={{ duration: 0.5 }} />
                   </div>
+
+                  {/* High-Tech Laser Scanner Beam HUD */}
+                  <div className="relative mt-5 overflow-hidden rounded-2xl border border-teal/40 bg-slate-950 p-4 shadow-2xl shadow-teal/10">
+                    {/* HUD Header Bar */}
+                    <div className="flex items-center justify-between border-b border-slate-800 pb-2.5 font-mono text-[11px]">
+                      <div className="flex items-center gap-2 text-teal">
+                        <span className="relative flex size-2">
+                          <span className="absolute inline-flex size-full animate-ping rounded-full bg-teal opacity-75" />
+                          <span className="relative inline-flex size-2 rounded-full bg-teal" />
+                        </span>
+                        <span className="font-bold tracking-wider">CYAN LASER TELEMETRY HUD</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-slate-400">
+                        <span className="hidden sm:inline">RESOLUTION: 2400 DPI</span>
+                        <span className="text-teal font-semibold">STAGE {Math.min(stage + 1, stages.length)}/6</span>
+                      </div>
+                    </div>
+
+                    {/* Scanner Canvas */}
+                    <div className="relative mx-auto mt-3 h-48 w-full rounded-xl border border-slate-800 bg-slate-900/90 p-4 overflow-hidden">
+                      {/* Grid Background */}
+                      <div
+                        className="pointer-events-none absolute inset-0 opacity-25"
+                        style={{
+                          backgroundImage: 'linear-gradient(rgba(13,148,136,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(13,148,136,0.3) 1px, transparent 1px)',
+                          backgroundSize: '20px 20px',
+                        }}
+                      />
+
+                      {/* Document Preview or Medical Prescription Simulation */}
+                      {job.preview ? (
+                        <div className="relative h-full w-full flex items-center justify-center">
+                          <img src={job.preview} alt="" className="max-h-full max-w-full rounded object-contain opacity-75 contrast-125" />
+                        </div>
+                      ) : (
+                        <div className="relative h-full space-y-2.5 font-mono text-xs opacity-60 text-slate-300">
+                          <div className="flex items-center justify-between border-b border-slate-700/60 pb-1 text-[10px] text-teal/90">
+                            <span>APOLLO / FORTIS CLINICAL TELEMETRY</span>
+                            <span>MOCK PATIENT UHID: 488219</span>
+                          </div>
+                          <div className="h-2 w-48 rounded bg-slate-700/70" />
+                          <div className="h-2 w-36 rounded bg-slate-700/50" />
+                          <div className="h-2 w-56 rounded bg-slate-700/60" />
+                          <div className="h-2 w-40 rounded bg-slate-700/40" />
+                          <div className="mt-4 flex items-center gap-2 text-[10px] text-slate-500">
+                            <span>RX: GLYCOMET-GP 1</span>
+                            <span>·</span>
+                            <span>HBA1C: 7.2%</span>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Moving Laser Beam with Glow */}
+                      <motion.div
+                        className="pointer-events-none absolute left-0 right-0 z-20 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#22d3ee,0_0_30px_#0d9488]"
+                        animate={{ top: ['5%', '92%', '5%'] }}
+                        transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+                      >
+                        <div className="absolute -top-5 left-4 rounded bg-cyan-950/90 px-1.5 py-0.5 font-mono text-[9px] font-bold text-cyan-300 border border-cyan-500/50 shadow-sm backdrop-blur-md">
+                          LASER SCAN BEAM: 532nm
+                        </div>
+                      </motion.div>
+
+                      {/* Holographic Live OCR Detection Boxes Popping Up */}
+                      {stage >= 1 && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          className="absolute top-4 left-6 z-10 rounded border border-emerald-400 bg-emerald-950/80 px-2 py-1 font-mono text-[10px] font-bold text-emerald-300 shadow-md backdrop-blur-sm"
+                        >
+                          [PII REDACTED] Aadhaar / Phone Protected
+                        </motion.div>
+                      )}
+                      {stage >= 2 && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          className="absolute top-16 right-6 z-10 rounded border border-teal bg-teal-950/90 px-2 py-1 font-mono text-[10px] font-bold text-teal shadow-md backdrop-blur-sm"
+                        >
+                          [OCR 99.4%] HbA1c: 7.2% (Flag: High)
+                        </motion.div>
+                      )}
+                      {stage >= 3 && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          className="absolute bottom-12 left-10 z-10 rounded border border-cyan-400 bg-cyan-950/90 px-2 py-1 font-mono text-[10px] font-bold text-cyan-300 shadow-md backdrop-blur-sm"
+                        >
+                          [RX DETECTED] Tab. Glycomet-GP 1 (1-0-0)
+                        </motion.div>
+                      )}
+                      {stage >= 4 && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          className="absolute bottom-4 right-10 z-10 rounded border border-purple-400 bg-purple-950/90 px-2 py-1 font-mono text-[10px] font-bold text-purple-300 shadow-md backdrop-blur-sm"
+                        >
+                          [RULES ENGINE] Endocrine & Renal Mapped
+                        </motion.div>
+                      )}
+                    </div>
+                  </div>
+
                   <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wider text-muted">{t('upload.pipeline')}</p>
                   <ol className="grid gap-2 sm:grid-cols-2">
                     {stages.map((s, i) => {

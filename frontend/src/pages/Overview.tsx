@@ -13,6 +13,8 @@ import BodyTwin3D from '../components/BodyTwin3D'
 import OrganPanel from '../components/OrganPanel'
 import { usePatientData } from '../hooks/usePatientData'
 
+import AnimatedCounter from '../components/ui/AnimatedCounter'
+
 export const eventIcon: Record<EventType, typeof FlaskConical> = {
   lab: FlaskConical,
   rx: Pill,
@@ -27,26 +29,34 @@ function Kpi({
   note,
   tone,
   index,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   icon: typeof Activity
   label: string
-  value: string
+  value: string | number
   note: string
   tone: string
   index: number
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }) {
   return (
     <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}>
-      <Card className="card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer border border-line hover:border-teal hover:border-[#0d9488] hover:ring-1 hover:ring-teal/40 hover:shadow-lg hover:shadow-teal/10 transition-all duration-300">
+      <Card
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        className="card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer backdrop-blur-md bg-white/85 border border-slate-200/80 shadow-sm hover:border-teal hover:ring-1 hover:ring-teal/40 hover:shadow-xl hover:shadow-teal/10 transition-all duration-300"
+      >
         <span
-          className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-300 group-hover:scale-110`}
+          className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
         >
           <Icon className="size-5" aria-hidden />
         </span>
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium text-muted">{label}</p>
           <p className="mt-0.5 font-mono text-3xl font-semibold tracking-tight text-heading transition-colors group-hover:text-teal">
-            {value}
+            <AnimatedCounter value={value} />
           </p>
           <p className="mt-1 text-xs text-muted truncate" title={note}>
             {note}
@@ -69,6 +79,7 @@ const organToSystemMap: Record<string, string> = {
 export default function Overview() {
   const t = useT()
   const [organ, setOrgan] = useState('pancreas')
+  const [hoveredOrgan, setHoveredOrgan] = useState<string | null>(null)
   const [twinMode, setTwinMode] = useState<'3d' | '2d'>('3d')
   const { data } = usePatientData()
 
@@ -164,6 +175,8 @@ export default function Overview() {
           value={`${data.kpis.health_score ?? defaultPatient.healthScore}`}
           note={scoreNote}
           tone="bg-teal-tint text-teal"
+          onMouseEnter={() => setHoveredOrgan('heart')}
+          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={1}
@@ -172,6 +185,8 @@ export default function Overview() {
           value={`${data.kpis.abnormal_count ?? 0}`}
           note={abnormalNote}
           tone={(data.kpis.abnormal_count ?? 0) > 0 ? 'bg-amber-50 text-amber-600' : 'bg-emerald-50 text-emerald-600'}
+          onMouseEnter={() => setHoveredOrgan('pancreas')}
+          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={2}
@@ -180,6 +195,8 @@ export default function Overview() {
           value={`${data.kpis.total_medications ?? 0}`}
           note={medsNote}
           tone="bg-cyan-tint text-cyan"
+          onMouseEnter={() => setHoveredOrgan('liver')}
+          onMouseLeave={() => setHoveredOrgan(null)}
         />
         <Kpi
           index={3}
@@ -188,14 +205,22 @@ export default function Overview() {
           value={`${data.kpis.total_documents ?? 0}`}
           note={docsNote}
           tone="bg-emerald-50 text-emerald-600"
+          onMouseEnter={() => setHoveredOrgan('lungs')}
+          onMouseLeave={() => setHoveredOrgan(null)}
         />
       </div>
 
-      <Card className="overflow-hidden">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4">
+      <Card className="overflow-hidden border border-slate-200/80 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4 bg-slate-900/5 backdrop-blur-sm">
           <div>
-            <h2 className="font-semibold text-heading">{t('overview.twinTitle')}</h2>
-            <p className="text-sm text-muted">{t('overview.twinHint')}</p>
+            <div className="flex items-center gap-2">
+              <h2 className="font-semibold text-heading">{t('overview.twinTitle')}</h2>
+              <span className="inline-flex items-center gap-1 rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-mono font-medium text-teal">
+                <span className="size-1.5 rounded-full bg-teal animate-pulse" />
+                3D Fly-Through Active
+              </span>
+            </div>
+            <p className="text-xs text-muted">{t('overview.twinHint')} · Hover metrics to pulse organ beacons</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex items-center rounded-lg bg-subtle p-1 ring-1 ring-line">
@@ -226,10 +251,41 @@ export default function Overview() {
           </div>
         </div>
 
+        {/* Quick Organ Fly-Through Strip */}
+        <div className="flex items-center gap-1.5 overflow-x-auto border-b border-slate-800/40 bg-slate-950 px-4 py-2 text-xs">
+          <span className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-teal/70 mr-1 flex items-center gap-1">
+            <Box className="size-3" /> Focus Organ:
+          </span>
+          {[
+            { id: 'pancreas', label: 'Pancreas (HbA1c)' },
+            { id: 'heart', label: 'Cardiovascular' },
+            { id: 'liver', label: 'Hepatic (Meds)' },
+            { id: 'kidneys', label: 'Renal' },
+            { id: 'lungs', label: 'Lungs' },
+            { id: 'brain', label: 'Neuro' },
+            { id: 'knee', label: 'Knee' },
+          ].map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => setOrgan(item.id)}
+              onMouseEnter={() => setHoveredOrgan(item.id)}
+              onMouseLeave={() => setHoveredOrgan(null)}
+              className={`shrink-0 rounded-md px-2.5 py-1 font-medium transition-all ${
+                organ === item.id
+                  ? 'bg-teal text-white shadow-[0_0_12px_rgba(13,148,136,0.6)] font-semibold scale-105'
+                  : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
         <div className="grid lg:grid-cols-[1fr_400px]">
           <div className="relative h-[520px] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-4">
             {twinMode === '3d' ? (
-              <BodyTwin3D selected={organ} onSelect={setOrgan} organStatuses={liveOrganStatuses} />
+              <BodyTwin3D selected={organ} onSelect={setOrgan} organStatuses={liveOrganStatuses} hoveredOrgan={hoveredOrgan} />
             ) : (
               <div className="relative mx-auto h-full max-w-sm py-4">
                 <BodyTwin selected={organ} onSelect={setOrgan} />
@@ -253,8 +309,14 @@ export default function Overview() {
           <ul className="divide-y divide-line">
             {recentEvents.map((e) => {
               const Icon = eventIcon[e.type] || FileText
+              const linkedOrgan = e.type === 'lab' ? 'pancreas' : e.type === 'rx' ? 'liver' : 'heart'
               return (
-                <li key={e.id} className="interactive-item -mx-2 flex items-center gap-4 rounded-xl px-2 py-3">
+                <li
+                  key={e.id}
+                  onMouseEnter={() => setHoveredOrgan(linkedOrgan)}
+                  onMouseLeave={() => setHoveredOrgan(null)}
+                  className="interactive-item -mx-2 flex items-center gap-4 rounded-xl px-2 py-3 cursor-pointer hover:bg-slate-50 transition-colors"
+                >
                   <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-subtle text-teal">
                     <Icon className="size-[18px]" aria-hidden />
                   </span>

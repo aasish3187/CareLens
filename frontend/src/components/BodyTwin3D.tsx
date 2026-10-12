@@ -67,16 +67,29 @@ const DEFAULT_HOTSPOTS = [
 ]
 
 // The 3 primary hotspots from user reference image (media_1791555297935.png)
+import { playOrganSelectSound } from '../utils/soundEffects'
+
 const PRIMARY_REFERENCE_IDS = ['heart', 'pancreas', 'knee']
+
+const ORGAN_CAMERA_TARGETS: Record<string, { camPos: [number, number, number]; lookAt: [number, number, number] }> = {
+  brain: { camPos: [0.0, 0.95, 4.2], lookAt: [0.0, 0.95, 0.17] },
+  heart: { camPos: [0.18, 0.47, 4.4], lookAt: [0.14, 0.47, 0.20] },
+  pancreas: { camPos: [0.0, 0.23, 4.3], lookAt: [0.0, 0.23, 0.18] },
+  liver: { camPos: [-0.16, 0.30, 4.4], lookAt: [-0.14, 0.30, 0.18] },
+  lungs: { camPos: [-0.16, 0.47, 4.4], lookAt: [-0.14, 0.47, 0.18] },
+  knee: { camPos: [0.18, -0.68, 4.6], lookAt: [0.17, -0.68, 0.14] },
+  default: { camPos: [0, -0.72, 8.8], lookAt: [0, -0.72, 0] },
+}
 
 interface Props {
   selected: string
   onSelect: (organId: string) => void
   organStatuses?: Record<string, HealthStatus>
+  hoveredOrgan?: string | null
   className?: string
 }
 
-export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, className = '' }: Props) {
+export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hoveredOrgan = null, className = '' }: Props) {
   const mountRef = useRef<HTMLDivElement>(null)
   const [autoRotate, setAutoRotate] = useState(false)
   const [hoveredHotspot, setHoveredHotspot] = useState<string | null>(null)
@@ -116,14 +129,27 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
     isDragging: boolean
     prevX: number
     prevY: number
+    targetCamPos: THREE.Vector3
+    targetLookAt: THREE.Vector3
+    currentLookAt: THREE.Vector3
   } | null>(null)
+
+  // Camera Fly-Through Trigger on organ selection
+  useEffect(() => {
+    if (!sceneRefs.current) return
+    const target = ORGAN_CAMERA_TARGETS[selected] || ORGAN_CAMERA_TARGETS['default']
+    sceneRefs.current.targetCamPos.set(...target.camPos)
+    sceneRefs.current.targetLookAt.set(...target.lookAt)
+    if (selected && selected !== 'default') {
+      playOrganSelectSound()
+    }
+  }, [selected])
 
   // Zoom handling
   const handleZoom = useCallback((direction: 'in' | 'out') => {
     if (!sceneRefs.current) return
-    const { camera } = sceneRefs.current
     const step = direction === 'in' ? -0.7 : 0.7
-    camera.position.z = THREE.MathUtils.clamp(camera.position.z + step, 5.0, 9.8)
+    sceneRefs.current.targetCamPos.z = THREE.MathUtils.clamp(sceneRefs.current.targetCamPos.z + step, 4.0, 9.8)
   }, [])
 
   // Turntable rotation handling
@@ -132,12 +158,14 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
     sceneRefs.current.targetRotationY += delta
   }, [])
 
-  // Reset View
+  // Reset View to full body overview
   const handleReset = useCallback(() => {
     if (!sceneRefs.current) return
     sceneRefs.current.targetRotationY = 0 // Frontal anatomical view
-    sceneRefs.current.camera.position.set(0, -0.72, 8.8)
-  }, [])
+    sceneRefs.current.targetCamPos.set(0, -0.72, 8.8)
+    sceneRefs.current.targetLookAt.set(0, -0.72, 0)
+    onSelect('default')
+  }, [onSelect])
 
   // Scrubber Pointer Drag Handlers (smooth 360° spin on drag)
   const handleScrubberPointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
@@ -430,6 +458,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
       }
     )
 
+    const initialConfig = ORGAN_CAMERA_TARGETS[selected] || ORGAN_CAMERA_TARGETS['default']
     sceneRefs.current = {
       scene,
       camera,
@@ -441,6 +470,9 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
       isDragging: false,
       prevX: 0,
       prevY: 0,
+      targetCamPos: new THREE.Vector3(...initialConfig.camPos),
+      targetLookAt: new THREE.Vector3(...initialConfig.lookAt),
+      currentLookAt: new THREE.Vector3(0, -0.72, 0),
     }
 
     // Pointer events for drag-to-rotate
@@ -474,7 +506,8 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
 
     const onWheel = (e: WheelEvent) => {
       e.preventDefault()
-      camera.position.z = THREE.MathUtils.clamp(camera.position.z + (e.deltaY > 0 ? 0.35 : -0.35), 5.0, 9.8)
+      if (!sceneRefs.current) return
+      sceneRefs.current.targetCamPos.z = THREE.MathUtils.clamp(sceneRefs.current.targetCamPos.z + (e.deltaY > 0 ? 0.35 : -0.35), 4.0, 9.8)
     }
 
     container.addEventListener('mousedown', onDown)
@@ -495,6 +528,13 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
 
       const delta = clock.getDelta()
       const elapsed = clock.getElapsedTime()
+
+      // Smooth Cinematic Camera Fly-Through
+      if (!sceneRefs.current.isDragging && sceneRefs.current.targetCamPos && sceneRefs.current.targetLookAt) {
+        camera.position.lerp(sceneRefs.current.targetCamPos, 0.055)
+        sceneRefs.current.currentLookAt.lerp(sceneRefs.current.targetLookAt, 0.055)
+        camera.lookAt(sceneRefs.current.currentLookAt)
+      }
 
       // Auto rotation
       if (autoRotateRef.current && !sceneRefs.current.isDragging) {
@@ -628,7 +668,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
           // Show leader line for the 3 target markers from the reference image, or if currently selected/hovered
           const isPrimary = PRIMARY_REFERENCE_IDS.includes(spot.id)
           const isSelected = selected === spot.id
-          const isHovered = hoveredHotspot === spot.id
+          const isHovered = hoveredHotspot === spot.id || hoveredOrgan === spot.id
           const active = isSelected || isHovered
 
           if (!isPrimary && !active) return null
@@ -664,7 +704,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, cla
         {projectedHotspots.map((spot) => {
           if (!spot.visible) return null
           const isSelected = selected === spot.id
-          const isHovered = hoveredHotspot === spot.id
+          const isHovered = hoveredHotspot === spot.id || hoveredOrgan === spot.id
           const active = isSelected || isHovered
           const statusColor = statusStyles[spot.status]?.hex || '#0EA5E9'
           const isPrimary = PRIMARY_REFERENCE_IDS.includes(spot.id)

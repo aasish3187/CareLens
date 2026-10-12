@@ -42,6 +42,7 @@ import GroundingBar from '../components/GroundingBar'
 import DotRangeSlider from '../components/DotRangeSlider'
 import type { Segment, Zone, Status } from '../data/types'
 import { notifyPatientDataUpdated } from '../hooks/usePatientData'
+import { playGlassClickSound, playSuccessChime } from '../utils/soundEffects'
 
 type LiveAnalysisPayload = {
   document: {
@@ -219,7 +220,10 @@ export default function EvidenceStudio() {
     setActive({ fact: params.get('fact'), nonce: Date.now() })
   }, [activeDocId, params])
 
-  const select = (fact: string) => setActive((a) => ({ fact, nonce: a.nonce + 1 }))
+  const select = (fact: string) => {
+    playGlassClickSound()
+    setActive((a) => ({ fact, nonce: a.nonce + 1 }))
+  }
 
   // Compute UI data either from API or from static fallback
   const fallbackDoc = docById(activeDocId || 'apollo')

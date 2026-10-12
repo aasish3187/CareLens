@@ -25,6 +25,7 @@ const organToSystemMap: Record<string, string> = {
 export default function BodyTwinPage() {
   const t = useT()
   const [organ, setOrgan] = useState('pancreas')
+  const [hoveredOrgan, setHoveredOrgan] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'3d' | '2d'>('3d')
   const { data } = usePatientData()
 
@@ -77,7 +78,12 @@ export default function BodyTwinPage() {
         <Card className="relative overflow-hidden p-0 border border-line shadow-sm">
           <div className="h-[510px] w-full">
             {viewMode === '3d' ? (
-              <BodyTwin3D selected={organ} onSelect={setOrgan} organStatuses={liveOrganStatuses} />
+              <BodyTwin3D
+                selected={organ}
+                onSelect={setOrgan}
+                organStatuses={liveOrganStatuses}
+                hoveredOrgan={hoveredOrgan}
+              />
             ) : (
               <div className="relative mx-auto h-full max-w-md py-6">
                 <BodyTwin selected={organ} onSelect={setOrgan} />
@@ -86,7 +92,10 @@ export default function BodyTwinPage() {
           </div>
 
           <div className="border-t border-line bg-card p-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">{t('twin.organs')}</p>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">{t('twin.organs')}</p>
+              <span className="text-[11px] font-mono text-teal">✨ Click to trigger 3D Fly-Through · Hover to highlight</span>
+            </div>
             <div className="flex flex-wrap gap-2">
               {organs.map((o) => {
                 const currentStatus = liveOrganStatuses[o.id] || o.status
@@ -95,9 +104,13 @@ export default function BodyTwinPage() {
                     key={o.id}
                     type="button"
                     onClick={() => setOrgan(o.id)}
+                    onMouseEnter={() => setHoveredOrgan(o.id)}
+                    onMouseLeave={() => setHoveredOrgan(null)}
                     aria-pressed={organ === o.id}
-                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium ring-1 ring-inset transition-colors ${
-                      organ === o.id ? 'bg-teal text-white ring-teal' : 'bg-white text-body ring-line hover:bg-subtle'
+                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium ring-1 ring-inset transition-all ${
+                      organ === o.id
+                        ? 'bg-teal text-white ring-teal shadow-md shadow-teal/20 scale-105'
+                        : 'bg-white text-body ring-line hover:bg-subtle hover:border-teal/40'
                     }`}
                   >
                     <span
