@@ -78,7 +78,7 @@ const organToSystemMap: Record<string, string> = {
 
 export default function Overview() {
   const t = useT()
-  const [organ, setOrgan] = useState('pancreas')
+  const [organ, setOrgan] = useState('all')
   const [hoveredOrgan, setHoveredOrgan] = useState<string | null>(null)
   const [twinMode, setTwinMode] = useState<'3d' | '2d'>('3d')
   const { data } = usePatientData()
@@ -252,11 +252,12 @@ export default function Overview() {
         </div>
 
         {/* Quick Organ Fly-Through Strip */}
-        <div className="flex items-center gap-1.5 overflow-x-auto border-b border-slate-800/40 bg-slate-950 px-4 py-2 text-xs">
-          <span className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-teal/70 mr-1 flex items-center gap-1">
-            <Box className="size-3" /> Focus Organ:
+        <div className="flex items-center gap-2 overflow-x-auto border-b border-line bg-slate-50/80 px-5 py-2.5 text-xs backdrop-blur-sm">
+          <span className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-muted mr-1 flex items-center gap-1.5 font-semibold">
+            <Box className="size-3.5 text-teal" /> 3D View Target:
           </span>
           {[
+            { id: 'all', label: '🌐 Full Body (All Problems)', isFullBody: true },
             { id: 'pancreas', label: 'Pancreas (HbA1c)' },
             { id: 'heart', label: 'Cardiovascular' },
             { id: 'liver', label: 'Hepatic (Meds)' },
@@ -264,26 +265,31 @@ export default function Overview() {
             { id: 'lungs', label: 'Lungs' },
             { id: 'brain', label: 'Neuro' },
             { id: 'knee', label: 'Knee' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => setOrgan(item.id)}
-              onMouseEnter={() => setHoveredOrgan(item.id)}
-              onMouseLeave={() => setHoveredOrgan(null)}
-              className={`shrink-0 rounded-md px-2.5 py-1 font-medium transition-all ${
-                organ === item.id
-                  ? 'bg-teal text-white shadow-[0_0_12px_rgba(13,148,136,0.6)] font-semibold scale-105'
-                  : 'bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800'
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
+          ].map((item) => {
+            const isSelected = organ === item.id || (item.id === 'all' && (organ === 'all' || organ === 'full' || organ === 'default'))
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setOrgan(item.id)}
+                onMouseEnter={() => setHoveredOrgan(item.id === 'all' ? null : item.id)}
+                onMouseLeave={() => setHoveredOrgan(null)}
+                className={`shrink-0 rounded-full px-3 py-1 font-medium transition-all flex items-center gap-1.5 text-xs ${
+                  isSelected
+                    ? 'bg-teal text-white shadow-sm shadow-teal/30 font-semibold ring-2 ring-teal/20 scale-[1.02]'
+                    : item.isFullBody
+                      ? 'bg-white text-teal-700 hover:bg-teal-50 border border-teal-200 font-semibold shadow-2xs'
+                      : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-2xs'
+                }`}
+              >
+                {item.label}
+              </button>
+            )
+          })}
         </div>
 
         <div className="grid lg:grid-cols-[1fr_400px]">
-          <div className="relative h-[520px] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-4">
+          <div className="relative h-[520px] bg-gradient-to-b from-white via-slate-50 to-slate-100 overflow-hidden">
             {twinMode === '3d' ? (
               <BodyTwin3D selected={organ} onSelect={setOrgan} organStatuses={liveOrganStatuses} hoveredOrgan={hoveredOrgan} />
             ) : (
@@ -293,7 +299,7 @@ export default function Overview() {
             )}
           </div>
           <div className="border-t border-line p-5 lg:border-l lg:border-t-0">
-            <OrganPanel organId={organ} compact />
+            <OrganPanel organId={organ} compact onSelectOrgan={setOrgan} />
           </div>
         </div>
       </Card>

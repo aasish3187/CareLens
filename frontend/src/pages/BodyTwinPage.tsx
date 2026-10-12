@@ -24,7 +24,7 @@ const organToSystemMap: Record<string, string> = {
 
 export default function BodyTwinPage() {
   const t = useT()
-  const [organ, setOrgan] = useState('pancreas')
+  const [organ, setOrgan] = useState('all')
   const [hoveredOrgan, setHoveredOrgan] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'3d' | '2d'>('3d')
   const { data } = usePatientData()
@@ -97,6 +97,21 @@ export default function BodyTwinPage() {
               <span className="text-[11px] font-mono text-teal">✨ Click to trigger 3D Fly-Through · Hover to highlight</span>
             </div>
             <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setOrgan('all')}
+                onMouseEnter={() => setHoveredOrgan(null)}
+                onMouseLeave={() => setHoveredOrgan(null)}
+                aria-pressed={organ === 'all' || organ === 'full' || organ === 'default'}
+                className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-semibold ring-1 ring-inset transition-all ${
+                  organ === 'all' || organ === 'full' || organ === 'default'
+                    ? 'bg-teal text-white ring-teal shadow-md shadow-teal/20 scale-105'
+                    : 'bg-white text-teal-800 ring-teal/30 hover:bg-teal-50 hover:border-teal'
+                }`}
+              >
+                <span>🌐</span>
+                Full Body (All Problems)
+              </button>
               {organs.map((o) => {
                 const currentStatus = liveOrganStatuses[o.id] || o.status
                 return (
@@ -127,7 +142,7 @@ export default function BodyTwinPage() {
         </Card>
 
         <Card className="p-5 lg:sticky lg:top-24 lg:self-start">
-          <OrganPanel organId={organ} />
+          <OrganPanel organId={organ} onSelectOrgan={setOrgan} />
         </Card>
       </div>
     </div>

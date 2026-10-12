@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { statusStyles, type HealthStatus } from './ui/StatusPill'
-import { RotateCcw, Play, Pause, Layers, Plus, Minus, MoveHorizontal, Sparkles } from 'lucide-react'
+import { RotateCcw, Play, Pause, Layers, Plus, Minus, MoveHorizontal, Sparkles, Activity } from 'lucide-react'
 
 export interface AnatomicalHotspot {
   id: string
@@ -72,6 +72,8 @@ import { playOrganSelectSound } from '../utils/soundEffects'
 const PRIMARY_REFERENCE_IDS = ['heart', 'pancreas', 'knee']
 
 const ORGAN_CAMERA_TARGETS: Record<string, { camPos: [number, number, number]; lookAt: [number, number, number] }> = {
+  all: { camPos: [0, -0.72, 8.8], lookAt: [0, -0.72, 0] },
+  full: { camPos: [0, -0.72, 8.8], lookAt: [0, -0.72, 0] },
   brain: { camPos: [0.0, 0.95, 4.2], lookAt: [0.0, 0.95, 0.17] },
   heart: { camPos: [0.18, 0.47, 4.4], lookAt: [0.14, 0.47, 0.20] },
   pancreas: { camPos: [0.0, 0.23, 4.3], lookAt: [0.0, 0.23, 0.18] },
@@ -164,7 +166,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
     sceneRefs.current.targetRotationY = 0 // Frontal anatomical view
     sceneRefs.current.targetCamPos.set(0, -0.72, 8.8)
     sceneRefs.current.targetLookAt.set(0, -0.72, 0)
-    onSelect('default')
+    onSelect('all')
   }, [onSelect])
 
   // Scrubber Pointer Drag Handlers (smooth 360° spin on drag)
@@ -665,11 +667,13 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
         </defs>
         {projectedHotspots.map((spot) => {
           if (!spot.visible) return null
+          const isFullBodyMode = selected === 'all' || selected === 'full' || selected === 'default'
           // Show leader line for the 3 target markers from the reference image, or if currently selected/hovered
           const isPrimary = PRIMARY_REFERENCE_IDS.includes(spot.id)
           const isSelected = selected === spot.id
           const isHovered = hoveredHotspot === spot.id || hoveredOrgan === spot.id
-          const active = isSelected || isHovered
+          const isProblem = spot.id === 'pancreas' || spot.id === 'knee'
+          const active = isSelected || isHovered || (isFullBodyMode && isProblem)
 
           if (!isPrimary && !active) return null
 
@@ -679,7 +683,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
           const endX = startX + 140
           const endY = startY - 14
 
-          const strokeColor = active ? '#2563EB' : '#93C5FD'
+          const strokeColor = active ? (isProblem ? '#F59E0B' : '#2563EB') : '#93C5FD'
           const strokeWidth = active ? 2.4 : 1.6
 
           return (
@@ -703,14 +707,16 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
       <div className="pointer-events-none absolute inset-0 size-full">
         {projectedHotspots.map((spot) => {
           if (!spot.visible) return null
+          const isFullBodyMode = selected === 'all' || selected === 'full' || selected === 'default'
           const isSelected = selected === spot.id
           const isHovered = hoveredHotspot === spot.id || hoveredOrgan === spot.id
-          const active = isSelected || isHovered
-          const statusColor = statusStyles[spot.status]?.hex || '#0EA5E9'
+          const isProblem = spot.id === 'pancreas' || spot.id === 'knee'
+          const active = isSelected || isHovered || (isFullBodyMode && isProblem)
+          const statusColor = statusStyles[spot.status]?.hex || (isProblem ? '#F59E0B' : '#0EA5E9')
           const isPrimary = PRIMARY_REFERENCE_IDS.includes(spot.id)
 
-          // Only show primary reference pins (Chest, Abdomen, Knee) unless user selected another organ
-          if (!isPrimary && !active) return null
+          // In full body mode, show all pins so user can inspect any organ; otherwise show primary + active
+          if (!isPrimary && !active && !isFullBodyMode) return null
 
           return (
             <div
@@ -778,7 +784,7 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
       </div>
 
       {/* Top Bar Status Badges */}
-      <div className="absolute left-4 top-4 z-10 flex items-center gap-2">
+      <div className="absolute left-4 top-4 z-10 flex flex-wrap items-center gap-2">
         <div
           className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur-md ring-1 ${
             viewTheme === 'studio'
@@ -792,6 +798,22 @@ export default function BodyTwin3D({ selected, onSelect, organStatuses = {}, hov
           </span>
           Live 3D Anatomical Twin
         </div>
+
+        <button
+          type="button"
+          onClick={() => onSelect('all')}
+          className={`flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold shadow-sm backdrop-blur-md transition-all ring-1 ${
+            selected === 'all' || selected === 'full' || selected === 'default'
+              ? 'bg-teal text-white ring-teal shadow-teal/30'
+              : viewTheme === 'studio'
+                ? 'bg-white/90 text-slate-700 ring-slate-200 hover:bg-slate-100'
+                : 'bg-slate-900/80 text-slate-300 ring-slate-700 hover:text-white'
+          }`}
+          title="Zoom out to full body view and display all clinical problems"
+        >
+          <Activity className="size-3.5" />
+          Full Body (All Problems)
+        </button>
 
         <button
           type="button"
