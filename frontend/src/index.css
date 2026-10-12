@@ -117,49 +117,138 @@ body {
     0 12px 32px -8px rgb(15 23 42 / 0.18);
 }
 
-@keyframes naturalStarShine {
+@keyframes stellarGlintFast {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.25) rotate(0deg);
+    opacity: 0.16;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  16% {
+    transform: translate(-50%, -50%) scale(0.45) rotate(4deg);
+    opacity: 0.35;
+  }
+  28% {
+    transform: translate(-50%, -50%) scale(1.3) rotate(12deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.7)) drop-shadow(0 0 12px rgba(13, 148, 136, 0.4));
+  }
+  36% {
+    transform: translate(-50%, -50%) scale(0.7) rotate(6deg);
+    opacity: 0.45;
+    filter: drop-shadow(0 0 2px rgba(14, 165, 233, 0.3));
+  }
+  46% {
+    transform: translate(-50%, -50%) scale(1.4) rotate(16deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.85)) drop-shadow(0 0 16px rgba(13, 148, 136, 0.5));
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(0.6) rotate(8deg);
+    opacity: 0.4;
+  }
+  78% {
+    transform: translate(-50%, -50%) scale(0.35) rotate(2deg);
+    opacity: 0.22;
+  }
+}
+
+@keyframes stellarGlintSlow {
   0%, 100% {
     transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
     opacity: 0.18;
     filter: drop-shadow(0 0 0px transparent);
   }
+  30% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-4deg);
+    opacity: 0.38;
+  }
+  52% {
+    transform: translate(-50%, -50%) scale(1.35) rotate(-12deg);
+    opacity: 0.98;
+    filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.65)) drop-shadow(0 0 14px rgba(14, 165, 233, 0.45));
+  }
+  68% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(-8deg);
+    opacity: 0.72;
+  }
+  85% {
+    transform: translate(-50%, -50%) scale(0.42) rotate(-2deg);
+    opacity: 0.25;
+  }
+}
+
+@keyframes stellarShimmerPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.22) rotate(0deg);
+    opacity: 0.15;
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  18% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(6deg);
+    opacity: 0.4;
+  }
+  26% {
+    transform: translate(-50%, -50%) scale(0.32) rotate(3deg);
+    opacity: 0.22;
+  }
+  48% {
+    transform: translate(-50%, -50%) scale(1.25) rotate(14deg);
+    opacity: 0.92;
+    filter: drop-shadow(0 0 6px rgba(13, 148, 136, 0.7)) drop-shadow(0 0 12px rgba(20, 184, 166, 0.4));
+  }
+  66% {
+    transform: translate(-50%, -50%) scale(0.55) rotate(7deg);
+    opacity: 0.38;
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.15) rotate(16deg);
+    opacity: 0.82;
+    filter: drop-shadow(0 0 4px rgba(13, 148, 136, 0.5));
+  }
+  92% {
+    transform: translate(-50%, -50%) scale(0.4) rotate(4deg);
+    opacity: 0.25;
+  }
+}
+
+@keyframes stellarDiamondGaze {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.32) rotate(0deg);
+    opacity: 0.2;
+    filter: drop-shadow(0 0 0px transparent);
+  }
   25% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(-6deg);
+    opacity: 0.38;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3) rotate(-16deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 5px rgba(13, 148, 136, 0.65)) drop-shadow(0 0 10px rgba(14, 165, 233, 0.35));
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(0.6) rotate(-8deg);
+    opacity: 0.42;
+  }
+}
+
+@keyframes stellarPinpointTwinkle {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.35);
+    opacity: 0.18;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(0.7);
     opacity: 0.45;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.4) rotate(14deg);
-    opacity: 1;
-    filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.75)) drop-shadow(0 0 14px rgba(13, 148, 136, 0.45));
-  }
-  60% {
-    transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-    opacity: 0.88;
-  }
-  78% {
-    opacity: 0.35;
-  }
-}
-
-@keyframes naturalDiamondShine {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(0.35) rotate(0deg);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.3) rotate(18deg);
+    transform: translate(-50%, -50%) scale(1.4);
     opacity: 0.95;
-    filter: drop-shadow(0 0 5px rgba(13, 148, 136, 0.6));
+    filter: drop-shadow(0 0 3px rgba(20, 184, 166, 0.8));
   }
-}
-
-@keyframes naturalPinpointTwinkle {
-  0%, 100% {
-    transform: translate(-50%, -50%) scale(0.4);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.35);
-    opacity: 0.9;
+  72% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.4;
   }
 }
 
