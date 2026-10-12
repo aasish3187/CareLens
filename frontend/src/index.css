@@ -2,7 +2,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-app: #f8fafc;
+  --color-app: #edf2f7;
   --color-surface: #ffffff;
   --color-subtle: #f1f5f9;
   --color-teal: #0d9488;
@@ -36,7 +36,7 @@ html[lang='ta'] {
 
 html,
 body {
-  background: var(--color-app);
+  background-color: var(--color-app);
   color: var(--color-body);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -52,12 +52,15 @@ body {
 }
 
 .card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.88);
   border-radius: 16px;
   box-shadow:
-    0 1px 2px rgb(15 23 42 / 0.04),
-    0 4px 16px -4px rgb(15 23 42 / 0.06);
+    0 1px 3px 0 rgba(15, 23, 42, 0.04),
+    0 8px 24px -4px rgba(15, 23, 42, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
@@ -69,8 +72,9 @@ body {
   transform: translateY(-2px);
   border-color: var(--color-teal, #0d9488);
   box-shadow:
-    0 4px 16px -2px rgb(13 148 136 / 0.15),
-    0 8px 24px -4px rgb(13 148 136 / 0.08);
+    0 4px 16px -2px rgb(13 148 136 / 0.16),
+    0 12px 28px -4px rgb(13 148 136 / 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset;
 }
 
 .interactive-item {

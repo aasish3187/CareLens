@@ -24,7 +24,7 @@ export default function Sidebar({ onClose }: { onClose?: () => void }) {
 
   return (
     <>
-      <aside className="flex h-full w-60 flex-col border-r border-line bg-white">
+      <aside className="flex h-full w-60 flex-col border-r border-line bg-white/90 backdrop-blur-md">
         <div className="flex items-center justify-between px-5 pb-6 pt-5">
           <div className="flex items-center gap-2.5">
             <Logo />
