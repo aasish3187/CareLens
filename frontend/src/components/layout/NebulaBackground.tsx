@@ -95,18 +95,18 @@ export default function NebulaBackground() {
             baseRadius = 3.2 + randVal2 * 1.0
             const colPick = pseudoRand(seed * 7.1)
             color = colPick < 0.4 ? CYAN : colPick < 0.75 ? TEAL : colPick < 0.9 ? INDIGO : EMERALD
-            baseOpacity = 0.52
+            baseOpacity = 0.30
             isAccent = true
           } else if (randVal < 0.28) {
             // Medium Harmonic Node (~20%)
             baseRadius = 2.0 + randVal2 * 0.6
             color = pseudoRand(seed * 2.3) > 0.5 ? TEAL : CYAN
-            baseOpacity = 0.35
+            baseOpacity = 0.18
           } else {
             // Subtle Base Pinpoint (~72%)
             baseRadius = 1.0 + randVal2 * 0.4
             color = pseudoRand(seed * 1.7) > 0.4 ? TEAL : SLATE
-            baseOpacity = 0.18
+            baseOpacity = 0.08
           }
 
           // Sequential phase based on diagonal wave coordinate
@@ -198,7 +198,7 @@ export default function NebulaBackground() {
 
         // Pulse line opacity gently with wave
         const wave = Math.sin((p1.seqPhase + p2.seqPhase) * 0.5 - elapsed * 1.2)
-        const lineAlpha = 0.06 + 0.06 * ((wave + 1) * 0.5)
+        const lineAlpha = 0.03 + 0.03 * ((wave + 1) * 0.5)
 
         ctx.strokeStyle = `${edge.color} ${lineAlpha})`
         ctx.beginPath()
@@ -229,7 +229,7 @@ export default function NebulaBackground() {
         const combinedScale = Math.max(0.45, 1.0 + 0.42 * (seqScaleFactor - 0.5) + randScaleFactor)
 
         const currentR = dot.baseRadius * combinedScale
-        const currentAlpha = Math.min(0.58, Math.max(0.06, dot.opacity * (0.6 + 0.45 * combinedScale)))
+        const currentAlpha = Math.min(0.34, Math.max(0.03, dot.opacity * (0.6 + 0.45 * combinedScale)))
 
         ctx.beginPath()
         ctx.arc(dot.x, dot.y, currentR, 0, Math.PI * 2)
@@ -240,7 +240,7 @@ export default function NebulaBackground() {
         if (dot.isAccent && combinedScale > 1.15) {
           ctx.beginPath()
           ctx.arc(dot.x, dot.y, currentR * 1.8, 0, Math.PI * 2)
-          ctx.fillStyle = `${dot.color} ${currentAlpha * 0.16})`
+          ctx.fillStyle = `${dot.color} ${currentAlpha * 0.12})`
           ctx.fill()
         }
       }
@@ -267,7 +267,7 @@ export default function NebulaBackground() {
       <div className="absolute bottom-[-12rem] left-[18%] h-[800px] w-[800px] rounded-full bg-gradient-to-t from-teal/12 via-cyan/6 to-transparent blur-[165px]" />
 
       {/* 2. Dynamic Bio-Digital Dot Matrix Canvas (Retina, 60 FPS, Sequential + Random Size Variation) */}
-      <canvas ref={canvasRef} className="absolute inset-0 size-full" />
+      <canvas ref={canvasRef} className="absolute inset-0 size-full opacity-85" />
 
       {/* 3. Global Smooth Vignette Framing for Medical Data Readability */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_100%_100%_at_50%_0%,transparent_55%,rgba(241,245,249,0.45)_100%)]" />
