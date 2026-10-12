@@ -154,44 +154,46 @@ export default function Timeline() {
                       >
                         <Icon className="size-[18px]" aria-hidden />
                       </span>
-                      <div className="liquid-glass liquid-glass-interactive rounded-2xl border border-white/80 p-5 shadow-sm hover:border-teal/60 hover:shadow-lg transition-all">
-                        <div className="flex flex-wrap items-start justify-between gap-2">
-                          <div className="min-w-0">
-                            <div className="flex flex-wrap items-center gap-2 text-xs">
-                              <span className="font-mono font-semibold text-heading">{e.date}</span>
-                              <span className="text-muted">·</span>
-                              <span className="font-medium text-muted capitalize">{e.type}</span>
+                      <div className="liquid-glass-lens rounded-2xl border border-white/80 p-5 shadow-sm overflow-hidden hover:border-white transition-all duration-300">
+                        <div className="relative z-10">
+                          <div className="flex flex-wrap items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <div className="flex flex-wrap items-center gap-2 text-xs">
+                                <span className="font-mono font-semibold text-heading">{e.date}</span>
+                                <span className="text-muted">·</span>
+                                <span className="font-medium text-muted capitalize">{e.type}</span>
+                              </div>
+                              <p className="mt-1 font-bold text-heading text-base drop-shadow-2xs">{e.title}</p>
+                              <p className="mt-0.5 font-mono text-xs text-body">{e.detail}</p>
+                              <p className="mt-1 text-xs text-muted">{e.facility}</p>
                             </div>
-                            <p className="mt-1 font-bold text-heading text-base">{e.title}</p>
-                            <p className="mt-0.5 font-mono text-xs text-body">{e.detail}</p>
-                            <p className="mt-1 text-xs text-muted">{e.facility}</p>
+                            {e.status && <StatusPill status={e.status} />}
                           </div>
-                          {e.status && <StatusPill status={e.status} />}
+                          {(e.trendKey || e.docId) && (
+                            <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-white/60 pt-3">
+                              {e.trendKey ? (
+                                <span className="liquid-glass-pill inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-inset ring-emerald-300">
+                                  {e.trendDir === 'down' ? (
+                                    <TrendingDown className="size-3.5 text-emerald-600" aria-hidden />
+                                  ) : (
+                                    <TrendingUp className="size-3.5 text-emerald-600" aria-hidden />
+                                  )}
+                                  {t(e.trendKey)}
+                                </span>
+                              ) : (
+                                <span />
+                              )}
+                              {e.docId && (
+                                <Link
+                                  to={`/evidence/${e.docId}`}
+                                  className="btn-interactive inline-flex items-center gap-1.5 rounded-lg bg-teal-tint/70 px-3 py-1.5 text-xs font-bold text-teal hover:bg-teal hover:text-white transition-all shadow-2xs"
+                                >
+                                  {t('timeline.view')} <ArrowRight className="size-3.5" aria-hidden />
+                                </Link>
+                              )}
+                            </div>
+                          )}
                         </div>
-                        {(e.trendKey || e.docId) && (
-                          <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-white/60 pt-3">
-                            {e.trendKey ? (
-                              <span className="liquid-glass-pill inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-inset ring-emerald-300">
-                                {e.trendDir === 'down' ? (
-                                  <TrendingDown className="size-3.5 text-emerald-600" aria-hidden />
-                                ) : (
-                                  <TrendingUp className="size-3.5 text-emerald-600" aria-hidden />
-                                )}
-                                {t(e.trendKey)}
-                              </span>
-                            ) : (
-                              <span />
-                            )}
-                            {e.docId && (
-                              <Link
-                                to={`/evidence/${e.docId}`}
-                                className="btn-interactive inline-flex items-center gap-1.5 rounded-lg bg-teal-tint/70 px-3 py-1.5 text-xs font-bold text-teal hover:bg-teal hover:text-white transition-all shadow-2xs"
-                              >
-                                {t('timeline.view')} <ArrowRight className="size-3.5" aria-hidden />
-                              </Link>
-                            )}
-                          </div>
-                        )}
                       </div>
                     </motion.li>
                   )

@@ -225,23 +225,23 @@ export default function Upload() {
                   }}
                   onDragLeave={() => setDrag(false)}
                   onDrop={onDrop}
-                  className={`liquid-glass group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed px-6 py-14 text-center transition-all duration-300 ${
+                  className={`liquid-glass-lens group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed px-6 py-14 text-center transition-all duration-300 ${
                     drag
-                      ? 'scale-[1.01] border-teal bg-white/95 shadow-[0_24px_50px_-10px_rgba(13,148,136,0.3)] ring-4 ring-teal/20'
-                      : 'border-teal/40 hover:border-teal hover:shadow-[0_20px_45px_-10px_rgba(13,148,136,0.18)] hover:-translate-y-1'
+                      ? 'scale-[1.01] border-teal bg-white/30 shadow-[0_24px_50px_-10px_rgba(13,148,136,0.3)] ring-4 ring-teal/20'
+                      : 'border-teal/40 hover:border-teal hover:shadow-[0_20px_45px_-10px_rgba(13,148,136,0.18)]'
                   }`}
                 >
                   {/* Illuminated Liquid Border Ambient Glow */}
                   <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal/20 via-cyan/20 to-teal/20 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100" />
 
                   <span
-                    className={`grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-teal to-cyan text-white shadow-lg shadow-teal/25 transition-transform duration-300 ${
+                    className={`relative z-10 grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-teal to-cyan text-white shadow-lg shadow-teal/25 transition-transform duration-300 ${
                       drag ? '-translate-y-1 scale-105' : 'group-hover:scale-105'
                     }`}
                   >
                     <CloudUpload className="size-8" aria-hidden />
                   </span>
-                  <p className="mt-5 text-lg font-semibold text-heading">{drag ? t('upload.dropActive') : t('upload.drop')}</p>
+                  <p className="relative z-10 mt-5 text-lg font-bold text-heading drop-shadow-2xs">{drag ? t('upload.dropActive') : t('upload.drop')}</p>
                   <p className="mt-1 text-sm text-muted">{t('upload.formats')}</p>
                   <div className="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-3">
                     <button
@@ -468,18 +468,20 @@ export default function Upload() {
                     type="button"
                     disabled={!!job}
                     onClick={() => startDemo({ name: d.file, size: isImg ? '1.8 MB' : '420 KB', kind: isImg ? 'image' : 'pdf', docId: d.id, isDemo: true })}
-                    className="liquid-glass liquid-glass-interactive group flex w-full items-center gap-3 rounded-xl border border-white/80 p-3 text-left transition-all hover:border-teal/60 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
+                    className="liquid-glass-lens group relative flex w-full items-center gap-3 rounded-xl border border-white/80 p-3 text-left transition-all overflow-hidden hover:border-white disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    <span className={`grid size-10 shrink-0 place-items-center rounded-lg ${isImg ? 'bg-cyan-tint/80 text-cyan' : 'bg-teal-tint/80 text-teal'}`}>
-                      {isImg ? <FileImage className="size-5" aria-hidden /> : <FileText className="size-5" aria-hidden />}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block truncate font-mono text-[13px] font-medium text-heading">{d.file}</span>
-                      <span className="block text-xs text-muted">
-                        {t(d.titleKey)} · {d.date}
+                    <span className="relative z-10 flex w-full items-center gap-3">
+                      <span className={`grid size-10 shrink-0 place-items-center rounded-lg ${isImg ? 'bg-cyan-tint/80 text-cyan' : 'bg-teal-tint/80 text-teal'} transition-transform duration-300 group-hover:scale-105`}>
+                        {isImg ? <FileImage className="size-5" aria-hidden /> : <FileText className="size-5" aria-hidden />}
                       </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate font-mono text-[13px] font-semibold text-heading drop-shadow-2xs">{d.file}</span>
+                        <span className="block text-xs text-muted transition-colors group-hover:text-body">
+                          {t(d.titleKey)} · {d.date}
+                        </span>
+                      </span>
+                      <CloudUpload className="size-4 text-muted transition-colors group-hover:text-teal" aria-hidden />
                     </span>
-                    <CloudUpload className="size-4 text-muted transition-colors group-hover:text-teal" aria-hidden />
                   </button>
                 </li>
               )

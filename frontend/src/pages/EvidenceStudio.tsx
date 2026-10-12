@@ -565,16 +565,16 @@ export default function EvidenceStudio() {
               <div
                 key={doc.id}
                 onClick={() => navigate(`/evidence/${doc.id}`)}
-                className="liquid-glass liquid-glass-interactive group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/80 p-6 shadow-sm cursor-pointer hover:border-teal/60 hover:shadow-xl"
+                className="liquid-glass-lens group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/80 p-6 shadow-sm cursor-pointer hover:border-white transition-all duration-300"
               >
-                <div className="space-y-4">
+                <div className="relative z-10 space-y-4">
                   {/* Top Kind & Confidence Row */}
                   <div className="flex items-center justify-between">
-                    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ${iconBg}`}>
+                    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ring-1 transition-all duration-300 group-hover:shadow-xs group-hover:bg-white/90 ${iconBg}`}>
                       <Icon className="size-3.5" />
                       {doc.kindLabel}
                     </span>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-200 font-mono">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700 ring-1 ring-emerald-200 font-mono transition-all duration-300 group-hover:bg-white/90">
                       <CheckCircle2 className="size-3 text-emerald-600" />
                       {doc.confidence}% Grounded
                     </span>
@@ -582,10 +582,10 @@ export default function EvidenceStudio() {
 
                   {/* Title & Facility */}
                   <div>
-                    <h3 className="text-base font-bold text-heading group-hover:text-teal transition-colors">
+                    <h3 className="text-base font-bold text-heading group-hover:text-teal transition-colors drop-shadow-2xs">
                       {doc.title}
                     </h3>
-                    <div className="mt-1.5 flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-muted">
+                    <div className="mt-1.5 flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-muted transition-colors group-hover:text-body">
                       <span className="flex items-center gap-1">
                         <Building2 className="size-3" />
                         {doc.facility}
@@ -598,22 +598,22 @@ export default function EvidenceStudio() {
                   </div>
 
                   {/* Doctor Info */}
-                  <div className="flex items-center gap-1.5 text-xs text-body font-medium bg-subtle/40 rounded-lg p-2">
+                  <div className="flex items-center gap-1.5 text-xs text-body font-medium bg-white/70 backdrop-blur-md rounded-lg p-2 border border-white/80 transition-colors group-hover:bg-white/90">
                     <Stethoscope className="size-3.5 text-teal shrink-0" />
                     <span className="truncate">{doc.doctor}</span>
                   </div>
 
                   {/* Key Highlights Chips */}
                   <div className="space-y-1.5">
-                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">Key Clinical Findings</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted transition-colors group-hover:text-heading/80">Key Clinical Findings</p>
                     <div className="flex flex-wrap gap-1.5">
                       {doc.highlights.map((h, idx) => (
                         <span
                           key={idx}
-                          className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-mono font-medium ${
+                          className={`inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-mono font-medium transition-all ${
                             h.status === 'elevated'
-                              ? 'bg-amber-50 text-amber-800 ring-1 ring-amber-200'
-                              : 'bg-subtle text-slate-700'
+                              ? 'bg-amber-50 text-amber-800 ring-1 ring-amber-200 group-hover:bg-white/90'
+                              : 'bg-white/70 text-slate-700 ring-1 ring-white/80 group-hover:bg-white/90'
                           }`}
                         >
                           <span className="font-semibold">{h.name}:</span>
@@ -625,8 +625,8 @@ export default function EvidenceStudio() {
                 </div>
 
                 {/* Card Footer Action */}
-                <div className="mt-6 pt-4 border-t border-line flex items-center justify-between">
-                  <span className="text-xs font-medium text-muted font-mono">{doc.findingsCount}</span>
+                <div className="relative z-10 mt-6 pt-4 border-t border-white/60 flex items-center justify-between">
+                  <span className="text-xs font-semibold text-muted font-mono transition-colors group-hover:text-body">{doc.findingsCount}</span>
                   <span className="btn-interactive inline-flex items-center gap-1.5 rounded-xl bg-teal-tint px-3 py-1.5 text-xs font-bold text-teal-hover ring-1 ring-teal/30 group-hover:bg-teal group-hover:text-white transition-all shadow-sm">
                     <span>Inspect Evidence</span>
                     <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />

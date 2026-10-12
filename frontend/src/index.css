@@ -104,7 +104,8 @@ body {
     inset 0 -1px 2px 0 rgba(14, 165, 233, 0.1);
 }
 
-/* Pure Liquid Glass Clearing Lens (Top KPI Cards) */
+/* Pure Liquid Glass Clearing Lens (KPI Cards, Gallery Cards, Med Cards, Timeline Cards, Dropzone) */
+.liquid-glass-lens,
 .liquid-glass-kpi {
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.76) 100%);
@@ -125,6 +126,7 @@ body {
     border-color 0.28s ease;
 }
 
+.liquid-glass-lens::before,
 .liquid-glass-kpi::before {
   content: '';
   position: absolute;
@@ -136,6 +138,7 @@ body {
   transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.liquid-glass-lens:hover,
 .liquid-glass-kpi:hover {
   /* Transforms into pure crystalline optic glass revealing the living background! */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
@@ -150,6 +153,7 @@ body {
     inset 0 -1.5px 2px 0 rgba(14, 165, 233, 0.15) !important;
 }
 
+.liquid-glass-lens:hover::before,
 .liquid-glass-kpi:hover::before {
   opacity: 1;
 }
