@@ -104,6 +104,56 @@ body {
     inset 0 -1px 2px 0 rgba(14, 165, 233, 0.1);
 }
 
+/* Pure Liquid Glass Clearing Lens (Top KPI Cards) */
+.liquid-glass-kpi {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.76) 100%);
+  backdrop-filter: blur(20px) saturate(165%);
+  -webkit-backdrop-filter: blur(20px) saturate(165%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 4px 6px -1px rgba(15, 23, 42, 0.03),
+    0 16px 36px -6px rgba(15, 23, 42, 0.08),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(13, 148, 136, 0.04);
+  transition:
+    background 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-backdrop-filter 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.28s ease;
+}
+
+.liquid-glass-kpi::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(125deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0.25) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-kpi:hover {
+  /* Transforms into pure crystalline optic glass revealing the living background! */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  backdrop-filter: blur(4px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(4px) saturate(190%) !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-4px) scale(1.008);
+  box-shadow:
+    0 12px 28px -2px rgba(13, 148, 136, 0.20),
+    0 24px 52px -6px rgba(15, 23, 42, 0.12),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(14, 165, 233, 0.15) !important;
+}
+
+.liquid-glass-kpi:hover::before {
+  opacity: 1;
+}
+
 .liquid-glass-pill {
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(14px) saturate(150%);

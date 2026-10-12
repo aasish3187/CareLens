@@ -46,19 +46,19 @@ function Kpi({
       <Card
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="liquid-glass liquid-glass-interactive card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer rounded-2xl shadow-sm hover:border-teal/60 hover:ring-1 hover:ring-teal/30 hover:shadow-xl hover:shadow-teal/10 transition-all duration-300"
+        className="liquid-glass-kpi group relative flex h-full items-start gap-4 p-5 cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:border-white transition-all duration-300"
       >
         <span
-          className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
+          className={`relative z-10 grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md group-hover:ring-1 group-hover:ring-white/80 shadow-xs`}
         >
           <Icon className="size-5" aria-hidden />
         </span>
-        <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-muted">{label}</p>
-          <p className="mt-0.5 font-mono text-3xl font-semibold tracking-tight text-heading transition-colors group-hover:text-teal">
+        <div className="relative z-10 min-w-0 flex-1">
+          <p className="text-sm font-medium text-muted transition-colors group-hover:text-heading/85">{label}</p>
+          <p className="mt-0.5 font-mono text-3xl font-bold tracking-tight text-heading transition-colors group-hover:text-teal drop-shadow-2xs">
             <AnimatedCounter value={value} />
           </p>
-          <p className="mt-1 text-xs text-muted truncate" title={note}>
+          <p className="mt-1 text-xs text-muted truncate transition-colors group-hover:text-body" title={note}>
             {note}
           </p>
         </div>
