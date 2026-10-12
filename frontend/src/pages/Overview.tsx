@@ -46,7 +46,7 @@ function Kpi({
       <Card
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer backdrop-blur-md bg-white/85 border border-slate-200/80 shadow-sm hover:border-teal hover:ring-1 hover:ring-teal/40 hover:shadow-xl hover:shadow-teal/10 transition-all duration-300"
+        className="liquid-glass liquid-glass-interactive card-hover-lift group flex h-full items-start gap-4 p-5 cursor-pointer rounded-2xl shadow-sm hover:border-teal/60 hover:ring-1 hover:ring-teal/30 hover:shadow-xl hover:shadow-teal/10 transition-all duration-300"
       >
         <span
           className={`grid size-11 shrink-0 place-items-center rounded-xl ${tone} transition-transform duration-300 group-hover:scale-110 shadow-xs`}
@@ -151,8 +151,8 @@ export default function Overview() {
               : t('overview.subtitle')}
           </p>
         </div>
-        <Card className="card-hover-lift group flex items-center gap-3 px-4 py-3 cursor-pointer border border-line hover:border-teal hover:border-[#0d9488] transition-all duration-300">
-          <div className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-teal to-cyan text-sm font-bold text-white transition-transform group-hover:scale-105">
+        <Card className="liquid-glass liquid-glass-interactive card-hover-lift group flex items-center gap-3 px-4 py-3 cursor-pointer rounded-2xl border border-white/80 shadow-sm hover:border-teal/50 hover:shadow-md transition-all duration-300">
+          <div className="grid size-11 place-items-center rounded-full bg-gradient-to-br from-teal to-cyan text-sm font-bold text-white transition-transform group-hover:scale-105 shadow-sm shadow-teal/20">
             {data.patient.name ? data.patient.name.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase() : 'AV'}
           </div>
           <div className="text-sm">
@@ -202,12 +202,12 @@ export default function Overview() {
         />
       </div>
 
-      <Card className="overflow-hidden border border-slate-200/80 shadow-md">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4 bg-slate-900/5 backdrop-blur-sm">
+      <Card className="liquid-glass overflow-hidden rounded-2xl border border-white/80 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/70 px-5 py-4 bg-white/40 backdrop-blur-md">
           <div>
             <div className="flex items-center gap-2">
               <h2 className="font-semibold text-heading">{t('overview.twinTitle')}</h2>
-              <span className="inline-flex items-center gap-1 rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-mono font-medium text-teal">
+              <span className="inline-flex items-center gap-1 rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-mono font-medium text-teal ring-1 ring-teal/20">
                 <span className="size-1.5 rounded-full bg-teal animate-pulse" />
                 3D Fly-Through Active
               </span>
@@ -215,7 +215,7 @@ export default function Overview() {
             <p className="text-xs text-muted">{t('overview.twinHint')}</p>
           </div>
           <div className="flex items-center gap-3">
-            <div className="flex items-center rounded-lg bg-subtle p-1 ring-1 ring-line">
+            <div className="flex items-center rounded-lg bg-white/60 p-1 ring-1 ring-white/80 backdrop-blur-md">
               <button
                 type="button"
                 onClick={() => setTwinMode('3d')}
@@ -244,7 +244,7 @@ export default function Overview() {
         </div>
 
         {/* Quick Organ Fly-Through Strip */}
-        <div className="flex items-center gap-2 overflow-x-auto border-b border-line bg-slate-50/80 px-5 py-2.5 text-xs backdrop-blur-sm">
+        <div className="flex items-center gap-2 overflow-x-auto border-b border-white/60 bg-white/50 px-5 py-2.5 text-xs backdrop-blur-md">
           <span className="shrink-0 font-mono text-[11px] uppercase tracking-wider text-muted mr-1 flex items-center gap-1.5 font-semibold">
             <Box className="size-3.5 text-teal" /> 3D View Target:
           </span>
@@ -269,9 +269,7 @@ export default function Overview() {
                 className={`shrink-0 rounded-full px-3 py-1 font-medium transition-all flex items-center gap-1.5 text-xs ${
                   isSelected
                     ? 'bg-teal text-white shadow-sm shadow-teal/30 font-semibold ring-2 ring-teal/20 scale-[1.02]'
-                    : item.isFullBody
-                      ? 'bg-white text-teal-700 hover:bg-teal-50 border border-teal-200 font-semibold shadow-2xs'
-                      : 'bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-2xs'
+                    : 'liquid-glass-pill text-slate-700 hover:text-slate-900 shadow-2xs'
                 }`}
               >
                 {item.label}
@@ -297,14 +295,14 @@ export default function Overview() {
       </Card>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
-        <Card className="card-hover-lift p-5">
+        <Card className="liquid-glass card-hover-lift rounded-2xl p-5 border border-white/80 shadow-sm">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="font-semibold text-heading">{t('overview.recent')}</h2>
             <Link to="/timeline" className="btn-interactive text-sm font-semibold text-teal hover:text-teal-hover">
               {t('overview.viewAll')}
             </Link>
           </div>
-          <ul className="divide-y divide-line">
+          <ul className="divide-y divide-white/60">
             {recentEvents.map((e) => {
               const Icon = eventIcon[e.type] || FileText
               const linkedOrgan = e.type === 'lab' ? 'pancreas' : e.type === 'rx' ? 'liver' : 'heart'
@@ -313,9 +311,9 @@ export default function Overview() {
                   key={e.id}
                   onMouseEnter={() => setHoveredOrgan(linkedOrgan)}
                   onMouseLeave={() => setHoveredOrgan(null)}
-                  className="interactive-item -mx-2 flex items-center gap-4 rounded-xl px-2 py-3 cursor-pointer hover:bg-slate-50 transition-colors"
+                  className="interactive-item -mx-2 flex items-center gap-4 rounded-xl px-3 py-3 cursor-pointer hover:bg-white/75 hover:shadow-2xs transition-all border border-transparent hover:border-white/80"
                 >
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-subtle text-teal">
+                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/80 text-teal shadow-2xs ring-1 ring-white/90">
                     <Icon className="size-[18px]" aria-hidden />
                   </span>
                   <div className="min-w-0 flex-1">
@@ -332,12 +330,12 @@ export default function Overview() {
           </ul>
         </Card>
 
-        <Card className="card-hover-lift relative overflow-hidden p-5">
+        <Card className="liquid-glass card-hover-lift relative overflow-hidden rounded-2xl p-5 border border-white/80 shadow-sm">
           <div className="absolute -right-10 -top-10 size-40 rounded-full bg-gradient-to-br from-teal/15 to-cyan/15 blur-2xl" aria-hidden />
           <div className="relative">
             <div className="flex items-center justify-between">
               <h2 className="font-semibold text-heading">{t('overview.abhaTitle')}</h2>
-              <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[10px] font-bold uppercase text-amber-800">Mock</span>
+              <span className="rounded-full bg-amber-100/80 px-2 py-0.5 text-[10px] font-bold uppercase text-amber-800 ring-1 ring-amber-300/60">Mock</span>
             </div>
             <p className="mt-4 text-xs text-muted">{t('abha.number')}</p>
             <p className="font-mono text-lg font-semibold tracking-wider text-heading">

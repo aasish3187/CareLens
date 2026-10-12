@@ -104,7 +104,7 @@ export default function Timeline() {
   return (
     <div className="max-w-4xl">
       <PageHeader title={t('timeline.title')} subtitle={t('timeline.subtitle')} />
-      <div className="mb-8 flex flex-wrap gap-2" role="radiogroup">
+      <div className="mb-8 flex flex-wrap gap-2.5" role="radiogroup">
         {filters.map((f, i) => (
           <button
             key={f.key}
@@ -112,8 +112,10 @@ export default function Timeline() {
             role="radio"
             aria-checked={filter === i}
             onClick={() => setFilter(i)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium ring-1 ring-inset transition-colors ${
-              filter === i ? 'bg-heading text-white ring-heading' : 'bg-white text-body ring-line hover:bg-subtle'
+            className={`btn-interactive rounded-full px-4 py-1.5 text-sm font-semibold transition-all ${
+              filter === i
+                ? 'bg-teal text-white shadow-md shadow-teal/25 ring-2 ring-teal/30 scale-[1.02]'
+                : 'liquid-glass-pill text-body hover:text-heading hover:border-teal/40'
             }`}
           >
             {t(f.key)}
@@ -128,10 +130,11 @@ export default function Timeline() {
       <div className="space-y-10">
         {groups.map((g, gIdx) => (
           <section key={g.monthKey || gIdx}>
-            <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+            <h2 className="mb-4 inline-flex items-center gap-2 rounded-lg bg-white/60 px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.14em] text-teal-hover border border-white/80 backdrop-blur-md shadow-2xs">
+              <span className="size-2 rounded-full bg-teal animate-pulse" />
               {hasLiveTimeline ? 'Uploaded Medical Documents' : t(g.monthKey)}
             </h2>
-            <ol className="relative ml-5 border-l-2 border-dashed border-line">
+            <ol className="relative ml-5 border-l-2 border-dashed border-teal/40 shadow-[0_0_12px_rgba(13,148,136,0.12)]">
               <AnimatePresence initial={false}>
                 {g.events.map((e) => {
                   const Icon = eventIcon[e.type] || FileText
@@ -145,13 +148,13 @@ export default function Timeline() {
                       className="relative pb-6 pl-9 last:pb-0"
                     >
                       <span
-                        className={`absolute -left-[21px] top-3 grid size-10 place-items-center rounded-full bg-white shadow-sm ring-1 ring-inset ${
-                          typeTone[e.type] || 'bg-subtle text-muted ring-line'
+                        className={`liquid-glass absolute -left-[21px] top-3 grid size-10 place-items-center rounded-full shadow-md ring-1 ring-white/90 backdrop-blur-md transition-transform hover:scale-110 ${
+                          typeTone[e.type] || 'bg-white/80 text-muted'
                         }`}
                       >
                         <Icon className="size-[18px]" aria-hidden />
                       </span>
-                      <Card className="card-interactive p-4">
+                      <div className="liquid-glass liquid-glass-interactive rounded-2xl border border-white/80 p-5 shadow-sm hover:border-teal/60 hover:shadow-lg transition-all">
                         <div className="flex flex-wrap items-start justify-between gap-2">
                           <div className="min-w-0">
                             <div className="flex flex-wrap items-center gap-2 text-xs">
@@ -159,20 +162,20 @@ export default function Timeline() {
                               <span className="text-muted">·</span>
                               <span className="font-medium text-muted capitalize">{e.type}</span>
                             </div>
-                            <p className="mt-1 font-semibold text-heading">{e.title}</p>
+                            <p className="mt-1 font-bold text-heading text-base">{e.title}</p>
                             <p className="mt-0.5 font-mono text-xs text-body">{e.detail}</p>
                             <p className="mt-1 text-xs text-muted">{e.facility}</p>
                           </div>
                           {e.status && <StatusPill status={e.status} />}
                         </div>
                         {(e.trendKey || e.docId) && (
-                          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
+                          <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2 border-t border-white/60 pt-3">
                             {e.trendKey ? (
-                              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-inset ring-emerald-200">
+                              <span className="liquid-glass-pill inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold text-emerald-800 ring-1 ring-inset ring-emerald-300">
                                 {e.trendDir === 'down' ? (
-                                  <TrendingDown className="size-3.5" aria-hidden />
+                                  <TrendingDown className="size-3.5 text-emerald-600" aria-hidden />
                                 ) : (
-                                  <TrendingUp className="size-3.5" aria-hidden />
+                                  <TrendingUp className="size-3.5 text-emerald-600" aria-hidden />
                                 )}
                                 {t(e.trendKey)}
                               </span>
@@ -182,14 +185,14 @@ export default function Timeline() {
                             {e.docId && (
                               <Link
                                 to={`/evidence/${e.docId}`}
-                                className="inline-flex items-center gap-1 text-xs font-semibold text-teal hover:text-teal-hover"
+                                className="btn-interactive inline-flex items-center gap-1.5 rounded-lg bg-teal-tint/70 px-3 py-1.5 text-xs font-bold text-teal hover:bg-teal hover:text-white transition-all shadow-2xs"
                               >
                                 {t('timeline.view')} <ArrowRight className="size-3.5" aria-hidden />
                               </Link>
                             )}
                           </div>
                         )}
-                      </Card>
+                      </div>
                     </motion.li>
                   )
                 })}

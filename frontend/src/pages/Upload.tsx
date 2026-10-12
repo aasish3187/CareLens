@@ -225,24 +225,29 @@ export default function Upload() {
                   }}
                   onDragLeave={() => setDrag(false)}
                   onDrop={onDrop}
-                  className={`flex flex-col items-center justify-center rounded-2xl border-2 border-dashed px-6 py-14 text-center transition-all ${
-                    drag ? 'scale-[1.01] border-teal bg-teal-tint shadow-lg shadow-teal/10' : 'border-teal/40 bg-white hover:border-teal hover:bg-teal-tint/40'
+                  className={`liquid-glass group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-2 border-dashed px-6 py-14 text-center transition-all duration-300 ${
+                    drag
+                      ? 'scale-[1.01] border-teal bg-white/95 shadow-[0_24px_50px_-10px_rgba(13,148,136,0.3)] ring-4 ring-teal/20'
+                      : 'border-teal/40 hover:border-teal hover:shadow-[0_20px_45px_-10px_rgba(13,148,136,0.18)] hover:-translate-y-1'
                   }`}
                 >
+                  {/* Illuminated Liquid Border Ambient Glow */}
+                  <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal/20 via-cyan/20 to-teal/20 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100" />
+
                   <span
-                    className={`grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-teal to-cyan text-white shadow-lg shadow-teal/25 transition-transform ${
-                      drag ? '-translate-y-1' : ''
+                    className={`grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-teal to-cyan text-white shadow-lg shadow-teal/25 transition-transform duration-300 ${
+                      drag ? '-translate-y-1 scale-105' : 'group-hover:scale-105'
                     }`}
                   >
                     <CloudUpload className="size-8" aria-hidden />
                   </span>
                   <p className="mt-5 text-lg font-semibold text-heading">{drag ? t('upload.dropActive') : t('upload.drop')}</p>
                   <p className="mt-1 text-sm text-muted">{t('upload.formats')}</p>
-                  <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                  <div className="relative z-10 mt-6 flex flex-wrap items-center justify-center gap-3">
                     <button
                       type="button"
                       onClick={() => fileRef.current?.click()}
-                      className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal px-4 text-sm font-semibold text-white hover:bg-teal-hover"
+                      className="liquid-glass-pill inline-flex h-10 items-center gap-2 rounded-xl bg-teal px-4 text-sm font-semibold text-white shadow-md shadow-teal/25 hover:bg-teal-hover transition-all"
                     >
                       <FileText className="size-4" aria-hidden />
                       {t('upload.browse')}
@@ -251,7 +256,7 @@ export default function Upload() {
                     <button
                       type="button"
                       onClick={() => camRef.current?.click()}
-                      className="inline-flex h-10 items-center gap-2 rounded-lg border border-line bg-white px-4 text-sm font-semibold text-heading hover:bg-subtle"
+                      className="liquid-glass-pill inline-flex h-10 items-center gap-2 rounded-xl border border-white/90 bg-white/80 px-4 text-sm font-semibold text-heading shadow-xs hover:border-teal/40 hover:bg-white transition-all"
                     >
                       <Camera className="size-4 text-teal" aria-hidden />
                       {t('upload.camera')}
@@ -260,7 +265,7 @@ export default function Upload() {
                   <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
                   <input ref={camRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
                   {error && (
-                    <p role="alert" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-red-50 px-3.5 py-2.5 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-200">
+                    <p role="alert" className="relative z-10 mt-5 inline-flex items-center gap-2 rounded-xl bg-red-50/90 px-3.5 py-2.5 text-sm font-medium text-red-700 ring-1 ring-inset ring-red-200 backdrop-blur-md">
                       <AlertCircle className="size-4 shrink-0 text-red-600" aria-hidden />
                       <span>
                         <strong className="font-semibold">{t('upload.failed')}: </strong>
@@ -398,18 +403,18 @@ export default function Upload() {
                   </div>
 
                   <p className="mb-3 mt-6 text-xs font-semibold uppercase tracking-wider text-muted">{t('upload.pipeline')}</p>
-                  <ol className="grid gap-2 sm:grid-cols-2">
+                  <ol className="grid gap-2.5 sm:grid-cols-2">
                     {stages.map((s, i) => {
                       const state = i < stage ? 'done' : i === stage ? 'active' : 'pending'
                       return (
                         <li
                           key={s}
-                          className={`flex items-center gap-3 rounded-xl border px-3 py-2.5 text-sm transition-colors ${
+                          className={`liquid-glass-pill flex items-center gap-3 rounded-xl border px-3.5 py-2.5 text-sm transition-all ${
                             state === 'done'
-                              ? 'border-emerald-200 bg-emerald-50/60 text-heading'
+                              ? 'border-emerald-300/80 bg-emerald-50/70 text-heading shadow-xs'
                               : state === 'active'
-                                ? 'border-teal/40 bg-teal-tint text-heading'
-                                : 'border-line text-muted'
+                                ? 'border-teal/70 bg-teal-tint/90 text-heading shadow-md shadow-teal/15 ring-2 ring-teal/20 scale-[1.01]'
+                                : 'border-white/80 bg-white/50 text-muted'
                           }`}
                         >
                           <span
@@ -431,7 +436,7 @@ export default function Upload() {
                     })}
                   </ol>
                   {!job.isDemo && done && (
-                    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="mt-4 rounded-lg bg-emerald-50 p-3 text-center text-sm font-medium text-emerald-700 ring-1 ring-emerald-200">
+                    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="mt-4 rounded-xl bg-emerald-50/90 p-3.5 text-center text-sm font-medium text-emerald-800 ring-1 ring-emerald-300 backdrop-blur-md">
                       ✅ Your document has been analyzed by Gemini AI. Redirecting to results...
                     </motion.div>
                   )}
@@ -440,8 +445,8 @@ export default function Upload() {
             )}
           </AnimatePresence>
 
-          <div className="flex items-start gap-3 rounded-2xl border border-cyan/20 bg-cyan-tint p-4">
-            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white text-cyan ring-1 ring-cyan/20">
+          <div className="liquid-glass flex items-start gap-3 rounded-2xl border border-cyan/30 bg-cyan-tint/60 p-4 shadow-xs backdrop-blur-md">
+            <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/90 text-cyan ring-1 ring-cyan/20 shadow-xs">
               <EyeOff className="size-4" aria-hidden />
             </span>
             <p className="text-sm leading-relaxed text-body">{t('upload.pii')}</p>
@@ -454,7 +459,7 @@ export default function Upload() {
             <h2 className="font-semibold text-heading">{t('upload.demo')}</h2>
           </div>
           <p className="mt-1 text-sm text-muted">{t('upload.demoHint')}</p>
-          <ul className="mt-4 space-y-2">
+          <ul className="mt-4 space-y-2.5">
             {documents.map((d) => {
               const isImg = d.file.endsWith('.jpg')
               return (
@@ -463,9 +468,9 @@ export default function Upload() {
                     type="button"
                     disabled={!!job}
                     onClick={() => startDemo({ name: d.file, size: isImg ? '1.8 MB' : '420 KB', kind: isImg ? 'image' : 'pdf', docId: d.id, isDemo: true })}
-                    className="btn-interactive group flex w-full items-center gap-3 rounded-xl border border-line p-3 text-left transition-all hover:border-teal/50 hover:bg-teal-tint/60 hover:shadow-xs disabled:cursor-not-allowed disabled:opacity-50"
+                    className="liquid-glass liquid-glass-interactive group flex w-full items-center gap-3 rounded-xl border border-white/80 p-3 text-left transition-all hover:border-teal/60 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    <span className={`grid size-10 shrink-0 place-items-center rounded-lg ${isImg ? 'bg-cyan-tint text-cyan' : 'bg-teal-tint text-teal'}`}>
+                    <span className={`grid size-10 shrink-0 place-items-center rounded-lg ${isImg ? 'bg-cyan-tint/80 text-cyan' : 'bg-teal-tint/80 text-teal'}`}>
                       {isImg ? <FileImage className="size-5" aria-hidden /> : <FileText className="size-5" aria-hidden />}
                     </span>
                     <span className="min-w-0 flex-1">

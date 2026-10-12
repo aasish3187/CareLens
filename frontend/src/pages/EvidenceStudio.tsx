@@ -507,7 +507,7 @@ export default function EvidenceStudio() {
         </div>
 
         {/* Filter and Search Bar */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-y border-line py-3">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between border-y border-white/60 py-3">
           <div className="flex flex-wrap items-center gap-2">
             {[
               { id: 'all', label: 'All Records', count: galleryItems.length },
@@ -521,14 +521,14 @@ export default function EvidenceStudio() {
                 onClick={() => setDocFilter(tab.id as any)}
                 className={`btn-interactive flex items-center gap-2 rounded-xl px-3.5 py-1.5 text-xs font-semibold transition-all ${
                   docFilter === tab.id
-                    ? 'bg-teal text-white shadow-sm ring-1 ring-teal'
-                    : 'bg-white text-muted ring-1 ring-line hover:bg-subtle hover:text-heading'
+                    ? 'bg-teal text-white shadow-sm ring-1 ring-teal/30'
+                    : 'liquid-glass-pill text-muted hover:text-heading'
                 }`}
               >
                 <span>{tab.label}</span>
                 <span
                   className={`rounded-full px-1.5 py-0.2 text-[10px] font-mono ${
-                    docFilter === tab.id ? 'bg-white/20 text-white' : 'bg-subtle text-muted'
+                    docFilter === tab.id ? 'bg-white/20 text-white' : 'bg-white/60 text-muted'
                   }`}
                 >
                   {tab.count}
@@ -544,7 +544,7 @@ export default function EvidenceStudio() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by facility, test, or doctor..."
-              className="h-9 w-full rounded-xl border border-line bg-white pl-9 pr-3 text-xs text-heading placeholder:text-muted focus:border-teal focus:outline-none"
+              className="h-9 w-full rounded-xl border border-white/80 bg-white/70 pl-9 pr-3 text-xs text-heading placeholder:text-muted backdrop-blur-md focus:border-teal focus:bg-white focus:outline-none shadow-2xs"
             />
           </div>
         </div>
@@ -556,16 +556,16 @@ export default function EvidenceStudio() {
             const isRx = doc.kind === 'rx'
             const Icon = isLab ? FlaskConical : isRx ? Pill : Activity
             const iconBg = isLab
-              ? 'bg-emerald-50 text-emerald-600 ring-emerald-200'
+              ? 'bg-emerald-50/90 text-emerald-700 ring-emerald-200/70'
               : isRx
-                ? 'bg-teal-50 text-teal-600 ring-teal-200'
-                : 'bg-indigo-50 text-indigo-600 ring-indigo-200'
+                ? 'bg-teal-50/90 text-teal-700 ring-teal-200/70'
+                : 'bg-indigo-50/90 text-indigo-700 ring-indigo-200/70'
 
             return (
               <div
                 key={doc.id}
                 onClick={() => navigate(`/evidence/${doc.id}`)}
-                className="card-interactive group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-white p-6 shadow-sm cursor-pointer hover:border-teal/50 hover:shadow-xl"
+                className="liquid-glass liquid-glass-interactive group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/80 p-6 shadow-sm cursor-pointer hover:border-teal/60 hover:shadow-xl"
               >
                 <div className="space-y-4">
                   {/* Top Kind & Confidence Row */}
@@ -706,7 +706,7 @@ export default function EvidenceStudio() {
         <button
           type="button"
           onClick={() => navigate('/evidence')}
-          className="btn-interactive flex shrink-0 items-center gap-1.5 rounded-xl border border-line bg-white px-3 py-2 text-xs font-semibold text-heading shadow-sm hover:border-teal/50 hover:bg-teal-tint hover:text-teal-hover transition-all"
+          className="btn-interactive flex shrink-0 items-center gap-1.5 rounded-xl border border-white/80 bg-white/70 px-3 py-2 text-xs font-semibold text-heading shadow-xs backdrop-blur-md hover:border-teal/50 hover:bg-white hover:text-teal-hover transition-all"
           title="Return to Report Selection Gallery"
         >
           <ArrowLeft className="size-3.5 text-teal" />
@@ -721,17 +721,17 @@ export default function EvidenceStudio() {
               to={`/evidence/${d.id}`}
               role="tab"
               aria-selected={isSelected}
-              className={`flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2 text-sm transition-colors shadow-sm ${
+              className={`flex shrink-0 items-center gap-2 rounded-xl border px-3.5 py-2 text-sm transition-all shadow-xs backdrop-blur-md ${
                 isSelected
-                  ? 'border-teal bg-teal-tint font-semibold text-teal-hover ring-1 ring-teal/30'
-                  : 'border-line bg-white text-body hover:bg-subtle'
+                  ? 'border-teal bg-teal text-white font-semibold ring-2 ring-teal/20 shadow-md shadow-teal/20'
+                  : 'border-white/80 bg-white/75 text-body hover:bg-white hover:border-teal/40'
               }`}
             >
-              <FileText className={`size-3.5 ${isSelected ? 'text-teal' : 'text-muted'}`} />
+              <FileText className={`size-3.5 ${isSelected ? 'text-white' : 'text-teal'}`} />
               <span className="truncate max-w-[200px]">{d.label}</span>
-              <span className="font-mono text-[11px] text-muted">{d.date}</span>
+              <span className={`font-mono text-[11px] ${isSelected ? 'text-white/80' : 'text-muted'}`}>{d.date}</span>
               {!d.isDemo && (
-                <span className="rounded-full bg-emerald-100 px-1.5 py-0.2 font-mono text-[9px] font-bold text-emerald-800">
+                <span className={`rounded-full px-1.5 py-0.2 font-mono text-[9px] font-bold ${isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'}`}>
                   LIVE
                 </span>
               )}

@@ -438,8 +438,8 @@ export default function DocumentViewer({ doc, activeFact, nonce, onSelectFact, b
 
   return (
     <HoverFactCtx.Provider value={{ hoveredFact, setHoveredFact }}>
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-slate-100 shadow-sm">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line bg-white px-3 py-2">
+      <div className="liquid-glass flex h-full flex-col overflow-hidden rounded-2xl border border-white/80 shadow-md">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/70 bg-white/75 backdrop-blur-md px-3 py-2">
           <div className="flex min-w-0 items-center gap-2 text-sm">
             <ScanLine className="size-4 shrink-0 text-teal" aria-hidden />
             <span className="truncate font-mono text-xs text-body">{doc.file}</span>

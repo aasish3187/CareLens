@@ -49,7 +49,7 @@ export default function Medications() {
     <div>
       <PageHeader title={t('meds.title')} subtitle={t('meds.subtitle')} actions={<SafetyBadge kind="notDiagnosis" />} />
 
-      <Card className="mb-6 flex flex-wrap items-center gap-4 border-emerald-200 bg-gradient-to-r from-emerald-50 to-white p-5">
+      <Card className="liquid-glass mb-6 flex flex-wrap items-center gap-4 rounded-2xl border border-emerald-300/80 p-5 shadow-sm">
         <span className="grid size-12 place-items-center rounded-xl bg-st-normal text-white shadow-md shadow-emerald-500/25">
           <CheckCircle2 className="size-6" aria-hidden />
         </span>
@@ -60,7 +60,7 @@ export default function Medications() {
           </p>
           <p className="text-sm text-body">{t('meds.polyBody')}</p>
         </div>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">
+        <span className="liquid-glass-pill inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold text-emerald-800">
           <ShieldCheck className="size-3.5" aria-hidden />
           {t('meds.kidneyCheck')}
         </span>
@@ -71,9 +71,9 @@ export default function Medications() {
           ? data.active_medications.map((m, idx) => {
               const docTarget = m.document_id || 'live'
               return (
-                <Card key={m.id || idx} className="card-interactive flex flex-col p-5">
+                <Card key={m.id || idx} className="liquid-glass liquid-glass-interactive card-hover-lift flex flex-col rounded-2xl p-6 border border-white/80 shadow-sm">
                   <div className="flex items-start gap-4">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-teal-tint to-cyan-tint text-teal ring-1 ring-teal/15">
+                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-teal-tint to-cyan-tint text-teal ring-1 ring-teal/20 shadow-2xs">
                       <Pill className="size-6" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
@@ -87,7 +87,7 @@ export default function Medications() {
                   <div className="mt-5">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">{t('meds.composition')}</p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="inline-flex items-center gap-2 rounded-lg border border-line bg-subtle/60 px-3 py-1.5 text-sm">
+                      <span className="liquid-glass-pill inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm">
                         <span className="font-medium text-heading">{m.generic_name || m.brand_name}</span>
                         {m.strength && <span className="font-mono text-xs font-semibold text-teal">{m.strength}</span>}
                       </span>
@@ -98,18 +98,18 @@ export default function Medications() {
                     <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">{t('meds.timing')}</p>
                     <div className="flex flex-wrap items-center gap-3">
                       <DoseDots dose={m.frequency || '1-0-0'} />
-                      <span className="rounded-full bg-cyan-tint px-3 py-1 text-xs font-semibold text-sky-700 capitalize">
+                      <span className="liquid-glass-pill rounded-full px-3 py-1 text-xs font-semibold text-sky-800 capitalize">
                         {m.timing?.replace('_', ' ') || 'After food'}
                       </span>
                       {m.duration && (
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                        <span className="liquid-glass-pill rounded-full px-3 py-1 text-xs font-semibold text-slate-800">
                           {m.duration}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-line pt-4 text-sm">
+                  <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-white/60 pt-4 text-sm">
                     <div>
                       <dt className="text-xs text-muted">Prescribed Route</dt>
                       <dd className="font-medium text-heading">Oral Therapy</dd>
@@ -123,7 +123,7 @@ export default function Medications() {
 
                   <Link
                     to={`/evidence/${docTarget}?fact=${m.fact_id || 'med_1'}`}
-                    className="mt-4 flex items-center gap-3 rounded-xl border border-line px-3 py-2.5 text-sm transition-colors hover:border-teal/40 hover:bg-teal-tint/40"
+                    className="mt-4 flex items-center gap-3 rounded-xl border border-white/80 bg-white/60 px-3 py-2.5 text-sm transition-all hover:border-teal/50 hover:bg-white shadow-2xs"
                   >
                     <FileText className="size-4 text-cyan" aria-hidden />
                     <span className="text-xs text-muted">{t('meds.source')}</span>
@@ -138,9 +138,9 @@ export default function Medications() {
           : defaultMedications.map((m) => {
               const doc = docById(m.docId)
               return (
-                <Card key={m.id} className="card-interactive flex flex-col p-5">
+                <Card key={m.id} className="liquid-glass liquid-glass-interactive card-hover-lift flex flex-col rounded-2xl p-6 border border-white/80 shadow-sm">
                   <div className="flex items-start gap-4">
-                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-teal-tint to-cyan-tint text-teal ring-1 ring-teal/15">
+                    <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-teal-tint to-cyan-tint text-teal ring-1 ring-teal/20 shadow-2xs">
                       <Pill className="size-6" aria-hidden />
                     </span>
                     <div className="min-w-0 flex-1">
@@ -152,7 +152,7 @@ export default function Medications() {
                     <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">{t('meds.composition')}</p>
                     <div className="flex flex-wrap gap-2">
                       {m.composition.map((c) => (
-                        <span key={c.name} className="inline-flex items-center gap-2 rounded-lg border border-line bg-subtle/60 px-3 py-1.5 text-sm">
+                        <span key={c.name} className="liquid-glass-pill inline-flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm">
                           <span className="font-medium text-heading">{c.name}</span>
                           <span className="font-mono text-xs font-semibold text-teal">{c.strength}</span>
                         </span>
@@ -163,10 +163,10 @@ export default function Medications() {
                     <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted">{t('meds.timing')}</p>
                     <div className="flex flex-wrap items-center gap-3">
                       <DoseDots dose={m.dose} />
-                      <span className="rounded-full bg-cyan-tint px-3 py-1 text-xs font-semibold text-sky-700">{t(m.timingKey)}</span>
+                      <span className="liquid-glass-pill rounded-full px-3 py-1 text-xs font-semibold text-sky-800">{t(m.timingKey)}</span>
                     </div>
                   </div>
-                  <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-line pt-4 text-sm">
+                  <dl className="mt-5 grid grid-cols-2 gap-3 border-t border-white/60 pt-4 text-sm">
                     <div>
                       <dt className="text-xs text-muted">{t('meds.prescriber')}</dt>
                       <dd className="font-medium text-heading">{m.prescriber}</dd>
@@ -179,7 +179,7 @@ export default function Medications() {
                   </dl>
                   <Link
                     to={`/evidence/${doc.id}?fact=${m.fact}`}
-                    className="mt-4 flex items-center gap-3 rounded-xl border border-line px-3 py-2.5 text-sm transition-colors hover:border-teal/40 hover:bg-teal-tint/40"
+                    className="mt-4 flex items-center gap-3 rounded-xl border border-white/80 bg-white/60 px-3 py-2.5 text-sm transition-all hover:border-teal/50 hover:bg-white shadow-2xs"
                   >
                     <FileText className="size-4 text-cyan" aria-hidden />
                     <span className="text-xs text-muted">{t('meds.source')}</span>
