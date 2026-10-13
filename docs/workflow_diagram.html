@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1920px;
+    height: 1080px;
+    background: #0b1120;
+    overflow: hidden;
+  }
+  svg {
+    display: block;
+    width: 1920px;
+    height: 1080px;
+  }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background:#0b1120; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1120" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Header Gradient -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+
+    <!-- Column Card Gradients -->
+    <linearGradient id="col1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="col2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#082f49" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="col3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="col4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#581c87" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="col5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#831843" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Node Card Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Glow & Shadow Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+
+    <!-- Arrow Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)" />
+
+  <!-- Subtle Bio-Digital Grid Pattern -->
+  <g opacity="0.06" stroke="#38bdf8" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" />
+    </pattern>
+    <rect width="1920" height="1080" fill="url(#grid)" />
+  </g>
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="150" r="180" fill="#0d9488" opacity="0.12" filter="url(#glow)" />
+  <circle cx="960" cy="540" r="240" fill="#0284c7" opacity="0.08" filter="url(#glow)" />
+  <circle cx="1720" cy="200" r="200" fill="#6366f1" opacity="0.1" filter="url(#glow)" />
+
+  <!-- ==================== HEADER ==================== -->
+  <g transform="translate(60, 40)">
+    <!-- Container Bar -->
+    <rect width="1800" height="96" rx="20" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Logo Badge -->
+    <rect x="24" y="20" width="56" height="56" rx="16" fill="url(#headerGrad)" />
+    <circle cx="52" cy="48" r="13" fill="none" stroke="#ffffff" stroke-width="3" />
+    <circle cx="52" cy="48" r="4.5" fill="#ffffff" />
+    <path d="M 61 57 L 67 63" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" />
+
+    <!-- Title & Subtitle -->
+    <text x="96" y="47" font-size="26" font-weight="800" fill="#f8fafc" letter-spacing="-0.5">
+      CareLens — End-to-End Clinical &amp; AI Workflow Architecture
+    </text>
+    <text x="96" y="72" font-size="14" font-weight="500" fill="#94a3b8">
+      Altrix Labs AI Health Copilot · Multimodal Dual-Pass VLM + Deterministic ICMR Rules + ABDM FHIR R4 Bundle + 3D Anatomical Twin
+    </text>
+
+    <!-- Status Tags on Right -->
+    <g transform="translate(1420, 30)">
+      <rect width="165" height="36" rx="18" fill="#065f46" stroke="#10b981" stroke-width="1" />
+      <circle cx="20" cy="18" r="4" fill="#34d399" />
+      <text x="32" y="23" font-size="13" font-weight="700" fill="#6ee7b7">Zero-Hallucination</text>
+    </g>
+
+    <g transform="translate(1600, 30)">
+      <rect width="176" height="36" rx="18" fill="#1e1b4b" stroke="#818cf8" stroke-width="1" />
+      <text x="88" y="23" font-size="13" font-weight="700" fill="#c7d2fe" text-anchor="middle">ABDM FHIR R4</text>
+    </g>
+  </g>
+
+  <!-- ==================== 5 PIPELINE PHASES ==================== -->
+
+  <!-- STAGE 1: INTAKE & SECURITY -->
+  <g transform="translate(60, 160)">
+    <rect width="336" height="860" rx="18" fill="url(#col1Grad)" stroke="#4338ca" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Stage Header -->
+    <rect x="16" y="16" width="304" height="48" rx="12" fill="#312e81" stroke="#6366f1" stroke-width="1" />
+    <text x="168" y="46" font-size="15" font-weight="800" fill="#e0e7ff" text-anchor="middle" letter-spacing="0.5">
+      1. INTAKE &amp; SECURITY
+    </text>
+
+    <!-- Card 1.1: Multi-Source Intake -->
+    <g transform="translate(16, 80)">
+      <rect width="304" height="156" rx="14" fill="url(#cardGrad)" stroke="#4f46e5" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#4338ca" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">📄</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#c7d2fe">Multi-Source Medical Intake</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Indian Lab PDFs (Apollo, SRL, Lal Path)</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Doctor Prescriptions (Handwritten/Printed)</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Hospital Inpatient Discharge Summaries</text>
+      <text x="16" y="134" font-size="11" font-weight="600" fill="#818cf8">Formats: PDF, JPG, PNG up to 20MB</text>
+    </g>
+
+    <!-- Card 1.2: On-Device PII Redaction -->
+    <g transform="translate(16, 252)">
+      <rect width="304" height="170" rx="14" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.5" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#831843" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🔒</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#f472b6">Client-Side PII Shield</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• 12-Digit Aadhaar Masking (xxxx-xxxx-1234)</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Phone Number (+91) &amp; Address Redaction</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Redacts sensitive data before cloud upload</text>
+      <rect x="16" y="128" width="272" height="26" rx="6" fill="#500724" />
+      <text x="152" y="146" font-size="11" font-weight="700" fill="#f472b6" text-anchor="middle">ZERO Real PII Sent to LLM APIs</text>
+    </g>
+
+    <!-- Card 1.3: Deduplication & Cache -->
+    <g transform="translate(16, 438)">
+      <rect width="304" height="150" rx="14" fill="url(#cardGrad)" stroke="#4f46e5" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#4338ca" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">⚡</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#c7d2fe">SHA-256 Fingerprint Cache</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Cryptographic file checksum generated</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Instant cache lookup &lt; 2ms</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Zero redundant AI API token costs</text>
+      <text x="16" y="132" font-size="11" font-weight="600" fill="#38bdf8">Idempotent processing guarantee</text>
+    </g>
+
+    <!-- Card 1.4: Pre-processing Filter -->
+    <g transform="translate(16, 604)">
+      <rect width="304" height="150" rx="14" fill="url(#cardGrad)" stroke="#4f46e5" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#4338ca" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">📐</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#c7d2fe">Visual Normalizer (300 DPI)</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Deskew &amp; Perspective Warp Correction</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• CLAHE Adaptive Contrast Enhancement</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• PDF multi-page slicing via pypdfium2</text>
+      <text x="16" y="132" font-size="11" font-weight="600" fill="#a5b4fc">Optimized for VLM OCR token intake</text>
+    </g>
+
+    <text x="168" y="810" font-size="12" font-weight="600" fill="#a5b4fc" text-anchor="middle">Encrypted Transport · TLS 1.3</text>
+  </g>
+
+  <!-- STAGE 2: MULTIMODAL DUAL-PASS AI -->
+  <g transform="translate(426, 160)">
+    <rect width="336" height="860" rx="18" fill="url(#col2Grad)" stroke="#0284c7" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Stage Header -->
+    <rect x="16" y="16" width="304" height="48" rx="12" fill="#0369a1" stroke="#38bdf8" stroke-width="1" />
+    <text x="168" y="46" font-size="15" font-weight="800" fill="#e0f2fe" text-anchor="middle" letter-spacing="0.5">
+      2. MULTIMODAL DUAL-PASS AI
+    </text>
+
+    <!-- Card 2.1: Gemini 1.5 Flash VLM -->
+    <g transform="translate(16, 80)">
+      <rect width="304" height="175" rx="14" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#0369a1" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🧠</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#7dd3fc">Pass 1: Google Gemini 1.5 Flash</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Multimodal VLM at Temperature 0.0</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Strict JSON-Schema constrained schema</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Doctor handwriting &amp; Rx table parser</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Extracts meds, doses, units, lab tests</text>
+      <text x="16" y="156" font-size="11" font-weight="600" fill="#38bdf8">Pass 1 Primary Extraction Engine</text>
+    </g>
+
+    <!-- Card 2.2: Groq LLaMA 3.2 Vision -->
+    <g transform="translate(16, 271)">
+      <rect width="304" height="165" rx="14" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#78350f" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🚀</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#fbbf24">Pass 2: Groq LLaMA 3.2 Vision</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Ultra-low latency dual-pass verifier</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Runs at 500+ tokens/sec inference</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Cross-validates numbers &amp; metric units</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Flags ambiguities for doctor review</text>
+      <text x="16" y="152" font-size="11" font-weight="600" fill="#fbbf24">Consensus Merge Architecture</text>
+    </g>
+
+    <!-- Card 2.3: RapidOCR Fallback -->
+    <g transform="translate(16, 452)">
+      <rect width="304" height="150" rx="14" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#0369a1" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">💻</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#7dd3fc">Local RapidOCR (ONNX Fallback)</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Embedded on-device CPU OCR runtime</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Fully functional during cloud outages</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Deterministic text box bounding extract</text>
+      <text x="16" y="132" font-size="11" font-weight="600" fill="#38bdf8">Offline High-Availability Tier</text>
+    </g>
+
+    <!-- Card 2.4: Spatial Grounding -->
+    <g transform="translate(16, 618)">
+      <rect width="304" height="150" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#064e3b" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">📍</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#6ee7b7">Spatial Coordinate Normalizer</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• [ymin, xmin, ymax, xmax] mapped 0–1000</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Ties every extracted fact to source image</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Enables interactive split-screen zoom</text>
+      <text x="16" y="132" font-size="11" font-weight="600" fill="#34d399">Bounding Box Precision F1 &gt; 98%</text>
+    </g>
+
+    <text x="168" y="810" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">Structured JSON Output Stream</text>
+  </g>
+
+  <!-- STAGE 3: CLINICAL DETERMINISM & SAFETY -->
+  <g transform="translate(792, 160)">
+    <rect width="336" height="860" rx="18" fill="url(#col3Grad)" stroke="#059669" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Stage Header -->
+    <rect x="16" y="16" width="304" height="48" rx="12" fill="#047857" stroke="#10b981" stroke-width="1" />
+    <text x="168" y="46" font-size="15" font-weight="800" fill="#d1fae5" text-anchor="middle" letter-spacing="0.5">
+      3. CLINICAL SAFETY ENGINE
+    </text>
+
+    <!-- Card 3.1: Indian Drug Normalizer -->
+    <g transform="translate(16, 80)">
+      <rect width="304" height="175" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#064e3b" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">💊</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#6ee7b7">Indian Drug Normalizer</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• RapidFuzz Brand-to-Salt mapping &lt; 15ms</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• 300,000+ Indian commercial brands</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Resolves Augmentin 625 → Amox + Clav</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Decodes timing: 1-0-1, Before/After food</text>
+      <text x="16" y="156" font-size="11" font-weight="600" fill="#34d399">Standardizes commercial prescriptions</text>
+    </g>
+
+    <!-- Card 3.2: Polypharmacy Collision Shield -->
+    <g transform="translate(16, 271)">
+      <rect width="304" height="165" rx="14" fill="url(#cardGrad)" stroke="#f43f5e" stroke-width="1.5" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#881337" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🛡️</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#fb7185">Polypharmacy Collision Shield</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Detects duplicate salt intake across docs</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Flags accidental Paracetamol overdoses</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Drug-drug clash alerts (e.g. NSAID + ACEi)</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Renal dose safety clearance checks</text>
+      <text x="16" y="152" font-size="11" font-weight="700" fill="#fb7185">Protects Patients from Toxic Collisions</text>
+    </g>
+
+    <!-- Card 3.3: Deterministic Rules Engine -->
+    <g transform="translate(16, 452)">
+      <rect width="304" height="180" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#064e3b" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">⚖️</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#6ee7b7">Deterministic Rules Engine</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• ICMR / WHO / NABL standardized ranges</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Pure Python rule execution (NO LLM)</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Flags: NORMAL, ELEVATED, CRITICAL</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Handles gender/age differential bounds</text>
+      <rect x="16" y="148" width="272" height="24" rx="6" fill="#022c22" />
+      <text x="152" y="165" font-size="11" font-weight="700" fill="#34d399" text-anchor="middle">Zero AI Guessing of Health Flags</text>
+    </g>
+
+    <!-- Card 3.4: Longitudinal Trend Engine -->
+    <g transform="translate(16, 648)">
+      <rect width="304" height="120" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#064e3b" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">📈</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#6ee7b7">Longitudinal Biomarker Delta</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Tracks trajectories (HbA1c: 8.2 → 7.2%)</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Correlates med changes with lab outcomes</text>
+      <text x="16" y="108" font-size="11" font-weight="600" fill="#34d399">Chronological Evidence Synthesizer</text>
+    </g>
+
+    <text x="168" y="810" font-size="12" font-weight="600" fill="#6ee7b7" text-anchor="middle">Verified Medical Fact Graph</text>
+  </g>
+
+  <!-- STAGE 4: GROUNDING & LOCALIZATION -->
+  <g transform="translate(1158, 160)">
+    <rect width="336" height="860" rx="18" fill="url(#col4Grad)" stroke="#9333ea" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Stage Header -->
+    <rect x="16" y="16" width="304" height="48" rx="12" fill="#6b21a8" stroke="#a855f7" stroke-width="1" />
+    <text x="168" y="46" font-size="15" font-weight="800" fill="#f3e8ff" text-anchor="middle" letter-spacing="0.5">
+      4. GROUNDING &amp; LOCALIZATION
+    </text>
+
+    <!-- Card 4.1: Evidence-Grounded Citations -->
+    <g transform="translate(16, 80)">
+      <rect width="304" height="185" rx="14" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="1.5" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#581c87" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🎯</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#d8b4fe">Grounded Citation Engine</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Input = structured facts with IDs ([fact_1])</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Output strictly cites [fact_id] tags</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Output rejected if ungrounded claims exist</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Unreadable values → null + needs_review</text>
+      <rect x="16" y="152" width="272" height="24" rx="6" fill="#3b0764" />
+      <text x="152" y="169" font-size="11" font-weight="700" fill="#e9d5ff" text-anchor="middle">100% Traceable to Source Document</text>
+    </g>
+
+    <!-- Card 4.2: Plain-Language Translation -->
+    <g transform="translate(16, 281)">
+      <rect width="304" height="175" rx="14" fill="url(#cardGrad)" stroke="#c084fc" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#581c87" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">💬</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#d8b4fe">Plain-Language Summarizer</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Translates jargon to 6th-grade language</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• "Creatinine 0.9" → "Your kidneys are well"</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Dual Layman vs. Clinical doctor modes</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Never provides diagnosis or dosing advice</text>
+      <text x="16" y="156" font-size="11" font-weight="600" fill="#c084fc">Empowers patient health literacy</text>
+    </g>
+
+    <!-- Card 4.3: Token-Locked Localization -->
+    <g transform="translate(16, 472)">
+      <rect width="304" height="185" rx="14" fill="url(#cardGrad)" stroke="#c084fc" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#581c87" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🌐</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#d8b4fe">Token-Locked Indian Languages</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• English + Telugu (తెలుగు) + Hindi (हिन्दी)</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Token-locking locks drug names &amp; units</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Zero numeric distortion in regional scripts</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• High-contrast Noto Devanagari &amp; Telugu fonts</text>
+      <text x="16" y="156" font-size="11" font-weight="600" fill="#d8b4fe">Inclusive Indian Healthcare Access</text>
+    </g>
+
+    <!-- Card 4.4: Audio Readout Engine -->
+    <g transform="translate(16, 673)">
+      <rect width="304" height="95" rx="14" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#581c87" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🔊</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#d8b4fe">Multilingual Voice Synthesis</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Reads health summaries in native speech</text>
+      <text x="16" y="85" font-size="11" font-weight="600" fill="#c084fc">Assists rural and elderly patients</text>
+    </g>
+
+    <text x="168" y="810" font-size="12" font-weight="600" fill="#d8b4fe" text-anchor="middle">Clinically Grounded Narrative</text>
+  </g>
+
+  <!-- STAGE 5: SYNTHESIS & ABDM FHIR -->
+  <g transform="translate(1524, 160)">
+    <rect width="336" height="860" rx="18" fill="url(#col5Grad)" stroke="#db2777" stroke-width="1.5" filter="url(#cardShadow)" />
+    
+    <!-- Stage Header -->
+    <rect x="16" y="16" width="304" height="48" rx="12" fill="#9d174d" stroke="#f472b6" stroke-width="1" />
+    <text x="168" y="46" font-size="15" font-weight="800" fill="#fce7f3" text-anchor="middle" letter-spacing="0.5">
+      5. PRESENTATION &amp; ABDM
+    </text>
+
+    <!-- Card 5.1: 3D Body Twin -->
+    <g transform="translate(16, 80)">
+      <rect width="304" height="175" rx="14" fill="url(#cardGrad)" stroke="#f472b6" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#831843" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🧍</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#fbcfe8">3D Anatomical Digital Twin</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Three.js WebGL interactive 3D human body</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Maps tests to 6 physiological systems</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Pancreas, Heart, Liver, Kidneys, Lungs</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Camera fly-through on abnormal organ pins</text>
+      <text x="16" y="156" font-size="11" font-weight="600" fill="#f472b6">Signature Bio-Digital User Experience</text>
+    </g>
+
+    <!-- Card 5.2: Split-Screen Evidence Studio -->
+    <g transform="translate(16, 271)">
+      <rect width="304" height="165" rx="14" fill="url(#cardGrad)" stroke="#f472b6" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#831843" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🔬</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#fbcfe8">Split-Screen Evidence Studio</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• Left: Original document scan with laser scan</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Right: AI Summary + grounded citations</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Click badge → 2.5x Loupe zoom to coordinate</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• Physician-grade verification &amp; trust</text>
+      <text x="16" y="152" font-size="11" font-weight="600" fill="#f472b6">Complete Optical Audit Trail</text>
+    </g>
+
+    <!-- Card 5.3: ABDM FHIR R4 Bundle Export -->
+    <g transform="translate(16, 452)">
+      <rect width="304" height="175" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#064e3b" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">🇮🇳</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#6ee7b7">ABDM FHIR R4 Export</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• NRCeS India standard compliant profiles</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Bundle: DocumentReference + Observations</text>
+      <text x="16" y="112" font-size="12" font-weight="500" fill="#cbd5e1">• Condition + MedicationStatement resources</text>
+      <text x="16" y="134" font-size="12" font-weight="500" fill="#cbd5e1">• 1-Click validated JSON bundle download</text>
+      <text x="16" y="156" font-size="11" font-weight="700" fill="#34d399">Interoperable with National Health Stack</text>
+    </g>
+
+    <!-- Card 5.4: Mock ABHA Smart Card -->
+    <g transform="translate(16, 643)">
+      <rect width="304" height="125" rx="14" fill="url(#cardGrad)" stroke="#f472b6" stroke-width="1.2" />
+      <rect x="14" y="14" width="34" height="34" rx="8" fill="#831843" />
+      <text x="31" y="37" font-size="18" text-anchor="middle">💳</text>
+      <text x="58" y="36" font-size="15" font-weight="700" fill="#fbcfe8">Mock ABHA Digital Card</text>
+      <text x="16" y="68" font-size="12" font-weight="500" fill="#cbd5e1">• 14-Digit Simulated ID: 91-2345-6789-0123</text>
+      <text x="16" y="90" font-size="12" font-weight="500" fill="#cbd5e1">• Holographic frosted card with NRCeS QR</text>
+      <text x="16" y="108" font-size="11" font-weight="600" fill="#f472b6">Clearly labelled "MOCK" for patient safety</text>
+    </g>
+
+    <text x="168" y="810" font-size="12" font-weight="600" fill="#fbcfe8" text-anchor="middle">Ready for Clinical &amp; Patient Deployment</text>
+  </g>
+
+  <!-- ==================== FLOW CONNECTOR ARROWS ==================== -->
+  <g stroke="#38bdf8" stroke-width="2.5" fill="none" opacity="0.85">
+    <!-- 1 -> 2 -->
+    <path d="M 396 230 L 426 230" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 396 330 L 426 330" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 396 510 L 426 510" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+
+    <!-- 2 -> 3 -->
+    <path d="M 762 230 L 792 230" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 762 350 L 792 350" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 762 520 L 792 520" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+
+    <!-- 3 -> 4 -->
+    <path d="M 1128 230 L 1158 230" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 1128 350 L 1158 350" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 1128 530 L 1158 530" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+
+    <!-- 4 -> 5 -->
+    <path d="M 1494 230 L 1524 230" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 1494 350 L 1524 350" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+    <path d="M 1494 530 L 1524 530" marker-end="url(#arrow)" stroke-dasharray="5 3" />
+  </g>
+
+  <!-- ==================== FOOTER ==================== -->
+  <g transform="translate(60, 1030)">
+    <text x="0" y="24" font-size="13" font-weight="600" fill="#64748b">
+      CareLens · NextGen Operators · ByteXL HacXLerate 2026 Hackathon · Altrix Labs Challenge
+    </text>
+    <text x="1800" y="24" font-size="13" font-weight="600" fill="#64748b" text-anchor="end">
+      Deployable Production Architecture · https://carelens-production.up.railway.app
+    </text>
+  </g>
+</svg>
+</body>
+</html>

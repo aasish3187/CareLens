@@ -6,7 +6,15 @@ import LanguageSwitcher from '../LanguageSwitcher'
 import PatientProfileModal, { type PatientProfile } from '../PatientProfileModal'
 import { isSoundMuted, setSoundMuted, playGlassClickSound } from '../../utils/soundEffects'
 
-export default function Header({ onMenu }: { onMenu: () => void }) {
+export default function Header({
+  onMenu,
+  collapsed,
+  onToggleCollapse,
+}: {
+  onMenu: () => void
+  collapsed?: boolean
+  onToggleCollapse?: () => void
+}) {
   const t = useT()
   const [profileModalOpen, setProfileModalOpen] = useState(false)
   const [patientName, setPatientName] = useState('Arjun Verma')
@@ -69,7 +77,20 @@ export default function Header({ onMenu }: { onMenu: () => void }) {
   return (
     <>
       <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-line bg-white/85 px-4 backdrop-blur-md sm:px-6">
-        <button type="button" onClick={onMenu} aria-label={t('header.menu')} className="grid size-9 place-items-center rounded-lg border border-line text-body lg:hidden">
+        {/* Three Line Hamburger Menu Button */}
+        <button
+          type="button"
+          onClick={() => {
+            if (window.innerWidth >= 1024 && onToggleCollapse) {
+              onToggleCollapse()
+            } else {
+              onMenu()
+            }
+          }}
+          aria-label={t('header.menu')}
+          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          className="grid size-9 place-items-center rounded-lg border border-line text-body hover:border-teal/40 hover:text-teal hover:bg-subtle/60 transition-all focus:outline-none"
+        >
           <Menu className="size-4" />
         </button>
         <label className="relative hidden max-w-md flex-1 md:block">
