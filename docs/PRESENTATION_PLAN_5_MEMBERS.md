@@ -1,188 +1,226 @@
-# 🏆 CareLens — Strict 5-Minute-Per-Member Stage Strategy
+# 🏆 CareLens — Perfect Role-Aligned 5-Member Stage Strategy
 ### Hackathon Rule: **Every Team Member Must Speak for ~5 Minutes**
+### Strategy: **Confident Speakers Hook & Defend; Visual/Concrete Slides Empower Shy Members**
 ### Total Duration: **28–30 Minutes** | Altrix Labs Challenge · HacXLerate 2026
 ### Live Deployment: `https://carelens-production.up.railway.app/`
 
 ---
 
-## ⚖️ The 2-Slide / 3-Slide Mathematical Breakdown
+## 🎯 Why Having a Confident Speaker Do the Problem Statement is a Masterstroke
 
-| Member | Profile | Slides Assigned | Total Slides | Time Window |
-|---|---|---|---|---|
-| **Member 1 (You - Team Lead)** | Lead / Anchor | **Slide 1** (Intro) + **Slide 12 & Live Demo** + **Slide 13** | **3 (Plus Demo)** | `00:00 – 02:30` (Intro) & `22:30 – 28:00` (Demo) = **~8 mins** |
-| **Member 2 (Shy Member A)** | Shy / Gentle | **Slide 2 & Slide 3** (The Indian Crisis & Patient Fear) | **2 Slides** | `02:30 – 07:30` (**5 mins**) |
-| **Member 3 (Confident Member B)** | Confident | **Slide 4, Slide 5 & Slide 6** (Copilot, 3D Twin & Pipeline) | **3 Slides** | `07:30 – 12:30` (**5 mins**) |
-| **Member 4 (Confident Member C)** | Confident | **Slide 7, Slide 8 & Slide 11** (Proof Studio, Safety Rules & Cloud) | **3 Slides** | `12:30 – 17:30` (**5 mins**) |
-| **Member 5 (Shy Member D)** | Shy / Gentle | **Slide 9 & Slide 10** (Telugu/Hindi, Voice & ABDM/ABHA Card) | **2 Slides** | `17:30 – 22:30` (**5 mins**) |
-| **All 5 Members** | United Team | **Slide 13** (Judges Defense & Q&A Round) | — | `28:00 – 30:00+` (3–5 mins) |
+1. **The First 5 Minutes Win or Lose the Room:**
+   If the problem is delivered softly or with hesitation, judges check their phones. When a **confident, passionate speaker** steps up immediately after the Team Lead and delivers the Indian healthcare crisis with fire and conviction, the judges are instantly hooked!
+2. **The Shy Members Get "Visual Shield" Slides:**
+   Shy speakers should NEVER have to create emotional drama or explain abstract logic. They do best with **concrete, visual slides** where the picture on screen does 60% of the work:
+   - **Shy Member A gets Slides 5 & 6** (The 3D Body Model + 4 Numbered Steps: 01 Upload, 02 Privacy, 03 Reading, 04 Medicine).
+   - **Shy Member B gets Slides 9 & 10** (Telugu/Hindi Mother Tongue + ABHA QR Health Card).
 
 ---
 
-## 🧠 The Secret Formula for Shy Members: How to Speak for 5 Minutes on Just 2 Slides
+## ⚖️ The 3-2-3-2 Slide Architecture (Mathematically Perfect!)
 
-If a shy person tries to just read the bullet points, they will finish in 45 seconds and panic. 
-Instead, give them **The 3-Box Formula (2.5 minutes per slide)**:
-1. **Box 1: The Fact on Screen (30 seconds):** Read the stat or title clearly.
-2. **Box 2: The Real-Life Story / Example (1.5 minutes):** Describe a real family/hospital situation (grandparents, local pharmacy, crumpled papers). Stories flow naturally because you don't need to memorize technical terms!
-3. **Box 3: The Impact & Transition (30 seconds):** Explain why this hurts families, and hand over to the next point.
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│ 00:00 – 02:30  [MEMBER 1: TEAM LEAD (YOU)]                                      │
+│                Slide 1: Team Intro, Individual Roles & High-Level Mission       │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 02:30 – 07:30  [MEMBER 2: CONFIDENT SPEAKER A] (3 Slides — High Energy Hook!)   │
+│                Slide 2: The Paper Maze of Indian Healthcare                     │
+│                Slide 3: Why Patients Suffer                                     │
+│                Slide 4: Your 24/7 Personal Health Copilot (The Hero Reveal)     │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 07:30 – 12:30  [MEMBER 3: SHY SPEAKER A] (2 Visual Slides — Step-by-Step Ease) │
+│                Slide 5: Health Made Visual (3D Body Twin & Dot-Sliders)         │
+│                Slide 6: How a Document Turns Into Clarity (4 Numbered Steps)    │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 12:30 – 17:30  [MEMBER 4: CONFIDENT SPEAKER B] (3 Slides — Technical Armor!)   │
+│                Slide 7: Every AI Claim Has a Receipt (Split Verification)       │
+│                Slide 8: Why You Can Trust CareLens (Medical Safety & ICMR Rules)│
+│                Slide 11: From City Clinics to Rural Villages (Cloud & Privacy)  │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 17:30 – 22:30  [MEMBER 5: SHY SPEAKER B] (2 Concrete Slides — Heart & Pride!)  │
+│                Slide 9: Democratizing Health for Every Indian (Telugu/Hindi)    │
+│                Slide 10: One Health Record For Life (ABDM Digital ABHA Card)    │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 22:30 – 28:00  [MEMBER 1: TEAM LEAD (YOU)]                                      │
+│                Slide 12: LIVE CLOUD INTERACTIVE DEMONSTRATION + Slide 13        │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ 28:00 – 30:00+ [ALL 5 MEMBERS] United Judges Defense & Q&A Round                │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🎙️ Word-by-Word Speaker Script (5 Minutes Per Person)
+## 🎙️ Exact 5-Minute Word-by-Word Scripts
 
 ---
 
 ### 👑 MEMBER 1: TEAM LEAD (Opening Kickoff)
 ⏱️ **Time:** `00:00 – 02:30` (2.5 Minutes)
-🎯 **Slide on Screen:** **Slide 1 (CARELENS Title)**
+🎯 **Slide:** **Slide 1 (CARELENS Title)**
 
 * **What you say:**
-  > *"Respected Judges, Mentors, and Fellow Innovators, a very warm welcome.*
+  > *"Respected Judges, Mentors, and Fellow Innovators, a very warm good morning/afternoon.*
   > 
-  > *I am **[Your Name]**, the Team Lead of **[Your Team Name]**. Standing beside me today are my four brilliant teammates: **[Name 2]**, **[Name 3]**, **[Name 4]**, and **[Name 5]**.*
+  > *I am **[Your Name]**, the Team Lead of **[Team Name]**. Standing beside me today are my four brilliant teammates: **[Name 2]**, **[Name 3]**, **[Name 4]**, and **[Name 5]**.*
   > 
-  > *Every single day in India, millions of citizens receive medical prescriptions and laboratory reports that they simply cannot understand. The data is not missing — it is trapped in chaotic paper, Latin abbreviations, and confusing numeric ranges that cause anxiety, medical mistakes, and non-compliance.*
+  > *Every single day in India, millions of citizens walk out of diagnostic labs and doctor clinics holding reports and prescriptions that they simply cannot understand. The data is not missing — it is trapped in chaotic paper, rushed handwriting, and confusing numbers that cause medical anxiety, non-compliance, and dangerous mistakes.*
   > 
-  > *We built **CareLens** — an intelligent, bilingual Personal Health Copilot that turns confusing medical documents into crystal-clear, visual, and grounded personal health knowledge.*
+  > *We built **CareLens** — an intelligent, bilingual Personal Health Copilot that transforms confusing medical paperwork into crystal-clear, visual, and grounded personal health knowledge.*
   > 
-  > *Each of my teammates will now take the stage to unpack our core pillars, and then I will return to demonstrate our live working system deployed on the cloud.*
+  > *Each of my teammates will now take you through our core pillars, and then I will return to demonstrate our live working platform deployed on the cloud.*
   > 
-  > *To walk you through the ground realities of the Indian healthcare crisis, I invite **[Name 2]**."*
+  > *To break down the ground realities of the Indian healthcare crisis, here is **[Name 2]**."*
+
+*(Team Lead gracefully gestures to Confident Member A and steps to the side.)*
 
 ---
 
-### 🌸 MEMBER 2: SHY MEMBER A (The Human Healthcare Crisis)
+### 🔥 MEMBER 2: CONFIDENT SPEAKER A (The Crisis & The Reveal)
 ⏱️ **Time:** `02:30 – 07:30` (5 Minutes)
-🎯 **Slides on Screen:** **Slide 2 & Slide 3** (2 Slides, ~2.5 Minutes Each)
+🎯 **Slides:** **Slide 2, Slide 3 & Slide 4** (3 Slides, High Energy & Emotion)
 
-#### **Slide 2: The Paper Maze of Indian Healthcare (2.5 Minutes)**
+#### **Slide 2: The Paper Maze of Indian Healthcare (1.5 Minutes)**
 * **What Member 2 says:**
-  > *(Box 1 - The Fact: 30 sec)*
-  > *"Thank you, [Team Lead]. Respected Judges, let us look closely at Slide 2.*
-  > *In India today, over **78% of all medical diagnostic records and prescriptions** remain completely on physical paper.*
-  > 
-  > *(Box 2 - The Real Story: 1.5 min)*
-  > *Think about what happens when anyone in our family visits a clinic. We leave with a crumpled plastic bag full of papers: three pages of blood tests from Apollo or Metropolis, a handwritten prescription from the doctor, and old receipts.*
-  > *If the patient goes to a different clinic next month, those papers are lost or left at home. Families end up taking blurry photos on WhatsApp, and those photos get buried under thousands of everyday pictures.*
-  > *Even worse, doctor handwriting is often rushed and illegible. Patients stare at the paper trying to guess whether a letter says 'mg' or 'ml', or what tablet they are supposed to buy.*
-  > 
-  > *(Box 3 - The Impact: 30 sec)*
-  > *This creates tremendous anxiety. Patients feel helpless, not because healthcare is absent, but because the information is locked in a paper maze.*
-  > *Now let us look at Slide 3 to see how this impacts patients emotionally."*
+  > *"Thank you, [Team Lead]. Respected Judges, let us confront the uncomfortable reality of Indian healthcare.*
+  > *In India today, over **78% of all medical records and prescriptions** remain completely on physical paper.*
+  > *When an Indian patient visits a doctor, their entire life's medical history lives in a plastic bag or a disorganized WhatsApp chat.*
+  > *Doctors in overburdened OPDs have barely three to four minutes per patient. As a result, doctor handwriting looks like abstract art, and diagnostic reports arrive with dense, intimidating tables of numbers. The patient leaves the clinic with zero understanding of what is actually happening inside their body."*
 
-#### **Slide 3: Why Patients Suffer (2.5 Minutes)**
+#### **Slide 3: Why Patients Suffer (2 Minutes)**
 * **What Member 2 says:**
-  > *(Box 1 - The Fact: 30 sec)*
-  > *"On Slide 3, we highlight the three deepest pain points: **Complex Numbers**, **300,000+ Brands**, and **Medical Hopelessness**.*
-  > 
-  > *(Box 2 - The Real Story: 1.5 min)*
-  > *First, consider our elderly parents. When they get a lab test showing 'HbA1c 9.2%' or 'Creatinine 1.8 mg/dL', they don't know what it means. All they see is that the number is printed in bold red. They immediately panic, thinking something irreversible has happened.*
-  > *Second, in Indian pharmacies, there are over **300,000 commercial medicine brands**. A doctor might write 'Glycomet-GP 1/500', but the chemist might give them another brand with the same salts. An elderly person gets terrified: 'Is this the same tablet? Should I take it before or after breakfast?'*
-  > *Third, when numbers are high, patients often feel hopeless. Without plain-language explanation, they either fall into depression or search online, where misleading articles amplify their panic.*
-  > 
-  > *(Box 3 - Handover: 30 sec)*
-  > *Paperwork becomes fear when no one translates the meaning. CareLens was born to replace this fear with clear, compassionate understanding.*
-  > *To show you how our copilot solves this, here is **[Name 3]**."*
-
----
-
-### 🚀 MEMBER 3: CONFIDENT MEMBER B (Solution, 3D Twin & Pipeline)
-⏱️ **Time:** `07:30 – 12:30` (5 Minutes)
-🎯 **Slides on Screen:** **Slide 4, Slide 5 & Slide 6** (3 Slides, ~1.5 Minutes Each)
+  > *"Paperwork becomes fear when no one translates the meaning.*
+  > *Look at the three critical failures on Slide 3:*
+  > *1. **Complex Numbers:** Elderly parents see a red number like 'HbA1c 9.2%' and immediately panic, not knowing if it is manageable or an emergency.*
+  > *2. **The Brand Explosion:** Indian pharmacies sell over **300,000 commercial brand names**. A doctor writes 'Glycomet-GP', but the chemist gives a different box. The patient gets terrified: 'Is this the same tablet? Should I take it with food?'*
+  > *3. **Hopelessness:** When patients don't understand their reports, they either ignore their condition or fall for unverified medical advice on social media.*
+  > *Patients don't need a medical degree to understand their own health — they need a compassionate, trustworthy copilot."*
 
 #### **Slide 4: Your 24/7 Personal Health Copilot (1.5 Minutes)**
-* **What Member 3 says:**
-  > *"Thank you, [Name 2]. Judges, CareLens transforms this paper chaos into an intuitive, 24/7 personal health companion.*
-  > *The process is effortless: any patient can snap a photo of their prescription or laboratory report on their smartphone and upload it.*
-  > *In seconds, CareLens converts that raw photo into structured, actionable understanding.*
-  > *We don't show confusing database rows. We explain your health with empathy and clarity."*
+* **What Member 2 says:**
+  > *"And that brings us to Slide 4: Meet **CareLens**.*
+  > *CareLens acts as a 24/7 personal health translator for every Indian citizen.*
+  > *The workflow is effortless: a patient simply snaps a smartphone photo of their prescription or blood test report and uploads it.*
+  > *In moments, CareLens transforms that raw photo into structured, actionable understanding.*
+  > *We don't show confusing database rows. We explain your health with empathy and clarity.*
+  > *To show you our intuitive visual interface, here is **[Name 3]**."*
 
-#### **Slide 5: Health Made Visual, Not Intimidating (2 Minutes)**
-* **What Member 3 says:**
-  > *"Look at the two visual breakthroughs on Slide 5:*
-  > *1. **The Interactive 3D Body Twin:** Instead of burying test results in tables, CareLens maps your health directly onto an anatomical model of the human body. If blood sugar is elevated, the Pancreas illuminates in amber. If cholesterol is high, the Heart lights up. Clicking on any organ opens the exact blood tests linked to it.*
-  > *2. **Visual Dot-Sliders:** Instead of confusing numbers and units, patients see clean visual spectrum sliders — green for normal, yellow for watch, and red for act.*
-  > *Plus, a single toggle switches between **Layman View** (simple 6th-grade language) and **Doctor View** (with clinical LOINC codes)."*
-
-#### **Slide 6: How a Document Turns Into Clarity (1.5 Minutes)**
-* **What Member 3 says:**
-  > *"On Slide 6, you see our 4-step processing pipeline:*
-  > *- **01. Upload & Clean:** We auto-straighten tilted camera photos, remove shadows, and optimize contrast.*
-  > *- **02. Privacy Shield:** Sensitive personal identifiers like Aadhaar numbers and phone numbers are scrubbed at the gate.*
-  > *- **03. Smart Reading:** Our multimodal vision engine transcribes tables, dosages, and notes with precision.*
-  > *- **04. Drug Normalization:** We match brand names against our 300,000+ Indian medicine database to identify generic compositions and food timings.*
-  > *Now, how do we prove our AI never makes things up? Here is **[Name 4]**."*
+*(Confident Member A passes to Shy Member A.)*
 
 ---
 
-### 🛡️ MEMBER 4: CONFIDENT MEMBER C (Proof Studio, Safety Rules & Cloud)
+### 🌸 MEMBER 3: SHY SPEAKER A (Visual Experience & Numbered Steps)
+⏱️ **Time:** `07:30 – 12:30` (5 Minutes)
+🎯 **Slides:** **Slide 5 & Slide 6** (2 Visual Slides, ~2.5 Minutes Each)
+
+#### **Slide 5: Health Made Visual, Not Intimidating (2.5 Minutes)**
+* **What Member 3 says:**
+  > *(The Fact: 30s)*
+  > *"Thank you, [Name 2]. Respected Judges, let us look at Slide 5.*
+  > *Healthcare should be visual, intuitive, and reassuring. We replaced intimidating tables with two visual breakthroughs.*
+  > 
+  > *(The Explanation & Story: 1.5m)*
+  > *First is our **Interactive 3D Body Twin**.*
+  > *Instead of burying test results in rows of text, CareLens maps your health directly onto an anatomical 3D model of the human body.*
+  > *If blood sugar is elevated, the Pancreas softly illuminates in amber. If cholesterol is high, the Heart lights up.*
+  > *When a patient taps on any organ, it immediately shows the exact tests linked to that organ and what questions to discuss with their doctor.*
+  > *Second is our **Visual Dot-Sliders**.*
+  > *Instead of confusing numbers like '145 mg/dL', patients see clean visual spectrum sliders — green for normal, yellow for watch, and red for act.*
+  > *And with one tap, you can switch between **Layman View** (simple 6th-grade English) and **Doctor View** (with clinical LOINC codes).*
+  > 
+  > *(Handover: 30s)*
+  > *Now let us look at Slide 6 to see how a simple photo becomes this clarity."*
+
+#### **Slide 6: How a Document Turns Into Clarity (2.5 Minutes)**
+* **What Member 3 says:**
+  > *(The Fact: 30s)*
+  > *"On Slide 6, you see our 4-step processing pipeline. It is simple for the patient, but rigorous underneath.*
+  > 
+  > *(Walking through the 4 Numbered Steps: 1.5m)*
+  > *- **Step 01 is Upload & Clean:** The patient snaps a photo. CareLens auto-straightens tilted camera angles, removes background shadows, and optimizes contrast.*
+  > *- **Step 02 is Privacy Shield:** Before any data processing, sensitive personal identifiers like Aadhaar numbers or phone numbers are masked to protect patient privacy.*
+  > *- **Step 03 is Smart Reading:** Our vision system reads through doctor notes, tables, medicine names, and numeric units with high accuracy.*
+  > *- **Step 04 is Drug Normalization:** If a doctor prescribes a brand name, we match it against our database of 300,000 Indian medicines to decode its generic salts and exact food timings (before or after meals).*
+  > 
+  > *(Handover: 30s)*
+  > *Now, how do we guarantee our AI never hallucinates or makes up dangerous advice? Here is **[Name 4]**."*
+
+*(Shy Member A passes to Confident Member B.)*
+
+---
+
+### 🛡️ MEMBER 4: CONFIDENT SPEAKER B (Proof Receipts, Safety & Cloud)
 ⏱️ **Time:** `12:30 – 17:30` (5 Minutes)
-🎯 **Slides on Screen:** **Slide 7, Slide 8 & Slide 11** (3 Slides, ~1.5 Minutes Each)
+🎯 **Slides:** **Slide 7, Slide 8 & Slide 11** (3 Slides, Technical Armor)
 
 #### **Slide 7: Every AI Claim Has a Receipt (1.5 Minutes)**
 * **What Member 4 says:**
   > *"Thank you, [Name 3]. Judges, in healthcare, blind trust is dangerous.*
-  > *On Slide 7, we introduce our proudest innovation: **The Split-Screen Verification Studio**.*
-  > *Whenever CareLens presents a finding — whether it is an HbA1c value or a medicine dose — it provides a clickable proof badge.*
+  > *On Slide 7, we introduce our proudest engineering breakthrough: **The Split-Screen Verification Studio**.*
+  > *Whenever CareLens presents an insight — whether an HbA1c value or a medicine dose — it provides a clickable proof badge.*
   > *Click the badge, and the original document on the left highlights the exact sentence where that fact was found.*
-  > *Every claim has a verifiable receipt. There are zero hallucinations."*
+  > *Every claim has a verifiable receipt. There is zero hallucination."*
 
 #### **Slide 8: Why You Can Trust CareLens (2 Minutes)**
 * **What Member 4 says:**
   > *"On Slide 8, we present our unbreakable clinical safety rules:*
-  > *1. **AI Reads, but Code Decides:** Generative AI should NEVER decide if a lab value is dangerous. In CareLens, whether a test is Normal, High, or Critical is evaluated by our deterministic Python rules engine against ICMR and NABL medical standards.*
-  > *2. **Never Guess Bad Handwriting:** If doctor handwriting is torn or illegible, CareLens will NEVER guess. It flags the item with a visible 'Needs Review' tag, advising the patient to confirm with their pharmacist.*
-  > *3. **Guide, Never Prescribe:** We strictly forbid diagnosing disease or prescribing drugs. We provide questions for the patient to ask their doctor.*
+  > *1. **AI Reads, but Code Decides:** Generative AI should NEVER decide if a lab value is dangerous. In CareLens, whether a test is Normal, High, or Critical is evaluated by our deterministic Python rules engine against ICMR and NABL medical standards — NEVER by the AI.*
+  > *2. **Never Guess Bad Handwriting:** If doctor handwriting is torn or illegible, CareLens will NEVER guess. It flags the item with a visible 'Needs Review' tag, instructing the patient to verify with their pharmacist.*
+  > *3. **Guide, Never Prescribe:** We strictly forbid diagnosing disease or prescribing drugs. We give patients clear questions to ask their doctor.*
   > *In automated benchmarks across 20 synthetic Indian records, our grounding accuracy is 100%."*
 
 #### **Slide 11: From City Clinics to Rural Villages (1.5 Minutes)**
 * **What Member 4 says:**
   > *"On Slide 11, you see our deployment architecture:*
-  > *- **Any Smartphone:** Works on basic mobile browsers with zero app installation.*
-  > *- **Zero-Latency Cloud:** Built with Dockerized FastAPI and pre-computed caches.*
+  > *- **Any Smartphone:** Runs on standard mobile browsers with zero app installation.*
+  > *- **Zero-Latency Cloud:** Deployed on Dockerized FastAPI with pre-computed caching.*
   > *- **Privacy-First:** Strict data masking and zero raw image logging.*
   > *Now, how do we make sure this reaches every regional Indian citizen? Here is **[Name 5]**."*
 
+*(Confident Member B passes to Shy Member B.)*
+
 ---
 
-### 🇮🇳 MEMBER 5: SHY MEMBER D (Languages, Voice & ABDM Card)
+### 🇮🇳 MEMBER 5: SHY SPEAKER B (Languages, Audio & Digital ABHA Card)
 ⏱️ **Time:** `17:30 – 22:30` (5 Minutes)
-🎯 **Slides on Screen:** **Slide 9 & Slide 10** (2 Slides, ~2.5 Minutes Each)
+🎯 **Slides:** **Slide 9 & Slide 10** (2 Concrete Slides, ~2.5 Minutes Each)
 
 #### **Slide 9: Democratizing Health for Every Indian (2.5 Minutes)**
 * **What Member 5 says:**
-  > *(Box 1 - The Fact: 30 sec)*
+  > *(The Fact: 30s)*
   > *"Thank you, [Name 4]. Respected Judges, let us look at Slide 9.*
-  > *Over 90% of Indian families think, speak, and care for their loved ones in regional languages. Understanding your health should never depend on English literacy.*
+  > *In India, over 90% of citizens speak, think, and care for their families in regional languages. Understanding your health should never depend on English literacy.*
   > 
-  > *(Box 2 - The Demonstration & Story: 1.5 min)*
+  > *(The Story & Audio: 1.5m)*
   > *In CareLens, with one tap, the entire document translates into fluent **Telugu (తెలుగులో స్పష్టత)** or **Hindi (हिंदी में स्पष्टता)**.*
-  > *Notice that we lock all medical numbers and units: '500 mg' stays strictly '500 mg'. It never distorts medical dosages.*
+  > *Crucially, our translation engine locks all numbers: '500 mg' stays strictly '500 mg'. It never scrambles medical dosages.*
   > *Furthermore, for elderly grandparents or rural citizens who cannot read at all, CareLens includes **natural voice audio playback**.*
   > *They can simply tap the speaker button, and the app reads their morning and evening medicine schedule aloud in Telugu or Hindi.*
   > 
-  > *(Box 3 - Impact: 30 sec)*
-  > *This transforms passive medical paperwork into an active, spoken companion that any elder can understand.*
+  > *(Handover: 30s)*
+  > *This transforms passive medical paperwork into an active, spoken companion.*
   > *Now let us look at Slide 10 to see our government digital integration."*
 
 #### **Slide 10: One Health Record For Life (ABDM & ABHA) (2.5 Minutes)**
 * **What Member 5 says:**
-  > *(Box 1 - The Fact: 30 sec)*
+  > *(The Fact: 30s)*
   > *"On Slide 10, we highlight CareLens's readiness for the Government of India's **Ayushman Bharat Digital Mission (ABDM)**.*
   > 
-  > *(Box 2 - The Breakdown: 1.5 min)*
+  > *(The Breakdown: 1.5m)*
   > *Every patient in CareLens receives a digital health card with a mock **ABHA ID** and a scannable **QR code**.*
-  > *Imagine visiting a new hospital in another city. Instead of carrying physical plastic folders, the doctor scans this QR code and immediately sees the patient's chronological timeline across multiple visits.*
+  > *Imagine visiting a new clinic or hospital in another city. Instead of carrying physical plastic folders, the doctor scans this QR code and immediately sees the patient's chronological timeline across multiple visits.*
   > *And with one click, CareLens can export the entire medical record into an official, standardized **FHIR R4 Bundle**.*
-  > *This means CareLens is not an isolated app — it is built to plug directly into India's national digital health highway.*
+  > *This means CareLens is built to plug directly into India's national digital health highway.*
   > 
-  > *(Box 3 - Handover to Team Lead: 30 sec)*
+  > *(Handover to Team Lead: 30s)*
   > *CareLens bridges regional language barriers and national digital standards.*
   > *And now, to witness all of this working live on our deployed cloud platform, I invite our Team Lead, **[Your Name]**, to take the stage for the Live Demonstration!"*
 
+*(Shy Member B passes the stage back to Team Lead.)*
+
 ---
 
-### 🚀 MEMBER 1: TEAM LEAD (Full Live Demo & Inspiring Finale)
+### 🚀 MEMBER 1: TEAM LEAD (Full Live Demo & Grand Conclusion)
 ⏱️ **Time:** `22:30 – 28:00` (5.5 Minutes)
 🎯 **Screen:** **Slide 12 → Live Browser (`https://carelens-production.up.railway.app/`) → Slide 13**
 
@@ -205,8 +243,8 @@ Instead, give them **The 3-Box Formula (2.5 minutes per slide)**:
 ---
 
 ### 🛡️ Unified Q&A Distribution (Minutes 28–30)
-* **Medical Safety / Hallucination Questions:** ➔ **Member 4**
-* **Handwriting / Upload Quality Questions:** ➔ **Member 3**
-* **Regional Language / Voice / Literacy Questions:** ➔ **Member 5**
-* **Patient Experience / Problem Context Questions:** ➔ **Member 2**
-* **Architecture / Deployment / Live System Questions:** ➔ **Team Lead (Member 1)**
+* **Problem / Market Need:** ➔ **Member 2 (Confident A)**
+* **Pipeline / OCR Details:** ➔ **Member 3 (Shy A / Team Lead)**
+* **Medical Safety & Rules:** ➔ **Member 4 (Confident B)**
+* **Regional Languages & ABDM:** ➔ **Member 5 (Shy B)**
+* **Live System & Cloud:** ➔ **Team Lead (Member 1)**
