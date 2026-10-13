@@ -247,19 +247,19 @@ export default function Upload() {
                     <button
                       type="button"
                       onClick={() => fileRef.current?.click()}
-                      className="liquid-glass-pill inline-flex h-10 items-center gap-2 rounded-xl bg-teal px-4 text-sm font-semibold text-white shadow-md shadow-teal/25 hover:bg-teal-hover transition-all"
+                      className="btn-interactive inline-flex h-10 items-center gap-2 rounded-xl bg-teal px-4 text-sm font-semibold text-white shadow-md shadow-teal/25 hover:bg-teal-hover hover:shadow-lg hover:shadow-teal/30 active:scale-[0.98] transition-all cursor-pointer"
                     >
-                      <FileText className="size-4" aria-hidden />
-                      {t('upload.browse')}
+                      <FileText className="size-4 text-white" aria-hidden />
+                      <span>{t('upload.browse')}</span>
                     </button>
-                    <span className="text-xs text-muted">{t('upload.or')}</span>
+                    <span className="text-xs font-medium text-muted">{t('upload.or')}</span>
                     <button
                       type="button"
                       onClick={() => camRef.current?.click()}
-                      className="liquid-glass-pill inline-flex h-10 items-center gap-2 rounded-xl border border-white/90 bg-white/80 px-4 text-sm font-semibold text-heading shadow-xs hover:border-teal/40 hover:bg-white transition-all"
+                      className="btn-interactive inline-flex h-10 items-center gap-2 rounded-xl border border-line bg-white/90 px-4 text-sm font-semibold text-heading shadow-xs hover:border-teal/50 hover:bg-white hover:text-teal active:scale-[0.98] transition-all cursor-pointer"
                     >
                       <Camera className="size-4 text-teal" aria-hidden />
-                      {t('upload.camera')}
+                      <span>{t('upload.camera')}</span>
                     </button>
                   </div>
                   <input ref={fileRef} type="file" accept=".pdf,.jpg,.jpeg,.png" className="hidden" onChange={(e) => handleFile(e.target.files?.[0])} />
