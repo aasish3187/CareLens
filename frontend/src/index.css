@@ -51,6 +51,21 @@ body {
   width: 100%;
 }
 
+/* Mobile ergonomics, touch optimizations & safe area insets */
+button,
+a,
+input,
+select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
 /* Hide scrollbar for Chrome, Safari, Edge, Firefox */
 .scrollbar-none::-webkit-scrollbar,
 .no-scrollbar::-webkit-scrollbar,

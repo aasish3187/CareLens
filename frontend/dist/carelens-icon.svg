@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="careLensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </linearGradient>
+    <filter id="lensShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#careLensGrad)" />
+  <g filter="url(#lensShadow)">
+    <circle cx="256" cy="256" r="120" fill="none" stroke="#FFFFFF" stroke-width="32" />
+    <circle cx="256" cy="256" r="42" fill="#FFFFFF" />
+    <path d="M342 342 L406 406" stroke="#FFFFFF" stroke-width="38" stroke-linecap="round" />
+  </g>
+</svg>

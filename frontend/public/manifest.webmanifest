@@ -1,0 +1,19 @@
+{
+  "name": "CareLens: AI Personal Health Copilot",
+  "short_name": "CareLens",
+  "description": "Smart multilingual personal health intelligence, 3D anatomical body twin, and ABDM FHIR health timeline.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0D9488",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/carelens-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "health", "productivity"]
+}
