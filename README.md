@@ -129,10 +129,10 @@ CareLens is architected with a strict separation between **unstructured AI perce
   <img src="docs/workflow_diagram.png" width="90%" alt="CareLens End-to-End Workflow Architecture" />
 </p>
 
-> 📥 **High-Resolution Architecture Downloads**:  
-> • **[Lossless High-Res PNG (1200x2480)](docs/workflow_diagram.png)**  
-> • **[Optimized JPEG Version](docs/workflow_diagram.jpg)**  
-> • **[Vector SVG Master](docs/workflow_diagram.svg)**  
+> 📥 **Workflow Architecture Downloads**:  
+> • **[Authentic High-Res PNG (1200x2480)](docs/workflow_diagram.png)** | **[Optimized JPEG Version](docs/workflow_diagram.jpg)**  
+> • **[Original Reference PNG](docs/workflow_diagram_authentic.png)** | **[Original Reference JPG](docs/workflow_diagram_authentic.jpg)**  
+> • **[Scalable Vector SVG](docs/workflow_diagram.svg)**  
 
 #### Interactive Flowchart (Mermaid)
 
@@ -219,14 +219,14 @@ flowchart TD
     E4 --> F4
     E4 --> F5
 
-    classDef intake fill:#0d1f2d,stroke:#38bdf8,stroke-width:2px,color:#e2e8f0;
-    classDef extract fill:#231908,stroke:#fb923c,stroke-width:2px,color:#e2e8f0;
-    classDef abnormal fill:#2d0d15,stroke:#f85149,stroke-width:2px,color:#fca5a5;
-    classDef normal fill:#062319,stroke:#3fb950,stroke-width:2px,color:#86efac;
-    classDef database fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#e6edf3;
-    classDef reason fill:#220e2e,stroke:#c084fc,stroke-width:2px,color:#f3e8ff;
-    classDef output fill:#042f2e,stroke:#14b8a6,stroke-width:2px,color:#5eead4;
-    classDef diamond fill:#1c2128,stroke:#d29922,stroke-width:2px,color:#fef08a;
+    classDef intake fill:#e8f0fe,stroke:#79b8ff,stroke-width:1.5px,color:#0f172a;
+    classDef extract fill:#fef3e0,stroke:#f9b26c,stroke-width:1.5px,color:#0f172a;
+    classDef abnormal fill:#fce8e6,stroke:#f85149,stroke-width:1.5px,color:#991b1b;
+    classDef normal fill:#e6f4ea,stroke:#56d364,stroke-width:1.5px,color:#166534;
+    classDef database fill:#21262d,stroke:#8b949e,stroke-width:1.5px,color:#f0f6fc;
+    classDef reason fill:#f3e8fd,stroke:#d2a8ff,stroke-width:1.5px,color:#0f172a;
+    classDef output fill:#e6f4ea,stroke:#56d364,stroke-width:1.5px,color:#0f172a;
+    classDef diamond fill:#21262d,stroke:#8b949e,stroke-width:1.5px,color:#f0f6fc;
 
     class A1,A2,A3,A4 intake;
     class B1,B2,B3,B4,B5,B6 extract;
