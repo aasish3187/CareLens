@@ -123,31 +123,120 @@ CareLens is architected with a strict separation between **unstructured AI perce
 
 ![CareLens System Architecture](docs/images/architecture.png)
 
-### High-Level Processing Flow
+### End-to-End System Architecture & Workflow Pipeline
+
+<p align="center">
+  <img src="docs/workflow_diagram.png" width="90%" alt="CareLens End-to-End Workflow Architecture" />
+</p>
+
+> 📥 **High-Resolution Architecture Downloads**:  
+> • **[Lossless High-Res PNG (1200x2480)](docs/workflow_diagram.png)**  
+> • **[Optimized JPEG Version](docs/workflow_diagram.jpg)**  
+> • **[Vector SVG Master](docs/workflow_diagram.svg)**  
+
+#### Interactive Flowchart (Mermaid)
 
 ```mermaid
 flowchart TD
-    A[📄 Raw Upload: PDF / Scan / Mobile Rx] --> B[⚙️ Ingestion & Page Normalizer]
-    B --> C{Multimodal Perception Tier}
-    C -->|Vision & Layout| D[Google Gemini 1.5/2.0 Flash VLM]
-    C -->|Fast Fallback| E[Groq LLaMA 3.2 Vision / RapidOCR]
-    D & E --> F[🧩 Consensus OCR & Coordinate Normalizer]
-    F --> G[Structured Fact Extraction Graph with IDs]
-    
-    G --> H[🛡️ Deterministic Clinical Rules Engine]
-    H -->|ICMR / NABL Reference Ranges| I[4-Zone Abnormality Flags: Low/Normal/Elevated/Critical]
-    
-    G --> J[💊 Indian Drug Normalizer 300,000+ Brands]
-    J -->|RapidFuzz Token Sort| K[Active Pharmacological Salts & Schedule]
-    K --> L[⚠️ Multi-Doctor Polypharmacy Collision Matrix]
-    
-    I & K --> M[🧠 Grounded Plain-Language Summarizer]
-    M -->|Strict Fact Citation Filter| N[English / Telugu / Hindi / Tamil Summaries]
-    
-    I --> O[🧍 3D Anatomical Digital Twin Three.js]
-    G --> P[🔍 Split-Screen Evidence Studio with Bounding Boxes]
-    G & I & K --> Q[🏥 ABDM NRCeS FHIR R4 Bundle Builder]
-    Q --> R[💳 Mock ABHA Digital Health Card with QR]
+    subgraph S1["1. DUAL-TRACK INTAKE & PRIVACY REDACTION"]
+        direction TB
+        A1["📄 Clinical Document Ingestion<br/>PDF, Prescriptions, Lab Reports, Discharge Scans"]
+        A2["⚡ SHA-256 Cryptographic Digest<br/>Instant Hash-Key Deduplication Check"]
+        D1{"Cache Hit<br/>Detected?"}
+        A3["⚡ Instant Cache Hit<br/>• Zero Re-computation<br/>• Direct Display in 0ms"]
+        A4["🛡️ Local PII Redaction<br/>• Presidio & RegEx Sanitizer<br/>• Strips Aadhaar, Phone, PAN"]
+        
+        A1 --> A2 --> D1
+        D1 -->|YES: Cache Hit| A3
+        D1 -->|NO: New Document| A4
+    end
+
+    subgraph S2["2. MULTIMODAL DUAL-PASS AI EXTRACTION"]
+        direction TB
+        B1["🖼️ High-Res Rasterizer & OCR Engine<br/>300 DPI Document Normalization + OCR Tokens"]
+        B2["📍 Spatial Bounding Box Coordinate Mapper<br/>Generates [ymin, xmin, ymax, xmax] Pixel Coordinates"]
+        B3["🤖 Gemini 2.5 Flash VLM Multimodal Parser<br/>Strict Temperature 0 · Pydantic JSON-Schema Constrained"]
+        D2{"Document<br/>Category?"}
+        B4["💊 Prescription / Rx<br/>• Brand & Generic Salts<br/>• Dosage, Schedule, Refills<br/>• Admin Timing (Before/After)"]
+        B5["🧪 Diagnostic Lab Report<br/>• Quantitative Values & Units<br/>• Lab Reference Intervals<br/>• LOINC Code Resolution"]
+        B6["📋 Clinical Summary<br/>• Diagnoses & ICD-10<br/>• Procedures & Advice<br/>• Physician & Hospital Details"]
+        
+        B1 --> B2 --> B3 --> D2
+        D2 -->|Prescription| B4
+        D2 -->|Lab Report| B5
+        D2 -->|Discharge| B6
+    end
+
+    subgraph S3["3. DETERMINISTIC CLINICAL RULES & VALIDATION"]
+        direction TB
+        C1["🔬 Deterministic Rules Engine (ICMR / WHO / LOINC)<br/>⚠️ Strict Rule: Zero LLM Guessing · 100% Deterministic Code"]
+        D3{"Is Value<br/>Abnormal?"}
+        C2["🚨 Flagged Abnormal Finding<br/>• Status: Critical / High / Low<br/>• Clinical Warning & ICMR Delta<br/>• Requires Follow-up Review"]
+        C3["✅ Normal Range<br/>• Baseline Normal<br/>• LOINC Code Verified<br/>• Homeostatic State"]
+        DB1[("🗄️ CareLens Unified Store<br/>SQLite · FHIR Data Store · SHA-256 Cache")]
+        C4["⚠️ Polypharmacy Collision Matrix<br/>• Duplicate Salt Detection<br/>• Cumulative Daily Dosages<br/>• Multi-Doctor Clash Alert"]
+        
+        C1 --> D3
+        D3 -->|YES: Abnormal| C2
+        D3 -->|NO: Normal| C3
+        C2 --> DB1
+        C3 --> DB1
+        DB1 --> C4
+    end
+
+    subgraph S4["4. FACT-GROUNDED REASONING & LOCALIZATION"]
+        direction TB
+        E1["🏷️ Canonical Fact Assembly with Persistent IDs<br/>Assigns Unique IDs: [fact_01], [fact_02], [med_01], [diag_01]"]
+        E2["📝 Grounded Narrative Patient Synthesizer<br/>Translates Complex Clinical Jargon into Plain Language"]
+        D4{"Fact-Citing<br/>Verified?"}
+        E3["⛔ REJECTION GATE<br/>• Discards any uncited claim<br/>• Output rejected if facts do not link to input IDs"]
+        E4["🌐 Trilingual Localization Engine<br/>• English · Telugu (తెలుగు) · Hindi (हिन्दी)<br/>• Grounded Explanations with Citations"]
+        
+        E1 --> E2 --> D4
+        D4 -->|NO: Uncited| E3
+        D4 -->|YES: Grounded| E4
+    end
+
+    subgraph S5["5. MULTI-SURFACE CLINICAL PRESENTATION & ABDM FHIR R4"]
+        direction TB
+        F1["🧍 3D Anatomical Twin<br/>Three.js WebGL Organ Telemetry Beacons"]
+        F2["🔍 Evidence Studio<br/>Split-Screen Provenance with Bounding Boxes"]
+        F3["💊 Medication Manager<br/>300,000+ Indian Brands & Active Salt Schedule"]
+        F4["📈 Health Timeline<br/>Multi-Document History & Biomarker Trends"]
+        F5["🏥 ABDM FHIR R4 & ABHA<br/>NRCeS Bundles + Mock ABHA 14-Digit Card"]
+    end
+
+    %% Pipeline Cross Connections
+    A3 --> DB1
+    A4 --> B1
+    B4 --> C1
+    B5 --> C1
+    B6 --> C1
+    C4 --> E1
+    E4 --> F1
+    E4 --> F2
+    E4 --> F3
+    E4 --> F4
+    E4 --> F5
+
+    classDef intake fill:#0d1f2d,stroke:#38bdf8,stroke-width:2px,color:#e2e8f0;
+    classDef extract fill:#231908,stroke:#fb923c,stroke-width:2px,color:#e2e8f0;
+    classDef abnormal fill:#2d0d15,stroke:#f85149,stroke-width:2px,color:#fca5a5;
+    classDef normal fill:#062319,stroke:#3fb950,stroke-width:2px,color:#86efac;
+    classDef database fill:#161b22,stroke:#58a6ff,stroke-width:2px,color:#e6edf3;
+    classDef reason fill:#220e2e,stroke:#c084fc,stroke-width:2px,color:#f3e8ff;
+    classDef output fill:#042f2e,stroke:#14b8a6,stroke-width:2px,color:#5eead4;
+    classDef diamond fill:#1c2128,stroke:#d29922,stroke-width:2px,color:#fef08a;
+
+    class A1,A2,A3,A4 intake;
+    class B1,B2,B3,B4,B5,B6 extract;
+    class C1,C4 extract;
+    class C2,E3 abnormal;
+    class C3 normal;
+    class DB1 database;
+    class E1,E2,E4 reason;
+    class F1,F2,F3,F4,F5 output;
+    class D1,D2,D3,D4 diamond;
 ```
 
 ---

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router'
-import { Activity, CreditCard, FileSearch, Languages, LayoutDashboard, Menu, Pill, ScanHeart, Settings, ShieldCheck, Upload, X } from 'lucide-react'
+import { Activity, ChevronLeft, ChevronRight, CreditCard, FileSearch, Languages, LayoutDashboard, Pill, ScanHeart, Settings, ShieldCheck, Upload, X } from 'lucide-react'
 import { useT } from '../../i18n/I18nContext'
 import Logo from './Logo'
 import SettingsModal from '../SettingsModal'
@@ -33,30 +33,30 @@ export default function Sidebar({
   return (
     <>
       <aside
-        className={`flex h-full flex-col border-r border-line bg-white/92 backdrop-blur-md transition-all duration-300 ${
+        className={`flex h-full flex-col border-r border-line bg-white/92 backdrop-blur-md transition-all duration-300 overflow-hidden ${
           collapsed ? 'w-[72px]' : 'w-60'
         }`}
       >
         {/* Sidebar Header */}
         {collapsed ? (
-          <div className="flex flex-col items-center gap-1.5 py-4 px-2">
-            <button
-              type="button"
-              onClick={onToggleCollapse}
-              aria-label="Expand sidebar"
-              title="Expand sidebar (click three lines or logo)"
-              className="group flex flex-col items-center gap-1.5 focus:outline-none"
-            >
-              <div className="transition-transform group-hover:scale-105">
-                <Logo />
-              </div>
-              <div className="grid size-7 place-items-center rounded-lg text-muted hover:bg-subtle hover:text-teal transition-colors" title="Expand sidebar">
-                <Menu className="size-4" />
-              </div>
-            </button>
+          <div className="flex items-center justify-center gap-1.5 px-2 py-3.5 border-b border-line/50">
+            <div className="shrink-0 transition-transform hover:scale-105">
+              <Logo />
+            </div>
+            {onToggleCollapse && (
+              <button
+                type="button"
+                onClick={onToggleCollapse}
+                aria-label="Expand sidebar"
+                title="Expand sidebar"
+                className="grid size-6 place-items-center rounded-md border border-line bg-subtle/80 text-muted hover:border-teal/50 hover:bg-white hover:text-teal transition-all shadow-2xs focus:outline-none"
+              >
+                <ChevronRight className="size-3.5" />
+              </button>
+            )}
           </div>
         ) : (
-          <div className="flex items-center justify-between px-5 pb-5 pt-4">
+          <div className="flex items-center justify-between px-4 pb-3 pt-3.5 border-b border-line/50">
             <div className="flex items-center gap-2.5">
               <Logo />
               <div className="leading-tight">
@@ -71,9 +71,9 @@ export default function Sidebar({
                   onClick={onToggleCollapse}
                   aria-label="Collapse sidebar"
                   title="Collapse sidebar"
-                  className="hidden lg:grid size-8 place-items-center rounded-lg text-muted hover:bg-subtle hover:text-heading transition-colors"
+                  className="hidden lg:grid size-7 place-items-center rounded-lg border border-line bg-subtle/80 text-muted hover:border-teal/50 hover:bg-white hover:text-teal transition-all shadow-2xs focus:outline-none"
                 >
-                  <Menu className="size-4" />
+                  <ChevronLeft className="size-4" />
                 </button>
               )}
               {onClose && (
@@ -81,7 +81,7 @@ export default function Sidebar({
                   type="button"
                   onClick={onClose}
                   aria-label={t('header.close')}
-                  className="grid size-8 place-items-center rounded-lg text-muted hover:bg-subtle lg:hidden"
+                  className="grid size-7 place-items-center rounded-lg text-muted hover:bg-subtle lg:hidden"
                 >
                   <X className="size-4" />
                 </button>
@@ -90,20 +90,20 @@ export default function Sidebar({
           </div>
         )}
 
-        {/* Navigation Items */}
-        <nav className={`flex-1 space-y-1 overflow-y-auto ${collapsed ? 'px-2' : 'px-3'}`}>
+        {/* Navigation Items (No scrollbar, scrollbar-width none) */}
+        <nav className={`flex-1 space-y-0.5 overflow-y-auto scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${collapsed ? 'px-2 py-2' : 'px-3 py-2'}`}>
           {nav.map((item, i) =>
             'group' in item ? (
               item.group ? (
                 collapsed ? (
-                  <div key={i} className="my-2.5 mx-auto h-px w-6 bg-line" />
+                  <div key={i} className="my-2 mx-auto h-px w-6 bg-line" />
                 ) : (
-                  <p key={i} className="px-3 pb-1 pt-4 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted">
+                  <p key={i} className="px-3 pb-0.5 pt-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted">
                     {t(item.group)}
                   </p>
                 )
               ) : (
-                <div key={i} className={`my-2 bg-line ${collapsed ? 'mx-auto h-px w-6' : 'mx-3 h-px'}`} />
+                <div key={i} className={`my-1.5 bg-line ${collapsed ? 'mx-auto h-px w-6' : 'mx-3 h-px'}`} />
               )
             ) : (
               <NavLink
@@ -114,8 +114,8 @@ export default function Sidebar({
                 className={({ isActive }) =>
                   `group relative flex items-center rounded-xl text-sm font-medium transition-all ${
                     collapsed
-                      ? 'justify-center py-2.5 px-0'
-                      : 'gap-3 px-3 py-2'
+                      ? 'justify-center py-2 px-0'
+                      : 'gap-3 px-3 py-1.5'
                   } ${
                     isActive
                       ? 'bg-teal-tint text-teal-hover shadow-2xs font-semibold'
@@ -132,7 +132,7 @@ export default function Sidebar({
                       />
                     )}
                     <item.icon
-                      className={`size-[19px] shrink-0 transition-transform group-hover:scale-105 ${
+                      className={`size-[18px] shrink-0 transition-transform group-hover:scale-105 ${
                         isActive ? 'text-teal' : 'text-muted group-hover:text-heading'
                       }`}
                       aria-hidden

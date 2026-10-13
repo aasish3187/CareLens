@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { Menu, Plus, RefreshCw, Search, Volume2, VolumeX } from 'lucide-react'
+import { ChevronRight, Plus, RefreshCw, Search, Volume2, VolumeX } from 'lucide-react'
 import { useT } from '../../i18n/I18nContext'
 import LanguageSwitcher from '../LanguageSwitcher'
 import PatientProfileModal, { type PatientProfile } from '../PatientProfileModal'
 import { isSoundMuted, setSoundMuted, playGlassClickSound } from '../../utils/soundEffects'
+import Logo from './Logo'
 
 export default function Header({
   onMenu,
@@ -77,21 +78,18 @@ export default function Header({
   return (
     <>
       <header className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b border-line bg-white/85 px-4 backdrop-blur-md sm:px-6">
-        {/* Three Line Hamburger Menu Button */}
+        {/* On mobile only, show Logo with small arrow; on desktop no button beside search bar */}
         <button
           type="button"
-          onClick={() => {
-            if (window.innerWidth >= 1024 && onToggleCollapse) {
-              onToggleCollapse()
-            } else {
-              onMenu()
-            }
-          }}
+          onClick={onMenu}
           aria-label={t('header.menu')}
-          title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
-          className="grid size-9 place-items-center rounded-lg border border-line text-body hover:border-teal/40 hover:text-teal hover:bg-subtle/60 transition-all focus:outline-none"
+          title="Open Menu"
+          className="flex lg:hidden items-center gap-1 focus:outline-none group mr-1"
         >
-          <Menu className="size-4" />
+          <div className="shrink-0 transition-transform group-hover:scale-105">
+            <Logo />
+          </div>
+          <ChevronRight className="size-4 text-muted group-hover:text-teal transition-colors" />
         </button>
         <label className="relative hidden max-w-md flex-1 md:block">
           <span className="sr-only">{t('header.search')}</span>
